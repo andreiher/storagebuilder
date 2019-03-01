@@ -20,4 +20,10 @@ class HomeController extends Controller
     {
         return view('steps.step2');
     }
+
+
+    public function desprenoi()
+    {
+        return view('desprenoi');
+    }
 }

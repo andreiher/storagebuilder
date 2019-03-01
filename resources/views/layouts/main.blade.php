@@ -23,7 +23,7 @@
                 <a class="nav-link" href="{{ route("home") }}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Despre</a>
+                <a class="nav-link" href="{{ route("desprenoi") }}">Despre</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Contact</a>
@@ -43,6 +43,7 @@
 
 </main><!-- /.container -->
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 <script src="js/main.js" type="text/javascript"></script>
 
