@@ -10,4 +10,14 @@ class HomeController extends Controller
     {
         return view('homepage');
     }
+
+    public function step1()
+    {
+        return view('steps.step1');
+    }
+
+    public function step2()
+    {
+        return view('steps.step2');
+    }
 }
