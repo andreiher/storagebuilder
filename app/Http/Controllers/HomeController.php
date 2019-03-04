@@ -21,6 +21,10 @@ class HomeController extends Controller
         return view('steps.step2');
     }
 
+    public function summary()
+    {
+        return view('steps.summary');
+    }
 
     public function desprenoi()
     {

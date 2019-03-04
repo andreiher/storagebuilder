@@ -3,7 +3,8 @@
 @section('content')
     <div class="row">
         <div class="col-md-6">
-            <form>
+            <form method="post" action="/step2">
+            {{csrf_field()}}
                 <div class="form-group">
                     <label for="type">Type</label>
                     <select class="form-control" id="type">
