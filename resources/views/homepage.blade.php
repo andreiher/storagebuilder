@@ -1,22 +1,23 @@
 @extends('layouts.main')
 
 @section('content')
-    <h2>How can we help you with?</h2>
+    <h2>Cu ce va putem ajuta?</h2>
+    <br/>
     <div class="row">
         <div class="col-md-6">
             <div class="jumbotron">
-                <h4>I would like an offer, but i do not have a design.</h4>
+                <h4>As dori o oferta, dar nu am proiectul de arhitectura.</h4>
                 <hr class="my-4">
-                <p>No problem, you can use our building design generator by clicking the link below</p>
-                <a class="btn btn-primary btn-lg" href="{{ route("step1") }}" role="button">Start Designing</a>
+                <p>Nici o problema, puteti folosi configuratorul nostru apasand butonul de mai jos.</p>
+                <a class="btn btn-primary btn-lg" href="{{ route("step1") }}" role="button">Incepeti proiectarea</a>
             </div>
         </div>
         <div class="col-md-6">
             <div class="jumbotron">
-                <h4>I would like an offer, and i have the design.</h4>
+                <h4>As dori o oferta si am proiectul de arhitectura.</h4>
                 <hr class="my-4">
-                <p>Complete the following form and we will send you an offer.</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Send designs</a>
+                <p>Va rugam sa completati urmatorul formular si va vom trimite o oferta in cel mai scurt timp.</p>
+                <a class="btn btn-primary btn-lg" href="{{ route("step3") }}" role="button">Trimiteti proiectul</a>
             </div>
         </div>
     </div>

@@ -3,7 +3,7 @@ $(function () {
         e.preventDefault();
 
         var value = $(this).attr("data-value");
-        var input = $("#length");
+        var input = $("#lungime");
 
         input.val(value).trigger("change");
     });
@@ -12,7 +12,7 @@ $(function () {
         e.preventDefault();
 
         var value = $(this).attr("data-value");
-        var input = $("#height");
+        var input = $("#inaltime");
 
         input.val(value).trigger("change");
     });
@@ -21,25 +21,25 @@ $(function () {
         e.preventDefault();
 
         var value = $(this).attr("data-value");
-        var input = $("#width");
+        var input = $("#latime");
 
         input.val(value).trigger("change");
     });
 
-    $("#width, #length").on("change keyup", function() {
+    $("#latime, #lungime").on("change keyup", function() {
         calculateArea();
     });
 
     function calculateArea() {
-        var width = $("#width").val();
-        var length = $("#length").val();
-        var area = $("#area");
+        var latime = $("#latime").val();
+        var lungime = $("#lungime").val();
+        var suprafata_totala = $("#suprafata_totala");
 
-        if(width.length > 0 && length.length > 0) {
+        if(latime.length > 0 && lungime.length > 0) {
             // calculate area
-            area.val(parseFloat(width * length).toFixed(2));
+            suprafata_totala.val(parseFloat(latime * lungime).toFixed(2));
             return false;
         }
-        area.val("");
+        suprafata_totala.val("");
     }
 });

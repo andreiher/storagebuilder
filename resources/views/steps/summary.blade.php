@@ -4,6 +4,9 @@
 <h1>Cererea dumneavoastra</h1>
 <p>Va rugam sa confirmati datele introduse</p>
 <p>Dupa trimiterea lor va vom contacta in cel mai scurt timp</p>
+
+<br/>
+
 <div class="row">
     <div class="col-md-6">
         <h3>Date de identificare</h3>
