@@ -1,6 +1,3 @@
-@extends('layouts.main')
-
-@section('content')
 <h1>Cererea dumneavoastra</h1>
 <p>Va rugam sa confirmati datele introduse</p>
 <p>Dupa trimiterea lor va vom contacta in cel mai scurt timp</p>
@@ -18,7 +15,7 @@
     <div class="col-md-6">
         <h3>Obiectiv</h3>
         <p>Hala productie</p>
-        <p>Suprafata:2500 m<sup>2</sup></p>
+        <p>Suprafata: 2500 m<sup>2</sup></p>
         <p>Data inceperi proiectului: 5 Martie 2019</p>
         <p>Data livrarii proiectului: 30 Septembrie 2019</p>
     </div>
@@ -53,10 +50,6 @@
         <a href="/step2" class="btn btn-default">Inapoi</a>
     </div>
     <div class="col-md-6">
-        <form method="post" action="/request_offer">
-            {{csrf_field()}}
-            <button type="submit" class="btn btn-primary">Trimite cererea</button>
-        </form>
+        <button type="submit" class="btn btn-primary">Trimite cererea</button>
     </div>
 </div>
-@endsection

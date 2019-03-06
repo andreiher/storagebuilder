@@ -1,0 +1,7 @@
+.wizzard-steps{
+    display: none;
+}
+
+.wizzard-steps.active{
+    display: block;
+}

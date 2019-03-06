@@ -23,6 +23,8 @@ Route::post('/step2', "HomeController@step2")->name("step2");
 Route::get('/step3', "HomeController@step3")->name("step3");
 Route::post('/summary', "HomeController@summary")->name("summary");
 
+Route::get('/configurator', "HomeController@configurator")->name("configurator");
+
 
 
 Route::get('/desprenoi', "HomeController@desprenoi")->name("desprenoi");

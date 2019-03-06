@@ -9,7 +9,7 @@
                 <h4>As dori o oferta, dar nu am proiectul de arhitectura.</h4>
                 <hr class="my-4">
                 <p>Nici o problema, puteti folosi configuratorul nostru apasand butonul de mai jos.</p>
-                <a class="btn btn-primary btn-lg" href="{{ route("step1") }}" role="button">Incepeti proiectarea</a>
+                <a class="btn btn-primary btn-lg" href="{{ route("configurator") }}" role="button">Incepeti proiectarea</a>
             </div>
         </div>
         <div class="col-md-6">

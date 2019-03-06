@@ -35,4 +35,9 @@ class HomeController extends Controller
     {
         return view('desprenoi');
     }
+
+    public function configurator()
+    {
+        return view('configurator');
+    }
 }

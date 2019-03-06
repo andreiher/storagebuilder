@@ -1,13 +1,8 @@
-@extends('layouts.main')
-
-@section('content')
 <h1>Cererea dumneavoastra</h1>
 <p>Va rugam sa completatio formularul de mai jos: </p>
 
 <br/>
 
-<form method="post" action="/summary">
-    {{csrf_field()}}
     <h3>Date de identificare</h3>
 
     <div class="row">
@@ -74,11 +69,11 @@
         <div class="col-md-12">
             <div class="form-group">
                 <label for="date_inceput">Sa incepem proiectul la data de </label>
-                <input type="date" min="{{date('Y-m-d')}}" id="data_inceput" name="data_inceput" class="form-control">
+                <input type="text" id="data_inceput" name="data_inceput" class="form-control">
             </div>
             <div class="form-group">
                 <label for="date_sfarsit">Sa se finalizeze proiectul la data de </label>
-                <input type="date" min="{{date('Y-m-d')}}" id="data_sfarsit" name="data_sfarsit" class="form-control">
+                <input type="text" id="data_sfarsit" name="data_sfarsit" class="form-control">
             </div>    
         </div>
     </div>
@@ -90,11 +85,7 @@
             <a href="/step1" class="btn btn-default">Inapoi</a>
         </div>
         <div class="col-md-6 text-right">
-            <button type="submit" class="btn btn-primary">Continua</button>
+            <button type="button" class="btn btn-primary nextstep">Continua</button>
         </div>
     </div>
 </div>    
-</form>
-
-
-@endsection
