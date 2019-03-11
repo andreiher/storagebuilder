@@ -21,7 +21,7 @@ class CreateOffersTables extends Migration
             $table->string('firma');
             $table->string('email');
             $table->string('telefon');
-            $table->string('fax');
+            $table->string('fax')->nullable();
 
             $table->string('destinatie_cladire');
             $table->string('lungime');
@@ -33,9 +33,9 @@ class CreateOffersTables extends Migration
             $table->smallInteger('teren_disponibil')->default("0");
             $table->smallInteger('avize_autorizatii')->default("0");
             $table->smallInteger('finantare')->default("0");
-            $table->string('localitate');
-            $table->string('data_inceput');
-            $table->string('data_sfarsit');
+            $table->string('localitate')->nullable();
+            $table->string('data_inceput')->nullable();
+            $table->string('data_sfarsit')->nullable();
 
             $table->timestamps();
         });
