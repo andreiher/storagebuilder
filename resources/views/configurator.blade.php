@@ -1,7 +1,16 @@
 @extends('layouts.main')
 
 @section('content')
-   <form method="post" action="" id="wizzard_form">
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul class="list-unstyled">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+<form method="post" action="{{ route("proceseaza") }}" id="wizzard_form">
         {{csrf_field()}}
        <div id="step1" class="wizzard-steps active">
             @include("steps.step1") 
