@@ -20,6 +20,9 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js">
    </script>
    <script type="text/javascript">
+    window.onbeforeunload = function() {
+            return "Daca plecati de pe pagina, veti pierde toate datele !";
+        }
         var currentstep=1;
         $(function(){
             $(".nextstep").on("click",function(e){
