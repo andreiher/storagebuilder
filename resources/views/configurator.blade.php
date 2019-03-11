@@ -20,7 +20,7 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js">
    </script>
    <script type="text/javascript">
-    window.onbeforeunload = function() {
+        window.onbeforeunload = function() {
             return "Daca plecati de pe pagina, veti pierde toate datele !";
         }
         var currentstep=1;
@@ -69,7 +69,6 @@
                 var summary = $(".summary-screen")
 
                 var values = inputs.serializeArray();
-                console.log(values);
 
                 $.each(values, function(i, input) {
                     var item = summary.find("."+input.name);
