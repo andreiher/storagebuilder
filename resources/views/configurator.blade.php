@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-   <form method="post" action="">
+   <form method="post" action="" id="wizzard_form">
         {{csrf_field()}}
        <div id="step1" class="wizzard-steps active">
             @include("steps.step1") 
@@ -27,6 +27,16 @@
                 $(".wizzard-steps").hide();
                 currentstep++;
                 $("#step"+currentstep).show();
+
+                updateSummaryPage();
+            });
+            $(".prevstep").on("click",function(e){
+                e.preventDefault();
+                $(".wizzard-steps").hide();
+                currentstep--;
+                $("#step"+currentstep).show();
+
+                updateSummaryPage();
             })
 
             $('#data_sfarsit').datepicker({
@@ -48,8 +58,39 @@
                 newdate.setMonth(newdate.getMonth()+1);
                 console.log(newdate)
                 $("#data_sfarsit").datepicker("setStartDate",newdate).datepicker("update",newdate)
-            })
+            });
 
-        }) 
+            function updateSummaryPage() {
+                var form = $("#wizzard_form");
+                var inputs = $("input, select, textarea");
+                var summary = $(".summary-screen")
+
+                var values = inputs.serializeArray();
+                console.log(values);
+
+                $.each(values, function(i, input) {
+                    var item = summary.find("."+input.name);
+                    if(item.length) {
+                        var theInput = $('[name="'+input.name+'"]');
+                        if(theInput.is("select")) {
+                            var option = theInput.find('option[value="'+input.value+'"]');
+                            if(option.length) {
+                                item.html(option.html());
+                            } else {
+                                item.html(input.value);
+                            }
+                            
+                        } else if(theInput.is('[type="checkbox"]')) {
+                            var inputClass = input.value == "1" ? 'fa-check' : 'fa-times';
+                            item.html('<i class="fas '+inputClass+'"></i>');
+                        } else {
+                            item.html(input.value);
+                        }
+                        
+                    }
+                });
+
+            }
+        });
    </script>
 @endsection

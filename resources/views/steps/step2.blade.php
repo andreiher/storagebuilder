@@ -10,30 +10,30 @@
         <div class="col-md-6">
            <div class="form-group">
                 <label for="prenume">Prenume*</label>
-                <input type="text" id="prenume" name="prenume" required class="form-control"> 
+                <input type="text" id="prenume" name="prenume" required class="form-control" tabindex="1"> 
            </div> 
            <div class="form-group">
                 <label for="firma">Firma*</label>
-                <input type="text" id="firma" name="firma" required class="form-control">
+                <input type="text" id="firma" name="firma" required class="form-control" tabindex="3">
            </div> 
            <div class="form-group">
                 <label for="email">Email*</label>
-                <input type="email" id="email" name="email" required class="form-control">
+                <input type="email" id="email" name="email" required class="form-control" tabindex="5">
            </div> 
         </div>
 
         <div class="col-md-6">
             <div class="form-group">
                 <label for="nume">Nume*</label>
-                <input type="text" id="nume" name="nume" required class="form-control">
+                <input type="text" id="nume" name="nume" required class="form-control"  tabindex="2">
            </div> 
            <div class="form-group">
                 <label for="telefon">Telefon*</label>
-                <input type="tel" id="telefon" name="telefon" required class="form-control"> 
+                <input type="tel" id="telefon" name="telefon" required class="form-control" tabindex="4"> 
            </div> 
            <div class="form-group">
                 <label for="fax">Fax</label>
-                <input type="text" id="fax" name="fax" class="form-control">
+                <input type="text" id="fax" name="fax" class="form-control" tabindex="6">
            </div> 
         </div>
 
@@ -82,7 +82,7 @@
 
     <div class="row">
         <div class="col-md-6">
-            <a href="/step1" class="btn btn-default">Inapoi</a>
+            <button type="button" class="btn btn-default prevstep">Inapoi</button>
         </div>
         <div class="col-md-6 text-right">
             <button type="button" class="btn btn-primary nextstep">Continua</button>

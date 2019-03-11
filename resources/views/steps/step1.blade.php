@@ -14,7 +14,7 @@
         
             <div class="form-group">
                 <label for="type">Destinatie cladire</label>
-                <select class="form-control" id="type">
+                <select class="form-control" id="type" name="destinatie_cladire">
                     <option value="hala_productie">Hala productie</option>
                     <option value="hala_logistica">Hala logistica</option>
                     <option value="depozit">Depozit</option>
@@ -26,7 +26,7 @@
 
             <div class="form-group">
                 <label for="lungime">Lungime</label>
-                <input type="text" class="form-control" id="lungime" placeholder="Lungime cladire">
+                <input type="text" class="form-control" id="lungime" name="lungime" placeholder="Lungime cladire">
                 <div role="group" class="btn-group autofill-length">
                     <button type="button" class="btn btn-primary" data-value="18">18m</button>
                     <button type="button" class="btn btn-primary" data-value="24">24m</button>
@@ -39,7 +39,7 @@
 
             <div class="form-group">
                 <label for="latime">Latime</label>
-                <input type="text" class="form-control" id="latime" placeholder="Latime cladire">
+                <input type="text" class="form-control" id="latime" name="latime" placeholder="Latime cladire">
                 <div class="btn-group autofill-width" role="group">
                     <button type="button" class="btn btn-primary" data-value="12">12m</button>
                     <button type="button" class="btn btn-primary" data-value="14">14m</button>
@@ -52,7 +52,7 @@
 
             <div class="form-group">
                 <label for="inaltime">Inaltime</label>
-                <input type="text" class="form-control" id="inaltime" placeholder="Inaltime cladire">
+                <input type="text" class="form-control" id="inaltime" name="inaltime" placeholder="Inaltime cladire">
                 <div class="btn-group autofill-height" role="group">
                     <button type="button" class="btn btn-primary" data-value="5">5m</button>
                     <button type="button" class="btn btn-primary" data-value="7.5">7.5m</button>
@@ -63,12 +63,12 @@
 
             <div class="form-group">
                 <label for="suprafata_totala">Suprafata totala</label>
-                <input type="text" class="form-control" id="suprafata_totala" placeholder="Suprafata totala">
+                <input type="text" class="form-control" id="suprafata_totala" name="suprafata_totala" placeholder="Suprafata totala">
             </div>
 
             <div class="form-group">
                 <label for="panta_acoperis">Panta acoperis</label>
-                <select class="form-control" id="panta_acoperis">
+                <select class="form-control" id="panta_acoperis" name="panta_acoperis">
                     <option value="mic">Mai mica de 5%</option>
                     <option value="mare">Mai mare de 5%</option>
                 </select>
@@ -84,7 +84,7 @@
 
 <div class="row">
     <div class="col-md-6">
-        <a href="{{ route("home") }}" class="btn btn-default">Inapoi</a>
+        <button type="button" class="btn btn-default prevstep">Inapoi</button>
     </div>
     <div class="col-md-6 text-right">
         <button type="button" class="btn btn-primary nextstep">Continua</button>
