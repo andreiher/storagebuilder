@@ -25,7 +25,7 @@ Route::post('/summary', "HomeController@summary")->name("summary");
 
 Route::get('/configurator', "HomeController@configurator")->name("configurator");
 Route::post('/configurator', "HomeController@proceseaza")->name("proceseaza");
-Route::get('/confirmare', "HomeController@confirmare")->name("confirmare");
+Route::get('/confirmare-cerere', "HomeController@confirmare")->name("confirmare");
 
 
 Route::get('/desprenoi', "HomeController@desprenoi")->name("desprenoi");
