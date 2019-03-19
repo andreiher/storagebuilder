@@ -26,6 +26,15 @@ $(function () {
         input.val(value).trigger("change");
     });
 
+    $(".autofill-input button").on("click", function(e) {
+        e.preventDefault();
+
+        var value = $(this).attr("data-value");
+        var input = $(this).closest(".form-group").find('input');
+
+        input.val(value).trigger("change");
+    });
+
     $("#latime, #lungime").on("change keyup", function() {
         calculateArea();
     });

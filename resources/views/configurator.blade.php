@@ -34,6 +34,22 @@
         }
         var currentstep=1;
         $(function(){
+
+            detailsSectionHeight();
+
+            $('input[type="radio"][data-checked-toggle]').each(function() {
+               var that = $(this);
+               var toggle = $(that.attr("data-checked-toggle"));
+               var toggleValue = that.attr("data-toggle-value");
+               var radios = $('input[name="'+that.attr("name")+'"]');
+               radios.on("change click", function() {
+                   if($(this).val() == toggleValue) {
+                        toggle.show();
+                   } else {
+                       toggle.hide();
+                   }
+               })
+            });
             $(".nextstep").on("click",function(e){
                 e.preventDefault();
                 $(".wizzard-steps").hide();
@@ -72,6 +88,24 @@
                 $("#data_sfarsit").datepicker("setStartDate",newdate).datepicker("update",newdate)
             });
 
+            function detailsSectionHeight() {
+                var item = $(".details-section-side");
+                var itemHeight = item.outerHeight();
+                var windowHeight = $(window).height();
+
+                if(windowHeight < itemHeight) {
+                    item.css({
+                        maxHeight: windowHeight - 400,
+                        overflowY: 'auto'
+                    });
+                } else {
+                    item.css({
+                        maxHeight: 'none',
+                        overflowY: 'none'
+                    });
+                }
+            }
+
             function updateSummaryPage() {
                 var form = $("#wizzard_form");
                 var inputs = $("input, select, textarea");
@@ -102,6 +136,10 @@
                 });
 
             }
+
+            $(window).on("resize", function() {
+                detailsSectionHeight();
+            });
         });
    </script>
 @endsection
