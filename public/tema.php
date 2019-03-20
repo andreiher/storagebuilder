@@ -39,6 +39,11 @@
 
     function init() {
         // AICI !
+        var geometry= new THREE.BoxGeometry(1,1,1);
+        var material= new THREE.MeshBasicMaterial({color: 0xFFFFFF, wireframe: false});
+        var cube= new THREE.Mesh(geometry,material);
+        scene.add(cube);
+        camera.position.z=3;
 
         window.addEventListener( 'resize', onWindowResize, false );
     }

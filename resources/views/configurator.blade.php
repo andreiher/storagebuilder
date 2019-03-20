@@ -50,6 +50,33 @@
                    }
                })
             });
+            $('*[data-change-toggle]').each(function() {
+               var that = $(this);
+               var toggle = $(that.attr("data-change-toggle"));
+               var toggleValue = that.attr("data-toggle-value");
+               that.on("change", function() {
+                   if($(this).val() == toggleValue) {
+                        toggle.show();
+                   } else {
+                       toggle.hide();
+                   }
+               })
+               toggle.hide();
+            });
+            $('select[name="tip_acoperis"]').on("change", function(){
+                var toggles=$(".tip_acoperis_toggle");
+                toggles.hide();
+                $("#tip_acoperis-"+$(this).val()).show();
+            })
+            $('select[name="tip_pereti"]').on("change", function(){
+                var buttonswrap= $(this).parent().find(".autofill-input");
+                var buttons= buttonswrap.find('[data-value="80"], [data-value="150"]');
+                if($(this).val()=="panou-sandwich-vata-minerala"){
+                    buttons.show();
+                } else {
+                    buttons.hide();
+                }
+            })
             $(".nextstep").on("click",function(e){
                 e.preventDefault();
                 $(".wizzard-steps").hide();
