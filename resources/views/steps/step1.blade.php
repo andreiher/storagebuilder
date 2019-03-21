@@ -1,17 +1,11 @@
 <div class="row">
-    <div class="col-md-6">
+
+
+    <div class="col-md-9 col-sm-6 canvas-container" id="building-preview"></div>
+
+    <div class="col-md-3 col-sm-6 details-section-side offset-md-9 offset-sm-6">
+        <br>
         <h2>Informatii cladire</h2>
-    </div>
-    <div class="col-md-6">
-        <h2>Configuratorul 3D</h2>
-    </div>
-</div>
-
-<br/>
-
-<div class="row">
-    <div class="col-md-6 details-section-side">
-        
         <div class="form-group">
             <label for="type">Destinatie cladire</label>
             <select class="form-control" id="type" name="destinatie_cladire">
@@ -255,21 +249,173 @@
                 </div>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-default prevstep">Inapoi</button>
+            </div>
+            <div class="col-md-6 text-right">
+                <button type="button" class="btn btn-primary nextstep">Continua</button>
+            </div>
+        </div>
     </div>
-
-        <div class="col-md-6">
-            <img src="images/generator.jpg" alt="Generatorul 3D" class="img-fluid" style="width:100%;">
-        </div>   
 </div>
 
 <br/>
 
-<div class="row">
-    <div class="col-md-6">
-        <button type="button" class="btn btn-default prevstep">Inapoi</button>
-    </div>
-    <div class="col-md-6 text-right">
-        <button type="button" class="btn btn-primary nextstep">Continua</button>
-    </div>
-</div>
+
+@section('scripts')
+    @parent
+    <script src="js/three-js/build/three.js"></script>
+    <script src="js/three-js/examples/js/controls/OrbitControls.js"></script>
+    <script src="js/three-js/examples/js/WebGL.js"></script>
+
+    <script>
+
+        if ( WEBGL.isWebGLAvailable() === false ) {
+            document.body.appendChild( WEBGL.getWebGLErrorMessage() );
+        }
+
+        var camera, controls, scene = false, renderer;
+
+        $(function() {
+            init();
+            animate();
+        });
+
+        function refreshScene () {
+            clearScene();
+            createGeometries();
+        }
+
+        function init() {
+
+
+            // events
+            $("#lungime, #latime, #inaltime").on("change", refreshScene);
+            if(!scene) {
+                window.addEventListener( 'resize', onWindowResize, false );
+            }
+
+            var wrapper = document.getElementById("building-preview");
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color( 0x3e3e3e );
+
+            renderer = new THREE.WebGLRenderer();
+            renderer.setPixelRatio( window.devicePixelRatio );
+
+            renderer.setSize( wrapper.offsetWidth, wrapper.offsetHeight );
+            $("#building-preview").html(renderer.domElement);
+
+            camera = new THREE.PerspectiveCamera( 60, wrapper.offsetWidth / wrapper.offsetHeight, 1, 1500 );
+            camera.position.set( -40, 24, 35 );
+
+            // controls
+            controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.25;
+
+            controls.screenSpacePanning = true;
+
+            var minDistance = parseInt($("#lungime").val());
+            minDistance = minDistance > 0 ? minDistance : 30;
+
+            controls.minDistance = minDistance;
+            controls.maxDistance = 100;
+
+            controls.maxPolarAngle = Math.PI / 2;
+
+            createGeometries();
+
+        }
+
+        function createGeometries() {
+            var lungime = parseInt($("#lungime").val());
+            var latime = parseInt($("#latime").val());
+            var inaltime = parseInt($("#inaltime").val());
+
+            lungime = lungime > 0 ? lungime : 30;
+            latime = latime > 0 ? latime : 16;
+            inaltime = inaltime > 0 ? inaltime : 5;
+
+            controls.minDistance = lungime;
+
+            // the ground
+            var material = new THREE.MeshLambertMaterial({ color: 0x3e3e3e, flatShading: true });
+            var geometry = new THREE.PlaneGeometry(1400,1400);
+
+            var ground = new THREE.Mesh(geometry,material);
+            ground.position.y = -1; //lower it
+            ground.rotation.x = -Math.PI/2; //-90 degrees around the x axis
+            scene.add(ground);
+
+            // building
+
+
+
+
+
+            var shape = new THREE.Shape();
+            shape.moveTo( 0,0 );
+            shape.lineTo( 0, inaltime );
+            shape.lineTo( latime/2, inaltime + 1 );
+            shape.lineTo( latime, inaltime );
+            shape.lineTo( latime, 0 );
+            shape.lineTo( 0, 0 );
+
+
+            var geometry = new THREE.ExtrudeBufferGeometry( shape, { depth: lungime, bevelEnabled: false } );
+            var material = new THREE.MeshLambertMaterial({ color: 0x6d98aa });
+            var mesh = new THREE.Mesh( geometry, material ) ;
+
+            mesh.rotateY(THREE.Math.degToRad(100));
+            mesh.position.z = latime/2;
+            mesh.position.x = -lungime/2;
+
+            // mesh.position.x = THREE.GeometryUtils.center( geometry );
+            scene.add( mesh );
+
+            // lights
+            var light = new THREE.DirectionalLight( 0xffffff );
+            light.position.set( -50, 20, 25 );
+            scene.add( light );
+
+
+            var light = new THREE.AmbientLight( 0xcccccc );
+            scene.add( light );
+        }
+
+        function clearScene() {
+            while(scene.children.length > 0){
+                scene.remove(scene.children[0]);
+            }
+        }
+
+        function onWindowResize() {
+            var wrapper = document.getElementById("building-preview");
+
+            camera.aspect = wrapper.offsetWidth / wrapper.offsetHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize( wrapper.offsetWidth, wrapper.offsetHeight );
+
+        }
+
+        function animate() {
+
+            requestAnimationFrame( animate );
+
+            controls.update(); // only required if controls.enableDamping = true, or if controls.autoRotate = true
+
+            render();
+
+        }
+
+        function render() {
+
+            renderer.render( scene, camera );
+
+        }
+
+    </script>
+@endsection

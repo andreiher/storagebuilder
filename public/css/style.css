@@ -5,3 +5,19 @@
 .wizzard-steps.active{
     display: block;
 }
+
+.canvas-container {
+    background: #222;
+    color:#fff;
+    position:fixed;
+    left:0;
+    height:100%;
+    padding:0;
+}
+
+@media (max-width: 576px) {
+    .canvas-container {
+        position:static;
+        min-height:500px;
+    }
+}

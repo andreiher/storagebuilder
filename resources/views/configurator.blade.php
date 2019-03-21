@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.fullscreen')
 
 @section('content')
 @if (count($errors) > 0)
@@ -16,10 +16,14 @@
             @include("steps.step1") 
        </div>
        <div id="step2" class="wizzard-steps">
-            @include("steps.step2")
+            <div class="container">
+                @include("steps.step2")
+            </div>
         </div>
         <div id="step3" class="wizzard-steps">
-            @include("steps.summary")
+            <div class="container">
+                @include("steps.summary")
+            </div>
         </div>
    </form>
 @endsection
@@ -29,9 +33,9 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js">
    </script>
    <script type="text/javascript">
-        window.onbeforeunload = function() {
-            return "Daca plecati de pe pagina, veti pierde toate datele !";
-        }
+        // window.onbeforeunload = function() {
+        //     return "Daca plecati de pe pagina, veti pierde toate datele !";
+        // }
         var currentstep=1;
         $(function(){
 
@@ -89,6 +93,7 @@
             });
 
             function detailsSectionHeight() {
+                return;
                 var item = $(".details-section-side");
                 var itemHeight = item.outerHeight();
                 var windowHeight = $(window).height();
