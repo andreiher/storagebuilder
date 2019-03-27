@@ -461,8 +461,14 @@
             shape.lineTo( latime, 0 );
             shape.lineTo( 0, 0 );
 
+            var texture = new THREE.TextureLoader().load( 'images/shed-texture.jpg' );
+            texture.wrapS = THREE.ClampToEdgeWrapping;
+            texture.wrapT = THREE.ClampToEdgeWrapping;
+            texture.repeat.set( 13, 13 );
+
             var geometry = new THREE.ExtrudeBufferGeometry( shape, { depth: lungime, bevelEnabled: false } );
-            var material = new THREE.MeshLambertMaterial({ color: 0x6d98aa });
+            // var material = new THREE.MeshLambertMaterial({ color: 0x6d98aa  });
+            var material = new THREE.MeshLambertMaterial({ color: 0xffffff, map: texture });
             var mesh = new THREE.Mesh( geometry, material ) ;
 
             // se roteste cladirea cu 90 de grade pe axa Y - pentru aspect
