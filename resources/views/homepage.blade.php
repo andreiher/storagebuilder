@@ -17,7 +17,7 @@
                 <h4>As dori o oferta si am proiectul de arhitectura.</h4>
                 <hr class="my-4">
                 <p>Va rugam sa completati urmatorul formular si va vom trimite o oferta in cel mai scurt timp.</p>
-                <a class="btn btn-primary btn-lg" href="{{ route("step3") }}" role="button">Trimiteti proiectul</a>
+                <a class="btn btn-primary btn-lg" href="{{ route("trimite-proiect") }}" role="button">Trimiteti proiectul</a>
             </div>
         </div>
     </div>

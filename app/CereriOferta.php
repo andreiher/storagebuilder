@@ -8,6 +8,15 @@ class CereriOferta extends Model
 {
     public $table = "cereri_oferta";
     //
+
+    protected $casts = [
+        'trape_fum' => 'array',
+        'ferestre' => 'array',
+        'usi_sectionale' => 'array',
+        'usi_pietonale' => 'array',
+        'rampe_acces_tir' => 'array',
+    ];
+
     public $fillable = [
         'destinatie_cladire',
         'lungime',
@@ -27,6 +36,32 @@ class CereriOferta extends Model
         'localitate',
         'data_inceput',
         'data_sfarsit',
+
+        'tip_structura',
+        'suprafata_construita',
+        'sistem_pluvial',
+        'mezanin',
+        'mezanin_suprafata',
+        'copertina',
+        'copertina_suprafata',
+        'pod_rulant',
+        'pod_rulant_sarcina',
+        'cladire_izolata',
+        'tip_acoperis',
+        'tip_acoperis-grosime-vata',
+        'tip_acoperis-tip_membrana',
+        'tip_acoperis-grosime-membrana',
+        'tip_acoperis-panou-sandwich-spuma-tip',
+        'tip_acoperis-grosime',
+        'tip_pereti',
+        'tip_pereti-grosime',
+        'trape_fum',
+        'ferestre',
+        'usi_sectionale',
+        'usi_pietonale',
+        'rampe_acces_tir',
+
+        'project_file',
     ];
 
 }

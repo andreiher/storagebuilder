@@ -16,26 +16,6 @@ class HomeController extends Controller
         return view('homepage');
     }
 
-    public function step1()
-    {
-        return view('steps.step1');
-    }
-
-    public function step2()
-    {
-        return view('steps.step2');
-    }
-
-    public function step3()
-    {
-        return view('steps.step3');
-    }
-
-    public function summary()
-    {
-        return view('steps.summary');
-    }
-
     public function desprenoi()
     {
         return view('desprenoi');
@@ -61,7 +41,7 @@ class HomeController extends Controller
             'suprafata_totala' => 'required',
             'panta_acoperis' => 'required',
         ]);
-    
+
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
@@ -72,11 +52,50 @@ class HomeController extends Controller
 
         Mail::send(new CerereOferta($model));
 
-        return redirect("confirmare");
+        return redirect(route("confirmare"));
 
     }
 
     public function confirmare() {
         return view("confirmare");
+    }
+
+    public function trimiteProiect()
+    {
+        return view('trimite-proiect');
+    }
+
+    public function proceseazaTrimiteProiect(Request $request) {
+
+
+        $validator = Validator::make($request->all(), [
+            'nume' => 'required',
+            'prenume' => 'required',
+            'firma' => 'required',
+            'localitate' => 'required',
+            'email' => 'required|email',
+            'telefon' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $model = CereriOferta::create($request->all());
+
+        if($request->has("project_file")) {
+            $fileName = str_replace($request->project_file->getClientOriginalExtension(),"",$request->project_file->getClientOriginalName())."-".time().'.'.$request->project_file->getClientOriginalExtension();
+
+            $request->project_file->storeAs("project_files", $fileName, 'projects_folder');
+
+            $model->project_file = $fileName;
+            $model->save();
+        }
+
+        Mail::send(new CerereOferta($model));
+
+        return redirect(route("confirmare"));
     }
 }

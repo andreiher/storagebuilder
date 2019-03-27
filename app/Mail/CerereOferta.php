@@ -20,7 +20,10 @@ class CerereOferta extends Mailable
 
     public function build()
     {
-        return $this->to("vlad.moise97@yahoo.com")
+        if(!empty($this->data->project_file)) {
+            $this->attach(\Storage::disk("projects_folder")->url($this->data->project_file));
+        }
+        return $this->to("andreiher89@gmail.com")
             ->from("no-reply@onedev.ro")
             ->subject("Cerere de oferta cladire")
             ->view('emails.cerere_oferta',['data' => $this->data]);

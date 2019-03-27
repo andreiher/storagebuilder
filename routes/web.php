@@ -15,16 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+// Pagina de inceput
 Route::get('/', "HomeController@index")->name("home");
-Route::get('/step1', "HomeController@step1")->name("step1");
-Route::get('/step2', "HomeController@step2")->name("step2");
-Route::post('/step2', "HomeController@step2")->name("step2");
-Route::get('/step3', "HomeController@step3")->name("step3");
-Route::post('/summary', "HomeController@summary")->name("summary");
 
-Route::get('/configurator', "HomeController@configurator")->name("configurator");
-Route::post('/configurator', "HomeController@proceseaza")->name("proceseaza");
+
+Route::get('/configurator', "HomeController@configurator")->name("configurator"); // configurator (cand nu are proiect)
+Route::post('/configurator', "HomeController@proceseaza")->name("proceseaza"); // procesatorul de informatii din formular
+
+Route::get('/trimite-proiect', "HomeController@trimiteProiect")->name("trimite-proiect");
+Route::post('/trimite-proiect', "HomeController@proceseazaTrimiteProiect")->name("trimite-proiect-proceseaza");
+
 Route::get('/confirmare-cerere', "HomeController@confirmare")->name("confirmare");
 
 
