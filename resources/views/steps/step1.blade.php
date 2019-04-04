@@ -627,7 +627,7 @@
             roofSide2.geometry.faces[4].materialIndex = 0;
             roofSide2.geometry.faces[5].materialIndex = 0;
             roofSide2.geometry.faces[6].materialIndex = 1;
-            roofSide2.geometry.faces[7].materialIndex = 1; 
+            roofSide2.geometry.faces[7].materialIndex = 1;
             roofSide2.geometry.faces[8].materialIndex = 0;
             roofSide2.geometry.faces[9].materialIndex = 0;
 
