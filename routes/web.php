@@ -29,3 +29,11 @@ Route::get('/confirmare-cerere', "HomeController@confirmare")->name("confirmare"
 
 
 Route::get('/desprenoi', "HomeController@desprenoi")->name("desprenoi");
+
+
+
+
+Route::get('lang/{lang}', function ($lang) {
+    \Session::put('lang', $lang);
+    return redirect()->back();
+});

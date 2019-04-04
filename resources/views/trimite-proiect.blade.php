@@ -12,42 +12,31 @@
     @endif
     <form method="post" action="{{ route("trimite-proiect-proceseaza") }}" enctype="multipart/form-data">
         {{csrf_field()}}
-        <h1>Cererea dumneavoastra</h1>
-        <p>Va rugam sa completatio formularul de mai jos: </p>
+        <h1>@lang("messages.your_request")</h1>
+        <p>@lang("messages.your_request_text")</p>
 
         <br/>
 
-        <h3>Date de identificare</h3>
+        <h3>@lang("messages.identification_data")</h3>
 
         <div class="row">
 
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
-                    <label for="prenume">Prenume*</label>
-                    <input type="text" id="prenume" name="prenume" class="form-control" tabindex="1" value="{{ old('prenume') }}">
-                </div>
-                <div class="form-group">
-                    <label for="firma">Firma*</label>
+                    <label for="firma">@lang("messages.company")*</label>
                     <input type="text" id="firma" name="firma" required class="form-control" tabindex="3" value="{{ old('firma') }}">
                 </div>
+            </div>
+            <div class="col-md-4">
                 <div class="form-group">
-                    <label for="email">Email*</label>
+                    <label for="email">@lang("messages.email")*</label>
                     <input type="email" id="email" name="email" required class="form-control" tabindex="5" value="{{ old('email') }}">
                 </div>
             </div>
-
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
-                    <label for="nume">Nume*</label>
-                    <input type="text" id="nume" name="nume" required class="form-control"  tabindex="2" value="{{ old('nume') }}">
-                </div>
-                <div class="form-group">
-                    <label for="telefon">Telefon*</label>
+                    <label for="telefon">@lang("messages.phone")*</label>
                     <input type="tel" id="telefon" name="telefon" required class="form-control" tabindex="4" value="{{ old('telefon') }}">
-                </div>
-                <div class="form-group">
-                    <label for="fax">Fax</label>
-                    <input type="text" id="fax" name="fax" class="form-control" tabindex="6" value="{{ old('fax') }}">
                 </div>
             </div>
 
@@ -60,40 +49,41 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group"> <!--bootstrap styling-->
-                    <label><input type="checkbox" value="1" name="teren_disponibil" {{ old("teren_disponibil") == "1" ? 'checked="checked"' : ''}}> Terenul pentru constructie este disponibil.</label>
+                    <label><input type="checkbox" value="1" name="teren_disponibil" {{ old("teren_disponibil") == "1" ? 'checked="checked"' : ''}}> @lang("messages.building_land_available").</label>
                 </div>
                 <div class="form-group"> <!--bootstrap styling-->
-                    <label><input type="checkbox" value="1" name="avize_autorizatii" {{ old("avize_autorizatii") == "1" ? 'checked="checked"' : ''}}> Avizele si autorizatiile au fost obtinute.</label>
+                    <label><input type="checkbox" value="1" name="avize_autorizatii" {{ old("avize_autorizatii") == "1" ? 'checked="checked"' : ''}}> @lang("messages.authorizations_obtained").</label>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group"> <!--bootstrap styling-->
-                    <label><input type="checkbox" value="1" name="finantare" {{ old("finantare") == "1" ? 'checked="checked"' : ''}}> Exista finantare pentru acest obiectiv.</label>
+                    <label><input type="checkbox" value="1" name="finantare" {{ old("finantare") == "1" ? 'checked="checked"' : ''}}> @lang("messages.financing_available").</label>
                 </div>
                 <div class="form-group">
-                    <label for="localitate">Localitate constructie</label>
+                    <label for="localitate">@lang("messages.building_locality")</label>
                     <input type="text" id="localitate" name="localitate" required class="form-control">
                 </div>
             </div>
-            <div class="col-md-12">
+
+            <div class="col-md-12 mt-3 mb-3">
                 <div class="form-group">
-                    <label>Fisier Proiect:</label>
+                    <label>@lang("messages.project_files")</label>
                     <input type="file" name="project_file">
-                    <p><small>Sunt acceptate numai fisierele de tip doc, docx, pdf, rtf, dxf, jpg, png</small></p>
+                    <p><small>@lang("messages.project_files_notes")</small></p>
                 </div>
             </div>
         </div>
 
-        <h3>Asteptarile dumneavoastra</h3>
+        <h3>@lang("messages.your_expectations")</h3>
 
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label for="date_inceput">Sa incepem proiectul la data de </label>
+                    <label for="date_inceput">@lang("messages.project_start_date") </label>
                     <input type="text" id="data_inceput" name="data_inceput" class="form-control" value="{{ old('data_inceput') }}">
                 </div>
                 <div class="form-group">
-                    <label for="date_sfarsit">Sa se finalizeze proiectul la data de </label>
+                    <label for="date_sfarsit">@lang("messages.project_end_date") </label>
                     <input type="text" id="data_sfarsit" name="data_sfarsit" class="form-control" value="{{ old('data_sfarsit') }}">
                 </div>
             </div>
@@ -104,7 +94,7 @@
         <div class="row">
 
             <div class="col-md-12 text-right">
-                <button type="submit" class="btn btn-primary">Trimite cerere</button>
+                <button type="submit" class="btn btn-primary">@lang("messages.submit")</button>
             </div>
         </div>
 
@@ -117,12 +107,11 @@
         $(function() {
             $("form").validate({
                 rules: {
-                    nume: "required",
-                    prenume: "required",
                     firma: "required",
+                    telefon: "required",
                     project_file: {
                         required: true,
-                        extension: "doc|docx|pdf|rtf|dxf|jpg|png"
+                        extension: "doc|docx|pdf|rtf|dxf|jpg|png|zip|rar"
                     },
                     email: {
                         required: true,

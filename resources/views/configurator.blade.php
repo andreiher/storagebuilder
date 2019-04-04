@@ -15,12 +15,12 @@
        <div id="step1" class="wizzard-steps active">
             @include("steps.step1") 
        </div>
-       <div id="step2" class="wizzard-steps">
+       <div id="step2" class="wizzard-steps" style="padding-top:100px;">
             <div class="container">
                 @include("steps.step2")
             </div>
         </div>
-        <div id="step3" class="wizzard-steps">
+        <div id="step3" class="wizzard-steps" style="padding-top:100px;">
             <div class="container">
                 @include("steps.summary")
             </div>
@@ -47,9 +47,13 @@
                 var inputName = $(this).attr("dynamic-name");
 
                 var newItem = '<li class="pb-1 pt-1">'+
+                    '<input type="hidden" class="form-control main-input" name="'+ inputName +'[]" placeholder="L x l x H">' +
                     '<div class="row">' +
-                    '<div class="col-md-10">' +
-                    '<input type="text" class="form-control" name="'+ inputName +'[]" placeholder="Dimensiuni">' +
+                    '<div class="col-md-8">' +
+                    '<input type="text" class="form-control dynamic-input sizes" placeholder="L x l x H">' +
+                    '</div>' +
+                    '<div class="col-md-2">' +
+                    '<input type="number" class="form-control dynamic-input pieces" placeholder="Buc" value="1">' +
                     '</div>' +
                     '<div class="col-md-2">' +
                         '<button type="button" class="btn btn-danger remove-dynamic-element"><i class="fas fa-minus"></i></button> ' +
@@ -57,6 +61,18 @@
                     '</div>' +
                     '</li>';
                 wrap.append(newItem);
+            });
+
+            $("body").on("change keyup", ".dynamic-input", function() {
+                var that = $(this);
+                var wrap = that.closest("li");
+                var input = wrap.find(".main-input");
+                var sizes = wrap.find(".dynamic-input.sizes");
+                var pcs = wrap.find(".dynamic-input.pieces");
+
+                var formattedText = sizes.val() + " - " + pcs.val() + " pcs";
+                input.val(formattedText);
+
             });
 
             $("body").on("click", ".remove-dynamic-element", function() {
@@ -385,9 +401,10 @@
                     },
                 },
                 {
-                    nume: "required",
-                    prenume: "required",
+                    // nume: "required",
+                    // prenume: "required",
                     firma: "required",
+                    telefon: "required",
                     email: {
                         required: true,
                         email: true

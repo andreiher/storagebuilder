@@ -3,35 +3,35 @@
 
     <div class="col-md-9 col-sm-6 canvas-container" id="building-preview"></div>
 
-    <div class="col-md-3 col-sm-6 details-section-side offset-md-9 offset-sm-6">
+    <div class="col-md-3 col-sm-6 details-section-side offset-md-9 offset-sm-6 pt-5">
         <br>
-        <h2>Informatii cladire</h2>
+        <h2>@lang("messages.building_information")</h2>
         <div class="form-group">
-            <label for="type">Destinatie cladire*</label>
+            <label for="type">@lang("messages.building_type")*</label>
             <select class="form-control" id="type" name="destinatie_cladire" required>
-                <option value="hala_productie" {{ old("destinatie_cladire") == "hala_productie" ? 'selected="selected"' : ''}}>Hala productie</option>
-                <option value="hala_logistica" {{ old("destinatie_cladire") == "hala_logistica" ? 'selected="selected"' : ''}}>Hala logistica</option>
-                <option value="depozit" {{ old("destinatie_cladire") == "depozit" ? 'selected="selected"' : ''}}>Depozit</option>
-                <option value="centru_administrativ" {{ old("destinatie_cladire") == "centru_administrativ" ? 'selected="selected"' : ''}}>Centru administrativ</option>
-                <option value="sala_de_sport" {{ old("destinatie_cladire") == "sala_de_sport" ? 'selected="selected"' : ''}}>Sala de sport</option>
-                <option value="altele" {{ old("destinatie_cladire") == "altele" ? 'selected="selected"' : ''}}>Altele</option>
+                <option value="hala_productie" {{ old("destinatie_cladire") == "hala_productie" ? 'selected="selected"' : ''}}>@lang("messages.building_type_production_hall")</option>
+                <option value="hala_logistica" {{ old("destinatie_cladire") == "hala_logistica" ? 'selected="selected"' : ''}}>@lang("messages.building_type_logistics_hall")</option>
+                <option value="depozit" {{ old("destinatie_cladire") == "depozit" ? 'selected="selected"' : ''}}>@lang("messages.building_type_warehouse")</option>
+                <option value="centru_administrativ" {{ old("destinatie_cladire") == "centru_administrativ" ? 'selected="selected"' : ''}}>@lang("messages.building_type_adm_center")</option>
+                <option value="sala_de_sport" {{ old("destinatie_cladire") == "sala_de_sport" ? 'selected="selected"' : ''}}>@lang("messages.building_type_gym")</option>
+                <option value="altele" {{ old("destinatie_cladire") == "altele" ? 'selected="selected"' : ''}}>@lang("messages.building_type")Altele</option>
             </select>
         </div>
 
         <div class="form-group">
-            <label for="type">Tip Structura*</label>
+            <label for="type">@lang("messages.structure_type")*</label>
             <select class="form-control" id="type" name="tip_structura" required>
-                <option value="metal" {{ old("tip_structura") == "metal" ? 'selected="selected"' : ''}}>Metal</option>
-                <option value="beton" {{ old("tip_structura") == "beton" ? 'selected="selected"' : ''}}>Beton</option>
-                <option value="mixta" {{ old("tip_structura") == "mixta" ? 'selected="selected"' : ''}}>Mixta</option>
+                <option value="metal" {{ old("tip_structura") == "metal" ? 'selected="selected"' : ''}}>@lang("messages.structure_type_metal")</option>
+                <option value="beton" {{ old("tip_structura") == "beton" ? 'selected="selected"' : ''}}>@lang("messages.structure_type_concrete")</option>
+                <option value="mixta" {{ old("tip_structura") == "mixta" ? 'selected="selected"' : ''}}>@lang("messages.structure_type_mixed")</option>
             </select>
         </div>
 
         <hr>
 
         <div class="form-group">
-            <label for="lungime">Lungime*</label>
-            <input type="number" lang="en" class="form-control" id="lungime" name="lungime" placeholder="Lungime cladire" value="{{ old('lungime') }}" required>
+            <label for="lungime">@lang("messages.length")*</label>
+            <input type="number" lang="en" class="form-control" id="lungime" name="lungime" placeholder="@lang("messages.units_meters")" value="{{ old('lungime') }}" required>
             <div role="group" class="btn-group autofill-length">
                 <button type="button" class="btn btn-primary" data-value="18">18m</button>
                 <button type="button" class="btn btn-primary" data-value="24">24m</button>
@@ -43,8 +43,8 @@
         </div>
 
         <div class="form-group">
-            <label for="latime">Latime*</label>
-            <input type="number" lang="en" class="form-control" id="latime" name="latime" placeholder="Latime cladire" value="{{ old('latime') }}" required>
+            <label for="latime">@lang("messages.width")*</label>
+            <input type="number" lang="en" class="form-control" id="latime" name="latime" placeholder="@lang("messages.units_meters")" value="{{ old('latime') }}" required>
             <div class="btn-group autofill-width" role="group">
                 <button type="button" class="btn btn-primary" data-value="12">12m</button>
                 <button type="button" class="btn btn-primary" data-value="14">14m</button>
@@ -56,8 +56,8 @@
         </div>
 
         <div class="form-group">
-            <label for="inaltime">Inaltime libera (utila)*</label>
-            <input type="number" lang="en" class="form-control" id="inaltime" name="inaltime" placeholder="Inaltime cladire" value="{{ old('inaltime') }}" required>
+            <label for="inaltime">@lang("messages.height")*</label>
+            <input type="number" lang="en" class="form-control" id="inaltime" name="inaltime" placeholder="@lang("messages.units_meters")" value="{{ old('inaltime') }}" required>
             <div class="btn-group autofill-height" role="group">
                 <button type="button" class="btn btn-primary" data-value="5">5m</button>
                 <button type="button" class="btn btn-primary" data-value="7.5">7.5m</button>
@@ -67,128 +67,128 @@
         </div>
 
         <div class="form-group">
-            <label for="suprafata_totala">Suprafata totala</label>
-            <input type="number" readonly lang="en" class="form-control" id="suprafata_totala" name="suprafata_totala" placeholder="Suprafata totala" value="{{ old('suprafata_totala') }}">
+            <label for="suprafata_totala">@lang("messages.total_area")</label>
+            <input type="number" readonly lang="en" class="form-control" id="suprafata_totala" name="suprafata_totala" placeholder="@lang("messages.units_sqmeters")" value="{{ old('suprafata_totala') }}">
         </div>
 
         <div class="form-group">
-            <label for="suprafata_construita">Suprafata construita spatiu administrativ</label>
-            <input type="number" lang="en" class="form-control" id="suprafata_construita" name="suprafata_construita" placeholder="In m2" value="{{ old('suprafata_construita') }}">
+            <label for="suprafata_construita">@lang("messages.built_area")</label>
+            <input type="number" lang="en" class="form-control" id="suprafata_construita" name="suprafata_construita" placeholder="@lang("messages.units_sqmeters")" value="{{ old('suprafata_construita') }}">
         </div>
 
         <hr>
 
         <div class="form-group">
-            <label for="sistem_pluvial">Sistem pluvial</label>
+            <label for="sistem_pluvial">@lang("messages.pluvial_system")</label>
             <select class="form-control" id="sistem_pluvial" name="sistem_pluvial">
-                <option value="jgheaburi-burlane" {{ old("sistem_pluvial") == "jgheaburi-burlane" ? 'selected="selected"' : ''}}>Jgheaburi + burlane</option>
-                <option value="tip-geberit" {{ old("sistem_pluvial") == "tip-geberit" ? 'selected="selected"' : ''}}>Tip geberit</option>
-                <option value="nu-stiu" {{ old("sistem_pluvial") == "nu-stiu" ? 'selected="selected"' : ''}}>Nu stiu</option>
+                <option value="jgheaburi-burlane" {{ old("sistem_pluvial") == "jgheaburi-burlane" ? 'selected="selected"' : ''}}>@lang("messages.pluvial_system_drains")</option>
+                <option value="tip-geberit" {{ old("sistem_pluvial") == "tip-geberit" ? 'selected="selected"' : ''}}>@lang("messages.pluvial_system_gerberit")</option>
+                <option value="nu-stiu" {{ old("sistem_pluvial") == "nu-stiu" ? 'selected="selected"' : ''}}>@lang("messages.pluvial_system_dontknow")</option>
             </select>
         </div>
 
         <div class="form-group">
-            <label for="panta_acoperis">Panta acoperis</label>
+            <label for="panta_acoperis">@lang("messages.roof_slope")</label>
             <select class="form-control" id="panta_acoperis" name="panta_acoperis">
-                <option value="mic" {{ old("panta_acoperis") == "mic" ? 'selected="selected"' : ''}}>Mai mica de 5%</option>
-                <option value="mare" {{ old("panta_acoperis") == "mare" ? 'selected="selected"' : ''}}>Mai mare de 5%</option>
-                <option value="nu-stiu" {{ old("panta_acoperis") == "nu-stiu" ? 'selected="selected"' : ''}}>Nu stiu</option>
+                <option value="mic" {{ old("panta_acoperis") == "mic" ? 'selected="selected"' : ''}}>@lang("messages.roof_slope_morethan5")</option>
+                <option value="mare" {{ old("panta_acoperis") == "mare" ? 'selected="selected"' : ''}}>@lang("messages.roof_slope_lessthan5")</option>
+                <option value="nu-stiu" {{ old("panta_acoperis") == "nu-stiu" ? 'selected="selected"' : ''}}>@lang("messages.roof_slope_dontknow")</option>
             </select>
         </div>
 
         <hr>
 
         <div class="form-group">
-            <label for="mezanin">Mezanin</label>
+            <label for="mezanin">@lang("messages.entresol")</label>
             <div class="float-right">
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" id="mezanin-da" {{ old("mezanin") == "Da" ? 'checked="checked"' : ''}} name="mezanin" class="custom-control-input" value="Da" data-checked-toggle="#mezanin-suprafata" data-toggle-value="Da">
-                    <label class="custom-control-label" for="mezanin-da">Da</label>
+                    <label class="custom-control-label" for="mezanin-da">@lang("messages.yes")</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" id="mezanin-nu" {{ old("mezanin") == "Nu" ? 'checked="checked"' : ''}} name="mezanin" class="custom-control-input" value="Nu">
-                    <label class="custom-control-label" for="mezanin-nu">Nu</label>
+                    <label class="custom-control-label" for="mezanin-nu">@lang("messages.no")</label>
                 </div>
             </div>
         </div>
         <div class="form-group p-2" id="mezanin-suprafata" {!! old("mezanin") && old("mezanin") == "Da" ? '' : 'style="display:none"' !!}>
             <div class="form-group">
-                <label for="mezanin_suprafata">Suprafata Mezanin (m<sup>2</sup>)</label>
-                <input type="number" lang="en" class="form-control" id="mezanin_suprafata" name="mezanin_suprafata" placeholder="Suprafata Mezanin" value="{{ old('mezanin_suprafata') }}">
+                <label for="mezanin_suprafata">@lang("messages.entresol_area")</label>
+                <input type="number" lang="en" class="form-control" id="mezanin_suprafata" name="mezanin_suprafata" placeholder="@lang("messages.units_sqmeters")" value="{{ old('mezanin_suprafata') }}">
             </div>
             <hr>
         </div>
 
         <div class="form-group">
-            <label for="copertina">Copertina</label>
+            <label for="copertina">@lang("messages.blind")</label>
             <div class="float-right">
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" id="copertina-da" {{ old("copertina") == "Da" ? 'checked="checked"' : ''}} name="copertina" class="custom-control-input" value="Da" data-checked-toggle="#copertina-suprafata" data-toggle-value="Da">
-                    <label class="custom-control-label" for="copertina-da">Da</label>
+                    <label class="custom-control-label" for="copertina-da">@lang("messages.yes")</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" id="copertina-nu" {{ old("copertina") == "Nu" ? 'checked="checked"' : ''}} name="copertina" class="custom-control-input" value="Nu">
-                    <label class="custom-control-label" for="copertina-nu">Nu</label>
+                    <label class="custom-control-label" for="copertina-nu">@lang("messages.no")</label>
                 </div>
             </div>
         </div>
         <div class="form-group p-2" id="copertina-suprafata" {!! old("copertina") && old("copertina") == "Da" ? '' : 'style="display:none"' !!}>
             <div class="form-group">
-                <label for="copertina_suprafata">Suprafata copertina (m<sup>2</sup>)</label>
-                <input type="number" lang="en" class="form-control" id="copertina_suprafata" name="copertina_suprafata" placeholder="Suprafata copertina" value="{{ old('copertina_suprafata') }}">
+                <label for="copertina_suprafata">@lang("messages.blind_area")</label>
+                <input type="number" lang="en" class="form-control" id="copertina_suprafata" name="copertina_suprafata" placeholder="@lang("messages.units_sqmeters")" value="{{ old('copertina_suprafata') }}">
             </div>
             <hr>
         </div>
 
 
         <div class="form-group">
-            <label for="pod_rulant">Pod Rulant</label>
+            <label for="pod_rulant">@lang("messages.slide_bridge")</label>
             <div class="float-right">
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" id="pod_rulant-da" {{ old("pod_rulant") == "Da" ? 'checked="checked"' : ''}} name="pod_rulant" class="custom-control-input" value="Da" data-checked-toggle="#pod_rulant-sarcina" data-toggle-value="Da">
-                    <label class="custom-control-label" for="pod_rulant-da">Da</label>
+                    <label class="custom-control-label" for="pod_rulant-da">@lang("messages.yes")</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" id="pod_rulant-nu" {{ old("pod_rulant") == "Nu" ? 'checked="checked"' : ''}} name="pod_rulant" class="custom-control-input" value="Nu">
-                    <label class="custom-control-label" for="pod_rulant-nu">Nu</label>
+                    <label class="custom-control-label" for="pod_rulant-nu">@lang("messages.no")</label>
                 </div>
             </div>
         </div>
         <div class="form-group p-2" id="pod_rulant-sarcina" {!! old("pod_rulant") && old("pod_rulant") == "Da" ? '' : 'style="display:none"' !!}>
             <div class="form-group">
-                <label for="pod_rulant_sarcina">Sarcina Pod Rulant (m<sup>2</sup>)</label>
-                <input type="number" lang="en" class="form-control" id="pod_rulant_sarcina" name="pod_rulant_sarcina" placeholder="Sarcina Pod Rulant" value="{{ old('pod_rulant_sarcina') }}">
+                <label for="pod_rulant_sarcina">@lang("messages.slide_bridge_load")</label>
+                <input type="number" lang="en" class="form-control" id="pod_rulant_sarcina" name="pod_rulant_sarcina" placeholder="@lang("messages.units_sqmeters")" value="{{ old('pod_rulant_sarcina') }}">
             </div>
         </div>
 
         <div class="form-group">
-            <label for="cladire_izolata">Cladire izolata</label>
+            <label for="cladire_izolata">@lang("messages.insulated_building")</label>
             <div class="float-right">
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" id="cladire_izolata-da" {{ old("cladire_izolata") == "Da" ? 'checked="checked"' : ''}} name="cladire_izolata" class="custom-control-input" value="Da" data-checked-toggle="#cladire_izolata-detalii" data-toggle-value="Da">
-                    <label class="custom-control-label" for="cladire_izolata-da">Da</label>
+                    <label class="custom-control-label" for="cladire_izolata-da">@lang("messages.yes")</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" id="cladire_izolata-nu" {{ old("cladire_izolata") == "Nu" ? 'checked="checked"' : ''}} name="cladire_izolata" class="custom-control-input" value="Nu">
-                    <label class="custom-control-label" for="cladire_izolata-nu">Nu</label>
+                    <label class="custom-control-label" for="cladire_izolata-nu">@lang("messages.no")</label>
                 </div>
             </div>
         </div>
         <div class="form-group p-2" id="cladire_izolata-detalii" {!! old("cladire_izolata") && old("cladire_izolata") == "Da" ? '' : 'style="display:none"' !!}>
             <div class="form-group">
                 <div class="form-group">
-                    <label for="type">Tip Acoperis</label>
+                    <label for="type">@lang("messages.roof_type")</label>
                     <select class="form-control" id="type" name="tip_acoperis">
-                        <option value="">Selectati o optiune</option>
-                        <option value="tabla-vata-membrana" {{ old("tip_acoperis") == "tabla-vata-membrana" ? 'selected="selected"' : ''}}>Sistem tabla cu cuta inalta + vata + membrana</option>
-                        <option value="panou-sandwich-vata-minerala" {{ old("tip_acoperis") == "panou-sandwich-vata-minerala" ? 'selected="selected"' : ''}}>Panou sandwich vata minerala</option>
-                        <option value="panou-sandwich-spuma" {{ old("tip_acoperis") == "panou-sandwich-spuma" ? 'selected="selected"' : ''}}>Panou sandwich spuma</option>
+                        <option value="">@lang("messages.select_option")</option>
+                        <option value="tabla-vata-membrana" {{ old("tip_acoperis") == "tabla-vata-membrana" ? 'selected="selected"' : ''}}>@lang("messages.roof_type_sheet_metal")</option>
+                        <option value="panou-sandwich-vata-minerala" {{ old("tip_acoperis") == "panou-sandwich-vata-minerala" ? 'selected="selected"' : ''}}>@lang("messages.roof_type_sandwich_panel_mineral_wool")</option>
+                        <option value="panou-sandwich-spuma" {{ old("tip_acoperis") == "panou-sandwich-spuma" ? 'selected="selected"' : ''}}>@lang("messages.roof_type_sandwich_panel_foam")</option>
                     </select>
                 </div>
                 <div id="tip_acoperis-tabla-vata-membrana" class="tip_acoperis_toggle" style="display: none">
                     <div class="form-group">
-                        <label for="tip_acoperis-grosime-vata">Grosime vata (mm)</label>
-                        <input type="number" step="2" min="8" max="12" lang="en" class="form-control" id="tip_acoperis-grosime-vata" name="tip_acoperis-grosime-vata" placeholder="Grosime Vata" value="{{ old('tip_acoperis-grosime-vata') }}">
+                        <label for="tip_acoperis-grosime-vata">@lang("messages.mineral_wool_thickness")</label>
+                        <input type="number" step="2" min="8" max="12" lang="en" class="form-control" id="tip_acoperis-grosime-vata" name="tip_acoperis-grosime-vata" placeholder="@lang("messages.units_milimeters")" value="{{ old('tip_acoperis-grosime-vata') }}">
                         <div class="btn-group autofill-input" role="group">
                             <button type="button" class="btn btn-primary" data-value="8">8mm</button>
                             <button type="button" class="btn btn-primary" data-value="10">10mm</button>
@@ -196,16 +196,16 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Tip membrana</label>
+                        <label>@lang("messages.membrane_type")</label>
                         <select class="form-control" name="tip_acoperis-tip_membrana">
-                                <option value="">Selectati o optiune</option>
-                                <option value="PVC" {{ old("tip_acoperis-tip_membrana") == "PVC" ? 'selected="selected"' : ''}}>Membrana PVC</option>
-                                <option value="bituminoasa" {{ old("tip_acoperis-tip_membrana") == "bituminoasa" ? 'selected="selected"' : ''}}>Membrana bituminoasa</option>
+                                <option value="">@lang("messages.select_option")</option>
+                                <option value="PVC" {{ old("tip_acoperis-tip_membrana") == "PVC" ? 'selected="selected"' : ''}}>@lang("messages.membrane_type_pvc")</option>
+                                <option value="bituminoasa" {{ old("tip_acoperis-tip_membrana") == "bituminoasa" ? 'selected="selected"' : ''}}>@lang("messages.membrane_type_bituminous")</option>
                         </select>
                     </div>
                     <div class="form-group">
-                            <label for="tip_acoperis-grosime-membrana">Grosime membrana (mm)</label>
-                            <input type="number" step="0.3" min="1.5" max="1.8" lang="en" class="form-control" id="tip_acoperis-grosime-membrana" name="tip_acoperis-grosime-membrana" placeholder="Grosime membrana" value="{{ old('tip_acoperis-grosime-membrana') }}">
+                            <label for="tip_acoperis-grosime-membrana">@lang("messages.membrane_thickness")</label>
+                            <input type="number" step="0.3" min="1.5" max="1.8" lang="en" class="form-control" id="tip_acoperis-grosime-membrana" name="tip_acoperis-grosime-membrana" placeholder="@lang("messages.units_milimeters")" value="{{ old('tip_acoperis-grosime-membrana') }}">
                             <div class="btn-group autofill-input" role="group">
                                 <button type="button" class="btn btn-primary" data-value="1.5">1.5mm</button>
                                 <button type="button" class="btn btn-primary" data-value="1.8">1.8mm</button>
@@ -214,17 +214,17 @@
                 </div>
                 <div id="tip_acoperis-panou-sandwich-spuma" class="tip_acoperis_toggle" style="display: none">
                     <div class="form-group">
-                            <label>Tip spuma</label>
+                            <label>@lang("messages.foam_type")</label>
                             <select class="form-control" name="tip_acoperis-panou-sandwich-spuma-tip">
-                                    <option value="">Selectati o optiune</option>
-                                    <option value="PIR" {{ old("tip_acoperis-panou-sandwich-spuma-tip") == "PIR" ? 'selected="selected"' : ''}}>PIR (rezistenta la foc 15 minute)</option>
-                                    <option value="PUR" {{ old("tip_acoperis-panou-sandwich-spuma-tip") == "PUR" ? 'selected="selected"' : ''}}>PUR</option>
+                                    <option value="">@lang("messages.select_option")</option>
+                                    <option value="PIR" {{ old("tip_acoperis-panou-sandwich-spuma-tip") == "PIR" ? 'selected="selected"' : ''}}>@lang("messages.foam_type_pir")</option>
+                                    <option value="PUR" {{ old("tip_acoperis-panou-sandwich-spuma-tip") == "PUR" ? 'selected="selected"' : ''}}>@lang("messages.foam_type_pur")</option>
                             </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="tip_acoperis-grosime">Grosime Acoperis (mm)</label>
-                    <input type="number" step="20" min="60" max="150" lang="en" class="form-control" id="tip_acoperis-grosime" name="tip_acoperis-grosime" placeholder="Grosime" value="{{ old('tip_acoperis-grosime') }}">
+                    <label for="tip_acoperis-grosime">@lang("messages.roof_thickness")</label>
+                    <input type="number" step="20" min="60" max="150" lang="en" class="form-control" id="tip_acoperis-grosime" name="tip_acoperis-grosime" placeholder="@lang("messages.units_milimeters")" value="{{ old('tip_acoperis-grosime') }}">
                     <div class="btn-group autofill-input" role="group">
                         <button type="button" class="btn btn-primary" data-value="80">80mm</button>
                         <button type="button" class="btn btn-primary" data-value="100">100mm</button>
@@ -236,17 +236,17 @@
 
             <div class="form-group">
                 <div class="form-group">
-                    <label for="type">Tip Pereti</label>
+                    <label for="type">@lang("messages.walls_type")</label>
                     <select class="form-control" id="type" name="tip_pereti">
-                        <option value="caseta-vata-tabla" {{ old("tip_pereti") == "caseta-vata-tabla" ? 'selected="selected"' : ''}}>Caseta vata tabla </option>
-                        <option value="panou-sandwich-vata-minerala" {{ old("tip_pereti") == "panou_sandwich-vata-minerala" ? 'selected="selected"' : ''}}>Panou sandwich vata minerala</option>
-                        <option value="spuma-pir" {{ old("tip_pereti") == "spuma-pir" ? 'selected="selected"' : ''}}>Spuma PIR </option>
-                        <option value="spuma-pur" {{ old("tip_pereti") == "spuma-pur" ? 'selected="selected"' : ''}}>Spuma PUR </option>
+                        <option value="caseta-vata-tabla" {{ old("tip_pereti") == "caseta-vata-tabla" ? 'selected="selected"' : ''}}>@lang("messages.walls_type_metal")</option>
+                        <option value="panou-sandwich-vata-minerala" {{ old("tip_pereti") == "panou_sandwich-vata-minerala" ? 'selected="selected"' : ''}}>@lang("messages.walls_type_sandwich_panel")</option>
+                        <option value="spuma-pir" {{ old("tip_pereti") == "spuma-pir" ? 'selected="selected"' : ''}}>@lang("messages.walls_type_pir_foam")</option>
+                        <option value="spuma-pur" {{ old("tip_pereti") == "spuma-pur" ? 'selected="selected"' : ''}}>@lang("messages.walls_type_pur_foam")</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="tip_pereti-grosime">Grosime Pereti (mm)</label>
-                    <input type="number" step="20" min="80" max="150" lang="en" class="form-control" id="tip_pereti-grosime" name="tip_pereti-grosime" placeholder="Grosime" value="{{ old('copertina_suprafata') }}">
+                    <label for="tip_pereti-grosime">@lang("messages.walls_thickness")</label>
+                    <input type="number" step="20" min="80" max="150" lang="en" class="form-control" id="tip_pereti-grosime" name="tip_pereti-grosime" placeholder="@lang("messages.units_milimeters")" value="{{ old('copertina_suprafata') }}">
                     <div class="btn-group autofill-input" role="group">
                         <button type="button" class="btn btn-primary" data-value="80" style="display:none">80mm</button>
                         <button type="button" class="btn btn-primary" data-value="100">100mm</button>
@@ -260,14 +260,14 @@
         </div>
 
         <div class="form-group">
-            <label>Trape fum</label>
+            <label>@lang("messages.smoke_hatches")</label>
             <button type="button" class="btn btn-primary float-right add-dynamic_input-trigger" dynamic-name="trape_fum"><i class="fas fa-plus"></i></button>
-            <p><small>Uzual, suprafata totala a trapelor de fum este 1.5% din suprafata totala a acoperisului.</small></p>
+            <p><small>@lang("messages.smoke_hatches_note")</small></p>
             <ol class="dynamic-wrap"></ol>
         </div>
         <hr>
         <div class="form-group">
-            <label>Ferestre</label>
+            <label>@lang("messages.windows")</label>
             <button type="button" class="btn btn-primary float-right add-dynamic_input-trigger" dynamic-name="ferestre"><i class="fas fa-plus"></i></button>
             <p></p>
             <div class="clearfix pt-1"></div>
@@ -276,7 +276,7 @@
         <hr>
 
         <div class="form-group">
-            <label>Usi Sectionale (industriale)</label>
+            <label>@lang("messages.industrial_doors")</label>
             <button type="button" class="btn btn-primary float-right add-dynamic_input-trigger" dynamic-name="usi_sectionale"><i class="fas fa-plus"></i></button>
             <p></p>
             <div class="clearfix pt-1"></div>
@@ -285,7 +285,7 @@
         <hr>
 
         <div class="form-group">
-            <label>Usi Pietonale</label>
+            <label>@lang("messages.pedestrian_doors")</label>
             <button type="button" class="btn btn-primary float-right add-dynamic_input-trigger" dynamic-name="usi_pietonale"><i class="fas fa-plus"></i></button>
             <p></p>
             <div class="clearfix pt-1"></div>
@@ -294,7 +294,7 @@
         <hr>
 
         <div class="form-group">
-            <label>Rampe Acces TIR</label>
+            <label>@lang("messages.tir_access_ramps")</label>
             <button type="button" class="btn btn-primary float-right add-dynamic_input-trigger" dynamic-name="rampe_acces_tir"><i class="fas fa-plus"></i></button>
             <p></p>
             <div class="clearfix pt-1"></div>
@@ -304,10 +304,10 @@
 
         <div class="row">
             <div class="col-md-6">
-                <button type="button" class="btn btn-default prevstep">Inapoi</button>
+                <button type="button" class="btn btn-default prevstep">@lang("messages.back")</button>
             </div>
             <div class="col-md-6 text-right">
-                <button type="button" class="btn btn-primary nextstep">Continua</button>
+                <button type="button" class="btn btn-primary nextstep">@lang("messages.continue")</button>
             </div>
         </div>
         <ul id="errors"></ul>
@@ -365,6 +365,7 @@
             scene = new THREE.Scene();
             // scene.background = new THREE.Color( 0x3e3e3e );
             scene.background = new THREE.Color( 0x00b2ff );
+            // scene.fog = new THREE.Fog( 0xcccccc, 10, 400 );
 
             renderer = new THREE.WebGLRenderer({
                 preserveDrawingBuffer: true
@@ -374,7 +375,7 @@
             renderer.setSize( wrapper.offsetWidth, wrapper.offsetHeight );
             $("#building-preview").html(renderer.domElement);
 
-            camera = new THREE.PerspectiveCamera( 60, wrapper.offsetWidth / wrapper.offsetHeight, 1, 1500 );
+            camera = new THREE.PerspectiveCamera( 45, wrapper.offsetWidth / wrapper.offsetHeight, 1, 400 );
             camera.position.set( -40, 24, 35 );
 
             // controls
@@ -427,11 +428,10 @@
             // MeshLambertMaterial ca si material (MeshLambertMaterial - material for non-shiny surfaces, without specular highlights )
 
             // se configureaza textura pamantului
-            var grassTexture = THREE.ImageUtils.loadTexture('images/grass-texture.jpg');
-            grassTexture.wrapS = THREE.RepeatWrapping;
-            grassTexture.wrapT = THREE.RepeatWrapping;
-            grassTexture.repeat.x = 80;
-            grassTexture.repeat.y = 80;
+            var grassTexture = THREE.ImageUtils.loadTexture('images/textures/grass-texture.jpg');
+            grassTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
+            grassTexture.repeat.x = 60;
+            grassTexture.repeat.y = 60;
 
             // var material = new THREE.MeshLambertMaterial({ color: 0x3e3e3e, flatShading: true });
             var material = new THREE.MeshLambertMaterial({ color: 0xffffff,  map:grassTexture });
@@ -450,35 +450,191 @@
             // adaugam obiectul creeat, in scena
             scene.add(ground);
 
+            // trotuar
+            var sidewalkMaterial = new THREE.MeshLambertMaterial({ color: 0x8d9295 });
+            var sidewalkGeometry = new THREE.BoxGeometry(lungime + 2, latime + 2, 0.1);
+            var sidewalk = new THREE.Mesh(sidewalkGeometry,sidewalkMaterial);
+
+            sidewalk.rotateX(THREE.Math.degToRad(-90));
+            sidewalk.position.z = 0;
+            sidewalk.position.x = 0;
+            sidewalk.position.y = -0.9;
+
+            scene.add(sidewalk);
+
 
             // Cladirea:
             // in acest caz, vom desena in 2D conturul cladirii, apoi vom face extrude (ExtrudeBufferGeometry)
-            var shape = new THREE.Shape();
-            shape.moveTo( 0,0 );
-            shape.lineTo( 0, inaltime );
-            shape.lineTo( latime/2, inaltime + 1 );
-            shape.lineTo( latime, inaltime );
-            shape.lineTo( latime, 0 );
-            shape.lineTo( 0, 0 );
+            var building2DShape = new THREE.Shape();
+            building2DShape.moveTo( 0,0 );
+            building2DShape.lineTo( 0, inaltime );
+            building2DShape.lineTo( latime/2, inaltime + 1 );
+            building2DShape.lineTo( latime, inaltime );
+            building2DShape.lineTo( latime, 0 );
+            building2DShape.lineTo( 0, 0 );
 
-            var texture = new THREE.TextureLoader().load( 'images/shed-texture.jpg' );
-            texture.wrapS = THREE.ClampToEdgeWrapping;
-            texture.wrapT = THREE.ClampToEdgeWrapping;
-            texture.repeat.set( 13, 13 );
+            // textura pentru fata si spate
+            var frontBackTexture = new THREE.TextureLoader().load( 'images/textures/walls-texture.jpg' );
+            frontBackTexture.wrapS = frontBackTexture.wrapT = THREE.RepeatWrapping;
+            frontBackTexture.repeat.set( 0.3, 0.3 );
+            frontBackTexture.offset.set( 0,0 );
 
-            var geometry = new THREE.ExtrudeBufferGeometry( shape, { depth: lungime, bevelEnabled: false } );
-            // var material = new THREE.MeshLambertMaterial({ color: 0x6d98aa  });
-            var material = new THREE.MeshLambertMaterial({ color: 0xffffff, map: texture });
-            var mesh = new THREE.Mesh( geometry, material ) ;
+            // textura pentru laterale (lafel ca si fata, insa e rotita cu 90 de grade)
+            var SidesTexture = new THREE.TextureLoader().load( 'images/textures/walls-texture.jpg' );
+            SidesTexture.wrapS = SidesTexture.wrapT = THREE.RepeatWrapping;
+            SidesTexture.repeat.set( 0.3, 0.3 );
+            SidesTexture.offset.set( 0,0 );
+            SidesTexture.rotation = THREE.Math.degToRad(90);
+
+            var shedGeometry = new THREE.ExtrudeGeometry( building2DShape, { depth: lungime, bevelEnabled: false } );
+            var shedMaterials = [
+                new THREE.MeshLambertMaterial({ color: 0xa1a1a0, map: frontBackTexture }),
+                new THREE.MeshLambertMaterial({ color: 0xd7d5cb }),
+                new THREE.MeshLambertMaterial({ color: 0xa1a1a0, map: SidesTexture }),
+            ];
+            var shed = new THREE.Mesh( shedGeometry, shedMaterials ) ;
+
+            // fata
+            shed.geometry.faces[0].materialIndex = 0;
+            shed.geometry.faces[1].materialIndex = 0;
+
+            // spate
+            shed.geometry.faces[2].materialIndex = 0;
+            shed.geometry.faces[3].materialIndex = 0;
+
+            // lateral stanga
+            shed.geometry.faces[6].materialIndex = 2;
+            shed.geometry.faces[7].materialIndex = 2;
+
+            // lateral dreapta
+            shed.geometry.faces[12].materialIndex = 2;
+            shed.geometry.faces[13].materialIndex = 2;
+
+            // deasupra
+            shed.geometry.faces[8].materialIndex = 1;
+            shed.geometry.faces[9].materialIndex = 1;
+            shed.geometry.faces[10].materialIndex = 1;
+            shed.geometry.faces[11].materialIndex = 1;
 
             // se roteste cladirea cu 90 de grade pe axa Y - pentru aspect
             // apoi se va pozitiona cladirea pe centru (0,0)
-            mesh.rotateY(THREE.Math.degToRad(90));
-            mesh.position.z = latime/2;
-            mesh.position.x = -lungime/2;
-            mesh.position.y = -1;
+            shed.rotateY(THREE.Math.degToRad(90));
+            shed.position.z = latime/2;
+            shed.position.x = -lungime/2;
+            shed.position.y = -1;
 
-            scene.add( mesh );
+            scene.add( shed );
+
+            var sidewalkMaterial = new THREE.MeshLambertMaterial({ color: 0x8d9295 });
+            var sidewalkGeometry = new THREE.BoxGeometry(lungime + 3, latime + 3, 0.1);
+            var sidewalk = new THREE.Mesh(sidewalkGeometry,sidewalkMaterial);
+
+            sidewalk.rotateX(THREE.Math.degToRad(-90));
+            sidewalk.position.z = 0;
+            sidewalk.position.x = 0;
+            sidewalk.position.y = -0.9;
+
+            scene.add(sidewalk);
+
+            // soclu
+            // textura pentru soclu
+            var shedBaseTexture = new THREE.TextureLoader().load( 'images/textures/walls-texture.jpg' );
+            shedBaseTexture.wrapS = shedBaseTexture.wrapT = THREE.RepeatWrapping;
+            shedBaseTexture.repeat.set( 0.8, 0.8 );
+            shedBaseTexture.offset.set( 0,0 );
+            shedBaseTexture.rotation = THREE.Math.degToRad(90);
+
+            var shedBaseSideTexture = new THREE.TextureLoader().load( 'images/textures/walls-texture.jpg' );
+            shedBaseSideTexture.wrapS = shedBaseSideTexture.wrapT = THREE.RepeatWrapping;
+            shedBaseSideTexture.repeat.set( 0.8, 0.8 );
+            shedBaseSideTexture.offset.set( 0,0 );
+            // shedBaseSideTexture.rotation = THREE.Math.degToRad(90);
+
+            var shedBaseMaterial = new THREE.MeshLambertMaterial({ color: 0x2a292a, map: shedBaseTexture });
+            var shedBaseSideMaterial = new THREE.MeshLambertMaterial({ color: 0x2a292a, map: shedBaseSideTexture });
+            var shedBaseGeometry = new THREE.BoxGeometry(lungime + 0.01, latime + 0.01, 2);
+            var shedBase = new THREE.Mesh(shedBaseGeometry, [
+                shedBaseMaterial,
+                shedBaseSideMaterial,
+            ]);
+
+            shedBase.rotateX(THREE.Math.degToRad(-90));
+            shedBase.position.z = 0;
+            shedBase.position.x = 0;
+            shedBase.position.y = -0.9;
+
+            shedBase.geometry.faces[0].materialIndex = 0;
+            shedBase.geometry.faces[1].materialIndex = 0;
+            shedBase.geometry.faces[2].materialIndex = 0;
+            shedBase.geometry.faces[3].materialIndex = 0;
+
+            shedBase.geometry.faces[4].materialIndex = 1;
+            shedBase.geometry.faces[5].materialIndex = 1;
+            shedBase.geometry.faces[6].materialIndex = 1;
+            shedBase.geometry.faces[7].materialIndex = 1;
+
+            scene.add(shedBase);
+
+            // acoperis
+
+            var roofSide1Geometry = new THREE.BoxGeometry(lungime, latime/2 + 0.1, 0.1);
+            var roofSide2Geometry = new THREE.BoxGeometry(lungime, latime/2 + 0.1, 0.1);
+            var roofMaterial = new THREE.MeshLambertMaterial({ color: 0xd7d5cb });
+            var roofMaterialDark = new THREE.MeshLambertMaterial({ color: 0x2a292a });
+
+            // prevents flickering
+            roofMaterial.polygonOffset = true;
+            roofMaterial.polygonOffsetFactor = -0.1;
+            roofMaterialDark.polygonOffset = true;
+            roofMaterialDark.polygonOffsetFactor = -0.1;
+
+            var roofSide1 = new THREE.Mesh( roofSide1Geometry, [
+                roofMaterial,
+                roofMaterialDark
+            ] ) ;
+            var roofSide2 = new THREE.Mesh( roofSide2Geometry, [
+                roofMaterial,
+                roofMaterialDark
+            ] ) ;
+
+            var offset = Math.atan(1 / (latime/2)) * 180 / Math.PI;
+
+            roofSide1.rotateX(THREE.Math.degToRad(90-offset));
+            roofSide1.position.z = -(latime/4);
+            roofSide1.position.x = 0;
+            roofSide1.position.y = inaltime-0.5;
+
+            roofSide2.rotateX(THREE.Math.degToRad(-(90-offset)));
+            roofSide2.position.z = (latime/4);
+            roofSide2.position.x = 0;
+            roofSide2.position.y = inaltime-0.5;
+
+            roofSide1.geometry.faces[0].materialIndex = 1;
+            roofSide1.geometry.faces[1].materialIndex = 1;
+            roofSide1.geometry.faces[2].materialIndex = 1;
+            roofSide1.geometry.faces[3].materialIndex = 1;
+            roofSide1.geometry.faces[4].materialIndex = 1;
+            roofSide1.geometry.faces[5].materialIndex = 1;
+            roofSide1.geometry.faces[6].materialIndex = 1;
+            roofSide1.geometry.faces[7].materialIndex = 1;
+            roofSide1.geometry.faces[8].materialIndex = 0;
+            roofSide1.geometry.faces[9].materialIndex = 0;
+
+            roofSide2.geometry.faces[0].materialIndex = 1;
+            roofSide2.geometry.faces[1].materialIndex = 1;
+            roofSide2.geometry.faces[2].materialIndex = 1;
+            roofSide2.geometry.faces[3].materialIndex = 1;
+            roofSide2.geometry.faces[4].materialIndex = 0;
+            roofSide2.geometry.faces[5].materialIndex = 0;
+            roofSide2.geometry.faces[6].materialIndex = 1;
+            roofSide2.geometry.faces[7].materialIndex = 1; 
+            roofSide2.geometry.faces[8].materialIndex = 0;
+            roofSide2.geometry.faces[9].materialIndex = 0;
+
+
+            scene.add(roofSide1);
+            scene.add(roofSide2);
+
 
             // Lumini:
             // se adauga luminile in scena

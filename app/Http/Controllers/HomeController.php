@@ -28,9 +28,8 @@ class HomeController extends Controller
 
     public function proceseaza(Request $request) {
         $validator = Validator::make($request->all(), [
-            // date identificare
-            'nume' => 'required',
-            'prenume' => 'required',
+//            'nume' => 'required',
+//            'prenume' => 'required',
             'email' => 'required|email',
             'telefon' => 'required',
             // date cladire
@@ -69,12 +68,13 @@ class HomeController extends Controller
 
 
         $validator = Validator::make($request->all(), [
-            'nume' => 'required',
-            'prenume' => 'required',
+//            'nume' => 'required',
+//            'prenume' => 'required',
             'firma' => 'required',
             'localitate' => 'required',
             'email' => 'required|email',
             'telefon' => 'required',
+            'project_file' => 'required|max:100000',
         ]);
 
         if ($validator->fails()) {

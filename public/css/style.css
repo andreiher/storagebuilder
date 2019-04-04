@@ -19,6 +19,33 @@
     display:none;
 }
 
+.btn-primary {
+    background-color:#54bdeb;
+    border-color:#54bdeb;
+}
+
+.website-footer {
+    margin-top:60px;
+    font-size:12px;
+    color:#ccc;
+    clear:both;
+}
+
+.lang-switcher {
+    margin-left:20px;
+}
+
+.lang-switcher a {
+    display:block;
+    position:relative;
+    bottom:-5px;
+    color:#fff;
+    text-decoration: none;
+}
+.lang-switcher img {
+    height:auto;
+    width:40px;
+}
 @media (max-width: 576px) {
     .canvas-container {
         position:static;

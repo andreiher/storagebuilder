@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Formular cerere de oferta</title>
+    <title>@lang("messages.website_title")</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker3.min.css" />
@@ -13,32 +13,84 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="{{ route("home") }}">Configurator cladiri 3D</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="d-flex flex-grow-1">
+        <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
+        <a class="navbar-brand d-none d-lg-inline-block" href="#">
+            Navbar 6
+        </a>
+        <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
+            <img src="//placehold.it/40?text=LOGO" alt="logo">
+        </a>
+        <div class="w-100 text-right">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+        <ul class="navbar-nav ml-auto flex-nowrap">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route("home") }}">Pagina de start</a>
+                <a href="#" class="nav-link m-2 menu-item nav-active">Our Solution</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route("desprenoi") }}">Despre noi</a>
+                <a href="#" class="nav-link m-2 menu-item">How We Help</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a href="#" class="nav-link m-2 menu-item">Blog</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link m-2 menu-item">Contact</a>
             </li>
         </ul>
     </div>
 </nav>
 
-<main role="main" class="container align-items-center" style="margin-top:110px;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="d-flex flex-grow-1">
+        <span class="w-100 d-lg-none d-block"></span>
+        <a class="navbar-brand" href="{{ route("home") }}">
+            <img src="/images/rap-dev-logo.png" alt="Rap Development">
+        </a>
+        <div class="w-100 text-right">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="navbarsDefault">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route("home") }}">@lang("messages.menu_home")</a>
+            </li>
+            <li class="nav-item lang-switcher">
+                @if(\App::getLocale() == "en")
+                    <a href="/lang/ro">
+                        Romana <img src="/images/lang-ro.png" alt="Romana">
+                    </a>
+                @else
+                    <a href="/lang/en">
+                        Engleza <img src="/images/lang-en.png" alt="English">
+                    </a>
+                @endif
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<main role="main" class="container align-items-center" style="margin-top:110px; padding-bottom:30px;">
 
     @yield('content')
 
 </main><!-- /.container -->
+
+<footer class="text-muted website-footer">
+    <div class="container text-right">
+        <p>&copy 2019 RAP Development.</p>
+    </div>
+</footer>
 
 @section("scripts")
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
