@@ -66,15 +66,12 @@
                 <a class="nav-link" href="{{ route("home") }}">@lang("messages.menu_home")</a>
             </li>
             <li class="nav-item lang-switcher">
-                @if(\App::getLocale() == "en")
-                    <a href="/lang/ro">
-                        Romana <img src="/images/lang-ro.png" alt="Romana">
-                    </a>
-                @else
-                    <a href="/lang/en">
-                        Engleza <img src="/images/lang-en.png" alt="English">
-                    </a>
-                @endif
+                <a href="/lang/ro">
+                     <img src="/images/lang-ro.png" alt="Romana">
+                </a>
+                <a href="/lang/en">
+                     <img src="/images/lang-en.png" alt="English">
+                </a>
             </li>
         </ul>
     </div>
