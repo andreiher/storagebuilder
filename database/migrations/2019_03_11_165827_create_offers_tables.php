@@ -61,6 +61,7 @@ class CreateOffersTables extends Migration
             $table->text('usi_sectionale')->nullable();
             $table->text('usi_pietonale')->nullable();
             $table->text('rampe_acces_tir')->nullable();
+            $table->text('extra_info')->nullable();
 
             $table->string('project_file')->nullable();
 

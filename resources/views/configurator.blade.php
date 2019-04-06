@@ -293,6 +293,10 @@
                             } else if(theInput.is('[type="checkbox"]')) {
                                 var inputClass = input.value == "1" ? 'fa-check' : 'fa-times';
                                 item.html('<i class="fas '+inputClass+'"></i>');
+                            } else if(theInput.is('textarea')) {
+                                if(input.value.length) {
+                                    item.html((input.value + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + '<br />' + '$2'));
+                                }
                             } else {
                                 if(input.value.length) {
                                     item.html(input.value);
@@ -417,6 +421,17 @@
             // functia urmatoare se ocupa cu validarea formularului,
             // in functie de pasul in care este (currentstep)
             $("#wizzard_form").validate({ rules: validationRules[(currentstep - 1)] });
+
+            $("#terms_and_conditions").on("click", function() {
+                var button = $('form button[type="submit"]');
+                if(!$(this).is(":checked")) {
+                    button.attr("disabled", true);
+                    button.prop("disabled", true);
+                } else {
+                    button.attr("disabled", false);
+                    button.prop("disabled", false);
+                }
+            });
 
             $(window).on("resize", function() {
                 detailsSectionHeight();

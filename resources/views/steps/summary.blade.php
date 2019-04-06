@@ -75,6 +75,11 @@
             <p>@lang("messages.project_end_date"): <span class="data_sfarsit">-</span></p>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p>@lang("messages.extra_information"): <span class="extra_info">-</span></p>
+        </div>
+    </div>
 </div>
 
 <hr/>
@@ -83,6 +88,7 @@
         <button type="button" class="btn btn-default prevstep">@lang("messages.back")</button>
     </div>
     <div class="col-md-6 text-right">
-        <button type="submit" class="btn btn-primary">@lang("messages.submit")</button>
+        <label class="mr-4">@lang("messages.terms-and-conditions") <input id="terms_and_conditions" type="checkbox" value="1"> </label>
+        <button type="submit" disabled="disabled" class="btn btn-primary">@lang("messages.submit")</button>
     </div>
 </div>

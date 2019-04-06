@@ -26,6 +26,7 @@ return [
     'building_type_warehouse' => 'Storage',
     'building_type_adm_center' => 'Administrative centre',
     'building_type_gym' => 'Gym',
+    'building_type_other' => 'Other',
 
     'structure_type' => 'Structure',
     'structure_type_metal' => 'Metal',
@@ -112,6 +113,7 @@ return [
     'your_expectations' => 'Your expectations',
     'project_start_date' => 'Project start date',
     'project_end_date' => 'Project end date',
+    'extra_information' => 'Extra Information',
 
     'project_files' => 'Attachements',
     'project_files_notes' => 'Only doc, docx, pdf, rtf, dxf, jpg, png, zip, rar files are accepted',
@@ -120,6 +122,7 @@ return [
     'your_request_text2' => 'After receiving your data, we will contact you as soon as possible.',
     'objective' => 'Objectives',
     'details' => 'Details',
+    'terms-and-conditions' => 'I agree with the <a href="/terms-and-conditions" target="_blank">terms and conditions</a> of this website.',
 
     // Other
     'units_meters' => 'm',

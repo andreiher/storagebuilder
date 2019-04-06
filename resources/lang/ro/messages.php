@@ -26,6 +26,7 @@ return [
     'building_type_warehouse' => 'Depozit',
     'building_type_adm_center' => 'Centru administrativ',
     'building_type_gym' => 'Sala de sport',
+    'building_type_other' => 'Altele',
 
     'structure_type' => 'Structura',
     'structure_type_metal' => 'Metal',
@@ -112,6 +113,7 @@ return [
     'your_expectations' => 'Asteptarile dumneavoastra',
     'project_start_date' => 'Data inceperi proiectului',
     'project_end_date' => 'Data finalizarii proiectului',
+    'extra_information' => 'Informatii Suplimentare',
 
     'project_files' => 'Atasamente',
     'project_files_notes' => 'Sunt acceptate numai fisierele de tip doc, docx, pdf, rtf, dxf, jpg, png, zip, rar',
@@ -120,6 +122,7 @@ return [
     'your_request_text2' => 'Dupa trimiterea lor va vom contacta in cel mai scurt timp',
     'objective' => 'Obiectiv',
     'details' => 'Detalii',
+    'terms-and-conditions' => 'Sunt de acord cu <a href="/termeni-si-conditii" target="_blank">termenii si conditiile</a> acestui site.',
 
     // Other
     'units_meters' => 'm',

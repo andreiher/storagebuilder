@@ -60,6 +60,7 @@ class CereriOferta extends Model
         'usi_sectionale',
         'usi_pietonale',
         'rampe_acces_tir',
+        'extra_info',
 
         'project_file',
     ];

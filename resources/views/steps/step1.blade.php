@@ -14,7 +14,7 @@
                 <option value="depozit" {{ old("destinatie_cladire") == "depozit" ? 'selected="selected"' : ''}}>@lang("messages.building_type_warehouse")</option>
                 <option value="centru_administrativ" {{ old("destinatie_cladire") == "centru_administrativ" ? 'selected="selected"' : ''}}>@lang("messages.building_type_adm_center")</option>
                 <option value="sala_de_sport" {{ old("destinatie_cladire") == "sala_de_sport" ? 'selected="selected"' : ''}}>@lang("messages.building_type_gym")</option>
-                <option value="altele" {{ old("destinatie_cladire") == "altele" ? 'selected="selected"' : ''}}>@lang("messages.building_type")Altele</option>
+                <option value="altele" {{ old("destinatie_cladire") == "altele" ? 'selected="selected"' : ''}}>@lang("messages.building_type_other")</option>
             </select>
         </div>
 
@@ -329,7 +329,7 @@
             document.body.appendChild( WEBGL.getWebGLErrorMessage() );
         }
 
-        var camera, controls, scene = false, renderer;
+        var camera, controls, scene = false, renderer, lungime, latime, inaltime, tip_cladire;
 
         // urmatoarele functii se se trigger-uiesc dupa ce a incarcat complet pagina
         $(function() {
@@ -394,7 +394,7 @@
 
             controls.maxPolarAngle = Math.PI / 2;
 
-            $("#lungime, #latime, #inaltime").on("change", refreshScene);
+            $("#lungime, #latime, #inaltime, #type").on("change", refreshScene);
 
             createGeometries();
             generateSnapshot();
@@ -405,9 +405,10 @@
 
             // se preiau valorile lungimii, latimii si inaltimii care au fost introduse in formular
             // prin jquery
-            var lungime = parseInt($("#lungime").val());
-            var latime = parseInt($("#latime").val());
-            var inaltime = parseInt($("#inaltime").val());
+            lungime = parseInt($("#lungime").val());
+            latime = parseInt($("#latime").val());
+            inaltime = parseInt($("#inaltime").val());
+            tip_cladire = $("#type").val();
 
             // asta e un fallback - cand unul din inputuri este gol, sau este mai mic ca 0, sa foloseasca o valoare
             // predefinita (de ex: 30, 16 sau 5) - astfel previi sa afiseze un corp defectuos
@@ -423,6 +424,18 @@
 
             // crearea geometriilor propriu-zise
 
+            addGround();
+            addSidewalk();
+
+            addShed();
+            addShedBase();
+            addShedRoof();
+            addShedAccesories();
+
+            addLights();
+        }
+
+        function addGround() {
             // Pamantul:
             // se creeaza un obiect plan (PlaneGeometry) de dimensiuni 1400x1400, folosind
             // MeshLambertMaterial ca si material (MeshLambertMaterial - material for non-shiny surfaces, without specular highlights )
@@ -449,10 +462,8 @@
 
             // adaugam obiectul creeat, in scena
             scene.add(ground);
-
-
-
-
+        }
+        function addShed() {
             // Cladirea:
             // in acest caz, vom desena in 2D conturul cladirii, apoi vom face extrude (ExtrudeBufferGeometry)
             var building2DShape = new THREE.Shape();
@@ -518,8 +529,8 @@
             shed.position.y = -1;
 
             scene.add( shed );
-
-
+        }
+        function addSidewalk() {
             // trotuar
             var sidewalkMaterial = new THREE.MeshLambertMaterial({ color: 0x8d9295 });
             var sidewalkGeometry = new THREE.BoxGeometry(lungime + 3, 0.1, latime + 3);
@@ -530,7 +541,8 @@
             sidewalk.position.y = -0.9;
 
             scene.add(sidewalk);
-
+        }
+        function addShedBase() {
             // soclu
             // textura pentru soclu
             var shedBaseTexture = new THREE.TextureLoader().load( 'images/textures/walls-texture.jpg' );
@@ -570,11 +582,45 @@
             shedBase.geometry.faces[7].materialIndex = 1;
 
             scene.add(shedBase);
+        }
+        function addShedRoof() {
+            // acoperis
 
-                        // acoperis
+            if(tip_cladire === "sala_de_sport") {
+                var roof2DShape = new THREE.Shape();
+                roof2DShape.moveTo( 0, inaltime );
+                roof2DShape.bezierCurveTo( latime /2, inaltime+ 3, latime, inaltime, latime, inaltime );
+                roof2DShape.lineTo( 0, inaltime );
 
-            var roofSide1Geometry = new THREE.BoxGeometry(lungime, latime/2 + 0.3, 0.1);
-            var roofSide2Geometry = new THREE.BoxGeometry(lungime, latime/2 + 0.3, 0.1);
+                // textura pentru fata si spate
+                var roofTexture = new THREE.TextureLoader().load( 'images/textures/walls-texture.jpg' );
+                roofTexture.wrapS = roofTexture.wrapT = THREE.RepeatWrapping;
+                roofTexture.repeat.set( 0.3, 0.3 );
+                roofTexture.offset.set( 0,0 );
+
+                var shedGeometry = new THREE.ExtrudeGeometry( roof2DShape, { depth: lungime, bevelEnabled: false } );
+                var shedMaterials = [
+                    new THREE.MeshLambertMaterial({ color: 0xa1a1a0, map: roofTexture }), // front back material
+                    new THREE.MeshLambertMaterial({ color: 0xd7d5cb }), // roof material
+                ];
+                var roof = new THREE.Mesh( shedGeometry, shedMaterials ) ;
+
+                roof.rotateY(THREE.Math.degToRad(90));
+                roof.position.z = latime/2;
+                roof.position.x = -lungime/2;
+                roof.position.y = -1;
+
+                scene.add(roof);
+                return;
+            }
+
+            // roofSide width - pentru asta aplicam teorema lui Pitagora
+            // calculul ipotenuzei = ipotenuza = radical din latime la patrat + inaltimea la patrat
+
+            var roofSideWidth = Math.sqrt((latime/2)*(latime/2) + 1);
+
+            var roofSide1Geometry = new THREE.BoxGeometry(lungime, roofSideWidth, 0.1);
+            var roofSide2Geometry = new THREE.BoxGeometry(lungime, roofSideWidth, 0.1);
             var roofMaterial = new THREE.MeshLambertMaterial({ color: 0xd7d5cb });
             var roofMaterialDark = new THREE.MeshLambertMaterial({ color: 0x2a292a });
 
@@ -634,7 +680,8 @@
 
             scene.add(roofSide1);
             scene.add(roofSide2);
-
+        }
+        function addLights() {
             // Lumini:
             // se adauga luminile in scena
             var light = new THREE.DirectionalLight( 0xffffff );
@@ -644,6 +691,56 @@
 
             var light = new THREE.AmbientLight( 0xcccccc );
             scene.add( light );
+        }
+        function addShedAccesories() {
+            // scoc & burlan
+            // lateral stanga
+            var drainGeometry = new THREE.BoxGeometry(lungime, 0.1, 0.1);
+            var drain = new THREE.Mesh(drainGeometry,new THREE.MeshLambertMaterial({ color: 0x003319 }));
+
+            drain.position.z = - (latime/2) - 0.05;
+            drain.position.x = 0;
+            drain.position.y = inaltime - 1.1;
+            scene.add(drain);
+
+            var drainGeometry2 = new THREE.CylinderGeometry(0.05, 0.05, inaltime + 1);
+            var drain2 = new THREE.Mesh(drainGeometry2,new THREE.MeshLambertMaterial({ color: 0x003319 }));
+            drain2.position.z = - (latime/2) - 0.05;
+            drain2.position.x = -(lungime/2) + 0.3;
+            drain2.position.y = 0.9;
+            scene.add(drain2);
+
+
+            var drainGeometry2 = new THREE.CylinderGeometry(0.05, 0.05, inaltime + 1);
+            var drain2 = new THREE.Mesh(drainGeometry2,new THREE.MeshLambertMaterial({ color: 0x003319 }));
+            drain2.position.z = - (latime/2) - 0.05;
+            drain2.position.x = (lungime/2) - 0.3;
+            drain2.position.y = 0.9;
+            scene.add(drain2);
+
+            // lateral drapta
+            var drainGeometry = new THREE.BoxGeometry(lungime, 0.1, 0.1);
+            var drain = new THREE.Mesh(drainGeometry,new THREE.MeshLambertMaterial({ color: 0x003319 }));
+
+            drain.position.z = (latime/2) + 0.05;
+            drain.position.x = 0;
+            drain.position.y = inaltime - 1.1;
+            scene.add(drain);
+
+            var drainGeometry2 = new THREE.CylinderGeometry(0.05, 0.05, inaltime + 1);
+            var drain2 = new THREE.Mesh(drainGeometry2,new THREE.MeshLambertMaterial({ color: 0x003319 }));
+            drain2.position.z = (latime/2) + 0.05;
+            drain2.position.x = -(lungime/2) + 0.3;
+            drain2.position.y = 0.9;
+            scene.add(drain2);
+
+
+            var drainGeometry2 = new THREE.CylinderGeometry(0.05, 0.05, inaltime + 1);
+            var drain2 = new THREE.Mesh(drainGeometry2,new THREE.MeshLambertMaterial({ color: 0x006633 }));
+            drain2.position.z = (latime/2) + 0.05;
+            drain2.position.x = (lungime/2) - 0.3;
+            drain2.position.y = 0.9;
+            scene.add(drain2);
         }
 
         // urmatoarea functie va sterge toate elementele din scena

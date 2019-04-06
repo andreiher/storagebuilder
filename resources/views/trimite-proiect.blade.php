@@ -89,12 +89,24 @@
             </div>
         </div>
 
+        <h3>@lang("messages.extra_information")</h3>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="date_inceput">@lang("messages.extra_information") </label>
+                    <textarea name="extra_info" id="extra_info" class="form-control" rows="5">{{ old('extra_info') }}</textarea>
+                </div>
+            </div>
+        </div>
+
         <br/>
 
         <div class="row">
 
             <div class="col-md-12 text-right">
-                <button type="submit" class="btn btn-primary">@lang("messages.submit")</button>
+                <label class="mr-4">@lang("messages.terms-and-conditions") <input id="terms_and_conditions" type="checkbox" value="1"> </label>
+                <button type="submit" disabled="disabled" class="btn btn-primary">@lang("messages.submit")</button>
             </div>
         </div>
 
@@ -105,6 +117,16 @@
     @parent
     <script type="text/javascript">
         $(function() {
+            $("#terms_and_conditions").on("click", function() {
+                var button = $('form button[type="submit"]');
+                if(!$(this).is(":checked")) {
+                    button.attr("disabled", true);
+                    button.prop("disabled", true);
+                } else {
+                    button.attr("disabled", false);
+                    button.prop("disabled", false);
+                }
+            });
             $("form").validate({
                 rules: {
                     firma: "required",

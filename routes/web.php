@@ -28,7 +28,8 @@ Route::post('/trimite-proiect', "HomeController@proceseazaTrimiteProiect")->name
 Route::get('/confirmare-cerere', "HomeController@confirmare")->name("confirmare");
 
 
-Route::get('/desprenoi', "HomeController@desprenoi")->name("desprenoi");
+Route::get('/termeni-si-conditii', "HomeController@termenisiconditii")->name("termenisiconditii");
+Route::get('/terms-and-conditions', "HomeController@termsandconditions")->name("termsandconditions");
 
 
 

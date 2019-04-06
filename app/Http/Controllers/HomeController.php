@@ -16,9 +16,14 @@ class HomeController extends Controller
         return view('homepage');
     }
 
-    public function desprenoi()
+    public function termenisiconditii()
     {
-        return view('desprenoi');
+        return view('termenisiconditii');
+    }
+
+    public function termsandconditions()
+    {
+        return view('termsandconditions');
     }
 
     public function configurator()
