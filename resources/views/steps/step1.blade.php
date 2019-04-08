@@ -707,7 +707,7 @@
             var drain2 = new THREE.Mesh(drainGeometry2,new THREE.MeshLambertMaterial({ color: 0x003319 }));
             drain2.position.z = - (latime/2) - 0.05;
             drain2.position.x = -(lungime/2) + 0.3;
-            drain2.position.y = 0.9;
+            drain2.position.y = (inaltime / 2) - 1.1;
             scene.add(drain2);
 
 
@@ -715,10 +715,10 @@
             var drain2 = new THREE.Mesh(drainGeometry2,new THREE.MeshLambertMaterial({ color: 0x003319 }));
             drain2.position.z = - (latime/2) - 0.05;
             drain2.position.x = (lungime/2) - 0.3;
-            drain2.position.y = 0.9;
+            drain2.position.y = (inaltime / 2) - 1.1;
             scene.add(drain2);
 
-            // lateral drapta
+            // lateral dreapta
             var drainGeometry = new THREE.BoxGeometry(lungime, 0.1, 0.1);
             var drain = new THREE.Mesh(drainGeometry,new THREE.MeshLambertMaterial({ color: 0x003319 }));
 
@@ -727,11 +727,11 @@
             drain.position.y = inaltime - 1.1;
             scene.add(drain);
 
-            var drainGeometry2 = new THREE.CylinderGeometry(0.05, 0.05, inaltime + 1);
+            var drainGeometry2 = new THREE.CylinderGeometry(0.05, 0.05, inaltime, 10, 10, 10, 10);
             var drain2 = new THREE.Mesh(drainGeometry2,new THREE.MeshLambertMaterial({ color: 0x003319 }));
             drain2.position.z = (latime/2) + 0.05;
             drain2.position.x = -(lungime/2) + 0.3;
-            drain2.position.y = 0.9;
+            drain2.position.y = (inaltime / 2) - 1.1;
             scene.add(drain2);
 
 
@@ -739,7 +739,7 @@
             var drain2 = new THREE.Mesh(drainGeometry2,new THREE.MeshLambertMaterial({ color: 0x006633 }));
             drain2.position.z = (latime/2) + 0.05;
             drain2.position.x = (lungime/2) - 0.3;
-            drain2.position.y = 0.9;
+            drain2.position.y = (inaltime / 2) - 1.1;
             scene.add(drain2);
         }
 

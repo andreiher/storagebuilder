@@ -46,24 +46,25 @@
                 var wrap = $(this).parent().find(".dynamic-wrap");
                 var inputName = $(this).attr("dynamic-name");
 
-                var newItem = '<li class="pb-1 pt-1">'+
-                    '<input type="hidden" class="form-control main-input" name="'+ inputName +'[]" placeholder="L x l x H">' +
-                    '<div class="row">' +
-                    '<div class="col-md-8">' +
-                    '<input type="text" class="form-control dynamic-input sizes" placeholder="L x l x H">' +
-                    '</div>' +
-                    '<div class="col-md-2">' +
-                    '<input type="number" class="form-control dynamic-input pieces" placeholder="Buc" value="1">' +
-                    '</div>' +
-                    '<div class="col-md-2">' +
-                        '<button type="button" class="btn btn-danger remove-dynamic-element"><i class="fas fa-minus"></i></button> ' +
-                    '</div>' +
-                    '</div>' +
+                var newItem =
+                    '<li class="pb-1 pt-1">'+
+                        '<input type="hidden" class="form-control main-input" name="'+ inputName +'[]" placeholder="L x l x H">' +
+                        '<div class="row">' +
+                            '<div class="col-md-7">' +
+                                '<input type="text" class="form-control dynamic-input sizes" placeholder="L x l x H">' +
+                            '</div>' +
+                            '<div class="col-md-3">' +
+                                '<input type="number" class="form-control dynamic-input pieces" placeholder="Buc" value="1">' +
+                            '</div>' +
+                            '<div class="col-md-2">' +
+                                '<button type="button" class="btn btn-danger remove-dynamic-element"><i class="fas fa-minus"></i></button> ' +
+                            '</div>' +
+                        '</div>' +
                     '</li>';
                 wrap.append(newItem);
             });
 
-            $("body").on("change keyup", ".dynamic-input", function() {
+            $("body").on("change paste keyup", ".dynamic-input", function() {
                 var that = $(this);
                 var wrap = that.closest("li");
                 var input = wrap.find(".main-input");
