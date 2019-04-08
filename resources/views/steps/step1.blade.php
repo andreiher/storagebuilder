@@ -157,7 +157,7 @@
         <div class="form-group p-2" id="pod_rulant-sarcina" {!! old("pod_rulant") && old("pod_rulant") == "Da" ? '' : 'style="display:none"' !!}>
             <div class="form-group">
                 <label for="pod_rulant_sarcina">@lang("messages.slide_bridge_load")</label>
-                <input type="number" lang="en" class="form-control" id="pod_rulant_sarcina" name="pod_rulant_sarcina" placeholder="@lang("messages.units_sqmeters")" value="{{ old('pod_rulant_sarcina') }}">
+                <input type="number" lang="en" class="form-control" id="pod_rulant_sarcina" name="pod_rulant_sarcina" placeholder="@lang("messages.units_tonnes")" value="{{ old('pod_rulant_sarcina') }}">
             </div>
         </div>
 
@@ -753,7 +753,7 @@
             doorTexture.rotation = THREE.Math.degToRad(180);
 
             var doorMaterial = new THREE.MeshLambertMaterial({ color: 0xa1a1a0, map: doorTexture });
-            var doorGeometry = new THREE.BoxGeometry((lungime/5 < 6 ? 6 : lungime/5), 3.5, 0.05);
+            var doorGeometry = new THREE.BoxGeometry(4, 4, 0.05);
             var door = new THREE.Mesh(doorGeometry, doorMaterial);
 
             door.position.z = (latime/2) +0.01;

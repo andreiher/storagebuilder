@@ -85,7 +85,7 @@
 
 <footer class="text-muted website-footer">
     <div class="container text-right">
-        <p>&copy 2019 RAP Development.</p>
+        <p>&copy 2019 RAP Development</p>
     </div>
 </footer>
 

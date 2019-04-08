@@ -327,7 +327,6 @@
                         required: true,
                         number: true
                     },
-                    suprafata_construita: "required",
                     sistem_pluvial: "required",
                     panta_acoperis: "required",
                     mezanin: "required",

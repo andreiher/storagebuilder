@@ -16,8 +16,6 @@
             <p><span class="destinatie_cladire">-</span></p>
             <p>@lang("messages.structure_type"): <span class="tip_structura">-</span></p>
             <p>@lang("messages.built_area"): <span class="suprafata_construita">-</span> m<sup>2</sup></p>
-            <p>@lang("messages.total_area"): <span class="suprafata_totala">-</span> m<sup>2</sup></p>
-
         </div>
     </div>
     <hr/>
