@@ -97,7 +97,7 @@ return [
 
     // Configurator Step 2
     'your_request' => 'Cererea dumneavoastra',
-    'your_request_text' => 'Va rugam sa completatio formularul de mai jos:',
+    'your_request_text' => 'Va rugam sa completati formularul de mai jos:',
 
     'identification_data' => 'Date de identificare',
     'company' => 'Firma',
@@ -113,7 +113,7 @@ return [
     'your_expectations' => 'Asteptarile dumneavoastra',
     'project_start_date' => 'Data inceperi proiectului',
     'project_end_date' => 'Data finalizarii proiectului',
-    'extra_information' => 'Informatii Suplimentare',
+    'extra_information' => 'Informatii suplimentare',
 
     'project_files' => 'Atasamente',
     'project_files_notes' => 'Sunt acceptate numai fisierele de tip doc, docx, pdf, rtf, dxf, jpg, png, zip, rar',

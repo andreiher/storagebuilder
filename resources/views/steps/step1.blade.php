@@ -431,6 +431,9 @@
             addShedBase();
             addShedRoof();
             addShedAccesories();
+            addGarageDoors();
+            addPedestrianDoors();
+            addWindows();
 
             addLights();
         }
@@ -703,7 +706,7 @@
             drain.position.y = inaltime - 1.1;
             scene.add(drain);
 
-            var drainGeometry2 = new THREE.CylinderGeometry(0.05, 0.05, inaltime + 1);
+            var drainGeometry2 = new THREE.CylinderGeometry(0.05, 0.05, inaltime);
             var drain2 = new THREE.Mesh(drainGeometry2,new THREE.MeshLambertMaterial({ color: 0x003319 }));
             drain2.position.z = - (latime/2) - 0.05;
             drain2.position.x = -(lungime/2) + 0.3;
@@ -711,7 +714,7 @@
             scene.add(drain2);
 
 
-            var drainGeometry2 = new THREE.CylinderGeometry(0.05, 0.05, inaltime + 1);
+            var drainGeometry2 = new THREE.CylinderGeometry(0.05, 0.05, inaltime);
             var drain2 = new THREE.Mesh(drainGeometry2,new THREE.MeshLambertMaterial({ color: 0x003319 }));
             drain2.position.z = - (latime/2) - 0.05;
             drain2.position.x = (lungime/2) - 0.3;
@@ -727,7 +730,7 @@
             drain.position.y = inaltime - 1.1;
             scene.add(drain);
 
-            var drainGeometry2 = new THREE.CylinderGeometry(0.05, 0.05, inaltime, 10, 10, 10, 10);
+            var drainGeometry2 = new THREE.CylinderGeometry(0.05, 0.05, inaltime);
             var drain2 = new THREE.Mesh(drainGeometry2,new THREE.MeshLambertMaterial({ color: 0x003319 }));
             drain2.position.z = (latime/2) + 0.05;
             drain2.position.x = -(lungime/2) + 0.3;
@@ -735,12 +738,96 @@
             scene.add(drain2);
 
 
-            var drainGeometry2 = new THREE.CylinderGeometry(0.05, 0.05, inaltime + 1);
+            var drainGeometry2 = new THREE.CylinderGeometry(0.05, 0.05, inaltime);
             var drain2 = new THREE.Mesh(drainGeometry2,new THREE.MeshLambertMaterial({ color: 0x006633 }));
             drain2.position.z = (latime/2) + 0.05;
             drain2.position.x = (lungime/2) - 0.3;
             drain2.position.y = (inaltime / 2) - 1.1;
             scene.add(drain2);
+        }
+        function addGarageDoors() {
+            var doorTexture = new THREE.TextureLoader().load( 'images/textures/garage-door-texture.jpg' );
+            doorTexture.wrapS = doorTexture.wrapT = THREE.RepeatWrapping;
+            doorTexture.repeat.set( 1,1 );
+            doorTexture.offset.set( 0,0 );
+            doorTexture.rotation = THREE.Math.degToRad(180);
+
+            var doorMaterial = new THREE.MeshLambertMaterial({ color: 0xa1a1a0, map: doorTexture });
+            var doorGeometry = new THREE.BoxGeometry((lungime/5 < 6 ? 6 : lungime/5), 3.5, 0.05);
+            var door = new THREE.Mesh(doorGeometry, doorMaterial);
+
+            door.position.z = (latime/2) +0.01;
+            door.position.x = 0;
+            door.position.y = 0.5;
+
+            scene.add(door);
+        }
+        function addPedestrianDoors() {
+            var doorTexture = new THREE.TextureLoader().load( 'images/textures/pedestrian-door-texture.jpg' );
+            doorTexture.wrapS = doorTexture.wrapT = THREE.RepeatWrapping;
+            doorTexture.repeat.set( 1,1 );
+            doorTexture.offset.set( 0,0 );
+            doorTexture.rotation = THREE.Math.degToRad(180);
+
+            var doorMaterial = new THREE.MeshLambertMaterial({ color: 0xa1a1a0, map: doorTexture });
+            var doorGeometry = new THREE.BoxGeometry(1.1, 2, 0.05);
+            var door = new THREE.Mesh(doorGeometry, doorMaterial);
+
+            door.position.z = (latime/2) +0.01;
+            door.position.x = -(lungime/2) + (0.8 + 2);
+            door.position.y = 0;
+
+            scene.add(door);
+
+            var doorTexture = new THREE.TextureLoader().load( 'images/textures/pedestrian-door-texture.jpg' );
+            doorTexture.wrapS = doorTexture.wrapT = THREE.RepeatWrapping;
+            doorTexture.repeat.set( 1,1 );
+            doorTexture.offset.set( 0,0 );
+            doorTexture.rotation = THREE.Math.degToRad(180);
+
+            var doorMaterial = new THREE.MeshLambertMaterial({ color: 0xa1a1a0, map: doorTexture });
+            var doorGeometry = new THREE.BoxGeometry(0.05, 2, 1.1);
+            var door = new THREE.Mesh(doorGeometry, doorMaterial);
+
+            door.position.z = -(latime/2) + 2;
+            door.position.x = lungime/2;
+            door.position.y = 0;
+
+            scene.add(door);
+        }
+        function addWindows() {
+            var windowTexture = new THREE.TextureLoader().load( 'images/textures/windows-texture.jpg' );
+            windowTexture.wrapS = windowTexture.wrapT = THREE.RepeatWrapping;
+            windowTexture.repeat.set( 8,1 );
+            windowTexture.offset.set( 0,0 );
+            windowTexture.rotation = THREE.Math.degToRad(180);
+
+            var windowMaterial = new THREE.MeshLambertMaterial({ color: 0xa1a1a0, map: windowTexture });
+            var windowGeometry = new THREE.BoxGeometry( (lungime - 4), 1.2, 0.05);
+            var window = new THREE.Mesh(windowGeometry, windowMaterial);
+
+            window.position.z = - (latime/2) +0.01;
+            window.position.x = 0;
+            window.position.y = 2.5;
+
+            scene.add(window);
+
+            var windowTexture = new THREE.TextureLoader().load( 'images/textures/windows-texture.jpg' );
+            windowTexture.wrapS = windowTexture.wrapT = THREE.RepeatWrapping;
+            windowTexture.repeat.set( 8,1 );
+            windowTexture.offset.set( 0,0 );
+            windowTexture.rotation = THREE.Math.degToRad(180);
+
+            var windowMaterial = new THREE.MeshLambertMaterial({ color: 0xa1a1a0, map: windowTexture });
+            var windowGeometry = new THREE.BoxGeometry( 0.05, 1.2, (latime / 2) - 2);
+            var window = new THREE.Mesh(windowGeometry, windowMaterial);
+
+            window.position.z = (latime/4) ;
+            window.position.x = (lungime/2) +0.01;
+            window.position.y = 2.5;
+
+            scene.add(window);
+
         }
 
         // urmatoarea functie va sterge toate elementele din scena

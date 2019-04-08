@@ -156,7 +156,7 @@
                 orientation: "top left"
             }).on("changeDate",function(e){
                 var newdate=e.date;
-                newdate.setMonth(newdate.getMonth()+1);
+                newdate.setMonth(newdate.getMonth()+3);
                 $("#data_sfarsit").datepicker("setStartDate",newdate).datepicker("update",newdate)
             });
 
