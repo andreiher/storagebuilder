@@ -120,11 +120,15 @@ return [
     'project_files_notes' => 'Sunt acceptate numai fisierele de tip doc, docx, pdf, rtf, dxf, jpg, png, zip, rar',
 
     // Configurator summary
-    'summary' => 'Cererea dumneavoastra',
+    'summary' => 'Sumar',
     'summary_text' => 'Dupa trimiterea detaliilor proiectului va vom contacta in cel mai scurt timp',
     'objective' => 'Obiectiv',
     'details' => 'Detalii',
     'terms-and-conditions' => 'Sunt de acord cu <a href="/termeni-si-conditii" target="_blank">termenii si conditiile</a> acestui site.',
+
+    // confirmation
+    'thank_you' => 'Va Multumim',
+    'quote_succesful' => 'Cererea dvs a fost inregistrata cu succes.',
 
     // Other
     'units_meters' => 'm',

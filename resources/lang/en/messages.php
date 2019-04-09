@@ -126,6 +126,10 @@ return [
     'details' => 'Details',
     'terms-and-conditions' => 'I agree with the <a href="/terms-and-conditions" target="_blank">terms and conditions</a> of this website.',
 
+    // confirmation
+    'thank_you' => 'Thank You',
+    'quote_succesful' => 'The request was registered succesfully.',
+
     // Other
     'units_meters' => 'm',
     'units_milimeters' => 'mm',
