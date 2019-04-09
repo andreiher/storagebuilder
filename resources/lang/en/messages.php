@@ -114,12 +114,14 @@ return [
     'project_start_date' => 'Project start date*',
     'project_end_date' => 'Project end date*',
     'extra_information' => 'Other details',
+    'extra_information_label' => 'Please fill in any other details that you consider relevant for the project',
 
     'project_files' => 'Attachments',
     'project_files_notes' => 'Only doc, docx, pdf, rtf, dxf, jpg, png, zip, rar files are accepted',
 
     // Configurator summary
-    'your_request_text2' => 'After sending the details of the project we will contact you as soon as possible.',
+    'summary_title' => 'Summary',
+    'summary_text' => 'After sending the details of the project we will contact you as soon as possible.',
     'objective' => 'Objectives',
     'details' => 'Details',
     'terms-and-conditions' => 'I agree with the <a href="/terms-and-conditions" target="_blank">terms and conditions</a> of this website.',

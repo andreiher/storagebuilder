@@ -102,16 +102,16 @@
             <label for="mezanin">@lang("messages.entresol")</label>
             <div class="float-right">
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="mezanin-da" {{ old("mezanin") == "Da" ? 'checked="checked"' : ''}} name="mezanin" class="custom-control-input" value="Da" data-checked-toggle="#mezanin-suprafata" data-toggle-value="Da">
+                    <input type="radio" id="mezanin-da" {{ old("mezanin") == trans("messages.yes") ? 'checked="checked"' : ''}} name="mezanin" class="custom-control-input" value="@lang("messages.yes")" data-checked-toggle="#mezanin-suprafata" data-toggle-value="@lang("messages.yes")">
                     <label class="custom-control-label" for="mezanin-da">@lang("messages.yes")</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="mezanin-nu" {{ old("mezanin") == "Nu" ? 'checked="checked"' : ''}} name="mezanin" class="custom-control-input" value="Nu">
+                    <input type="radio" id="mezanin-nu" {{ old("mezanin") == trans("messages.no") ? 'checked="checked"' : ''}} name="mezanin" class="custom-control-input" value="@lang("messages.no")">
                     <label class="custom-control-label" for="mezanin-nu">@lang("messages.no")</label>
                 </div>
             </div>
         </div>
-        <div class="form-group p-2" id="mezanin-suprafata" {!! old("mezanin") && old("mezanin") == "Da" ? '' : 'style="display:none"' !!}>
+        <div class="form-group p-2" id="mezanin-suprafata" {!! old("mezanin") && old("mezanin") == trans("messages.yes") ? '' : 'style="display:none"' !!}>
             <div class="form-group">
                 <label for="mezanin_suprafata">@lang("messages.entresol_area")</label>
                 <input type="number" lang="en" class="form-control" id="mezanin_suprafata" name="mezanin_suprafata" placeholder="@lang("messages.units_sqmeters")" value="{{ old('mezanin_suprafata') }}">
@@ -123,16 +123,16 @@
             <label for="copertina">@lang("messages.blind")</label>
             <div class="float-right">
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="copertina-da" {{ old("copertina") == "Da" ? 'checked="checked"' : ''}} name="copertina" class="custom-control-input" value="Da" data-checked-toggle="#copertina-suprafata" data-toggle-value="Da">
+                    <input type="radio" id="copertina-da" {{ old("copertina") == trans("messages.yes") ? 'checked="checked"' : ''}} name="copertina" class="custom-control-input" value="@lang("messages.yes")" data-checked-toggle="#copertina-suprafata" data-toggle-value="@lang("messages.yes")">
                     <label class="custom-control-label" for="copertina-da">@lang("messages.yes")</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="copertina-nu" {{ old("copertina") == "Nu" ? 'checked="checked"' : ''}} name="copertina" class="custom-control-input" value="Nu">
+                    <input type="radio" id="copertina-nu" {{ old("copertina") == trans("messages.no") ? 'checked="checked"' : ''}} name="copertina" class="custom-control-input" value="@lang("messages.no")">
                     <label class="custom-control-label" for="copertina-nu">@lang("messages.no")</label>
                 </div>
             </div>
         </div>
-        <div class="form-group p-2" id="copertina-suprafata" {!! old("copertina") && old("copertina") == "Da" ? '' : 'style="display:none"' !!}>
+        <div class="form-group p-2" id="copertina-suprafata" {!! old("copertina") && old("copertina") == trans("messages.yes") ? '' : 'style="display:none"' !!}>
             <div class="form-group">
                 <label for="copertina_suprafata">@lang("messages.blind_area")</label>
                 <input type="number" lang="en" class="form-control" id="copertina_suprafata" name="copertina_suprafata" placeholder="@lang("messages.units_sqmeters")" value="{{ old('copertina_suprafata') }}">
@@ -145,16 +145,16 @@
             <label for="pod_rulant">@lang("messages.slide_bridge")</label>
             <div class="float-right">
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="pod_rulant-da" {{ old("pod_rulant") == "Da" ? 'checked="checked"' : ''}} name="pod_rulant" class="custom-control-input" value="Da" data-checked-toggle="#pod_rulant-sarcina" data-toggle-value="Da">
+                    <input type="radio" id="pod_rulant-da" {{ old("pod_rulant") == trans("messages.yes") ? 'checked="checked"' : ''}} name="pod_rulant" class="custom-control-input" value="@lang("messages.yes")" data-checked-toggle="#pod_rulant-sarcina" data-toggle-value="@lang("messages.yes")">
                     <label class="custom-control-label" for="pod_rulant-da">@lang("messages.yes")</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="pod_rulant-nu" {{ old("pod_rulant") == "Nu" ? 'checked="checked"' : ''}} name="pod_rulant" class="custom-control-input" value="Nu">
+                    <input type="radio" id="pod_rulant-nu" {{ old("pod_rulant") == trans("messages.no") ? 'checked="checked"' : ''}} name="pod_rulant" class="custom-control-input" value="@lang("messages.no")">
                     <label class="custom-control-label" for="pod_rulant-nu">@lang("messages.no")</label>
                 </div>
             </div>
         </div>
-        <div class="form-group p-2" id="pod_rulant-sarcina" {!! old("pod_rulant") && old("pod_rulant") == "Da" ? '' : 'style="display:none"' !!}>
+        <div class="form-group p-2" id="pod_rulant-sarcina" {!! old("pod_rulant") && old("pod_rulant") == trans("messages.yes") ? '' : 'style="display:none"' !!}>
             <div class="form-group">
                 <label for="pod_rulant_sarcina">@lang("messages.slide_bridge_load")</label>
                 <input type="number" lang="en" class="form-control" id="pod_rulant_sarcina" name="pod_rulant_sarcina" placeholder="@lang("messages.units_tonnes")" value="{{ old('pod_rulant_sarcina') }}">
@@ -165,16 +165,16 @@
             <label for="cladire_izolata">@lang("messages.insulated_building")</label>
             <div class="float-right">
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="cladire_izolata-da" {{ old("cladire_izolata") == "Da" ? 'checked="checked"' : ''}} name="cladire_izolata" class="custom-control-input" value="Da" data-checked-toggle="#cladire_izolata-detalii" data-toggle-value="Da">
+                    <input type="radio" id="cladire_izolata-da" {{ old("cladire_izolata") == trans("messages.yes") ? 'checked="checked"' : ''}} name="cladire_izolata" class="custom-control-input" value="@lang("messages.yes")" data-checked-toggle="#cladire_izolata-detalii" data-toggle-value="@lang("messages.yes")">
                     <label class="custom-control-label" for="cladire_izolata-da">@lang("messages.yes")</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="cladire_izolata-nu" {{ old("cladire_izolata") == "Nu" ? 'checked="checked"' : ''}} name="cladire_izolata" class="custom-control-input" value="Nu">
+                    <input type="radio" id="cladire_izolata-nu" {{ old("cladire_izolata") == trans("messages.no") ? 'checked="checked"' : ''}} name="cladire_izolata" class="custom-control-input" value="@lang("messages.no")">
                     <label class="custom-control-label" for="cladire_izolata-nu">@lang("messages.no")</label>
                 </div>
             </div>
         </div>
-        <div class="form-group p-2" id="cladire_izolata-detalii" {!! old("cladire_izolata") && old("cladire_izolata") == "Da" ? '' : 'style="display:none"' !!}>
+        <div class="form-group p-2" id="cladire_izolata-detalii" {!! old("cladire_izolata") && old("cladire_izolata") == trans("messages.yes") ? '' : 'style="display:none"' !!}>
             <div class="form-group">
                 <div class="form-group">
                     <label for="type">@lang("messages.roof_type")</label>
@@ -182,10 +182,11 @@
                         <option value="">@lang("messages.select_option")</option>
                         <option value="tabla-vata-membrana" {{ old("tip_acoperis") == "tabla-vata-membrana" ? 'selected="selected"' : ''}}>@lang("messages.roof_type_sheet_metal")</option>
                         <option value="panou-sandwich-vata-minerala" {{ old("tip_acoperis") == "panou-sandwich-vata-minerala" ? 'selected="selected"' : ''}}>@lang("messages.roof_type_sandwich_panel_mineral_wool")</option>
-                        <option value="panou-sandwich-spuma" {{ old("tip_acoperis") == "panou-sandwich-spuma" ? 'selected="selected"' : ''}}>@lang("messages.roof_type_sandwich_panel_foam")</option>
+                        <option value="panou-sandwich-spuma-PIR" {{ old("tip_acoperis") == "panou-sandwich-spuma-PIR" ? 'selected="selected"' : ''}}>@lang("messages.roof_type_sandwich_panel_foam")</option>
+                        <option value="panou-sandwich-spuma-PUR" {{ old("tip_acoperis") == "panou-sandwich-spuma-PIR" ? 'selected="selected"' : ''}}>@lang("messages.roof_type_sandwich_panel_foam")</option>
                     </select>
                 </div>
-                <div id="tip_acoperis-tabla-vata-membrana" class="tip_acoperis_toggle" style="display: none">
+                <div class="tip_acoperis_toggle tip_acoperis-tabla-vata-membrana" style="display: none">
                     <div class="form-group">
                         <label for="tip_acoperis-grosime-vata">@lang("messages.mineral_wool_thickness")</label>
                         <input type="number" step="2" min="8" max="12" lang="en" class="form-control" id="tip_acoperis-grosime-vata" name="tip_acoperis-grosime-vata" placeholder="@lang("messages.units_milimeters")" value="{{ old('tip_acoperis-grosime-vata') }}">
@@ -212,26 +213,27 @@
                             </div>
                     </div>
                 </div>
-                <div id="tip_acoperis-panou-sandwich-spuma" class="tip_acoperis_toggle" style="display: none">
+                <div class="tip_acoperis_toggle tip_acoperis-panou-sandwich-vata-minerala tip_acoperis-panou-sandwich-spuma-PIR tip_acoperis-panou-sandwich-spuma-PUR" style="display: none">
                     <div class="form-group">
-                            <label>@lang("messages.foam_type")</label>
-                            <select class="form-control" name="tip_acoperis-panou-sandwich-spuma-tip">
-                                    <option value="">@lang("messages.select_option")</option>
-                                    <option value="PIR" {{ old("tip_acoperis-panou-sandwich-spuma-tip") == "PIR" ? 'selected="selected"' : ''}}>@lang("messages.foam_type_pir")</option>
-                                    <option value="PUR" {{ old("tip_acoperis-panou-sandwich-spuma-tip") == "PUR" ? 'selected="selected"' : ''}}>@lang("messages.foam_type_pur")</option>
-                            </select>
+                        <label for="tip_acoperis-grosime">@lang("messages.roof_thickness")</label>
+                        <input type="number" step="20" min="60" max="150" lang="en" class="form-control" id="tip_acoperis-grosime" name="tip_acoperis-grosime" placeholder="@lang("messages.units_milimeters")" value="{{ old('tip_acoperis-grosime') }}">
+                        <div class="btn-group autofill-input" role="group">
+                            <button type="button" class="btn btn-primary" data-value="80">80mm</button>
+                            <button type="button" class="btn btn-primary" data-value="100">100mm</button>
+                            <button type="button" class="btn btn-primary" data-value="120">120mm</button>
+                            <button type="button" class="btn btn-primary" data-value="150">150mm</button>
+                        </div>
                     </div>
+                    {{--<div class="form-group">--}}
+                            {{--<label>@lang("messages.foam_type")</label>--}}
+                            {{--<select class="form-control" name="tip_acoperis-panou-sandwich-spuma-tip">--}}
+                                    {{--<option value="">@lang("messages.select_option")</option>--}}
+                                    {{--<option value="PIR" {{ old("tip_acoperis-panou-sandwich-spuma-tip") == "PIR" ? 'selected="selected"' : ''}}>@lang("messages.foam_type_pir")</option>--}}
+                                    {{--<option value="PUR" {{ old("tip_acoperis-panou-sandwich-spuma-tip") == "PUR" ? 'selected="selected"' : ''}}>@lang("messages.foam_type_pur")</option>--}}
+                            {{--</select>--}}
+                    {{--</div>--}}
                 </div>
-                <div class="form-group">
-                    <label for="tip_acoperis-grosime">@lang("messages.roof_thickness")</label>
-                    <input type="number" step="20" min="60" max="150" lang="en" class="form-control" id="tip_acoperis-grosime" name="tip_acoperis-grosime" placeholder="@lang("messages.units_milimeters")" value="{{ old('tip_acoperis-grosime') }}">
-                    <div class="btn-group autofill-input" role="group">
-                        <button type="button" class="btn btn-primary" data-value="80">80mm</button>
-                        <button type="button" class="btn btn-primary" data-value="100">100mm</button>
-                        <button type="button" class="btn btn-primary" data-value="120">120mm</button>
-                        <button type="button" class="btn btn-primary" data-value="150">150mm</button>
-                    </div>
-                </div>
+
             </div>
 
             <div class="form-group">
@@ -351,6 +353,7 @@
                 // putem folosi in atributul "src" al imaginii, pentru afisarea snapshotului
                 // anume: <img src="<CODUL BASE64 GENERAT DE FUNCTIE>">
                 $("#preview-image").attr("src", renderer.domElement.toDataURL("image/jpeg"));
+                $("#preview-image-input").val(renderer.domElement.toDataURL("image/jpeg"));
             } catch (e) {
                 return;
             }

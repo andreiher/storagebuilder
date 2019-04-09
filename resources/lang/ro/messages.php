@@ -114,12 +114,14 @@ return [
     'project_start_date' => 'Data inceperi proiectului*',
     'project_end_date' => 'Data finalizarii proiectului*',
     'extra_information' => 'Informatii suplimentare',
+    'extra_information_label' => 'Completati urmatorul spatiu cu informatii relevante acestui proiect',
 
     'project_files' => 'Atasamente',
     'project_files_notes' => 'Sunt acceptate numai fisierele de tip doc, docx, pdf, rtf, dxf, jpg, png, zip, rar',
 
     // Configurator summary
-    'your_request_text2' => 'Dupa trimiterea detaliilor proiectului va vom contacta in cel mai scurt timp',
+    'summary' => 'Cererea dumneavoastra',
+    'summary_text' => 'Dupa trimiterea detaliilor proiectului va vom contacta in cel mai scurt timp',
     'objective' => 'Obiectiv',
     'details' => 'Detalii',
     'terms-and-conditions' => 'Sunt de acord cu <a href="/termeni-si-conditii" target="_blank">termenii si conditiile</a> acestui site.',

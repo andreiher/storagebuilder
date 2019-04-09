@@ -10,7 +10,7 @@
         </ul>
     </div>
 @endif
-<form method="post" action="{{ route("proceseaza") }}" id="wizzard_form">
+<form method="post" action="{{ route("proceseaza") }}" id="wizzard_form" enctype="multipart/form-data">
         {{csrf_field()}}
        <div id="step1" class="wizzard-steps active">
             @include("steps.step1") 
@@ -123,7 +123,7 @@
             $('select[name="tip_acoperis"]').on("change", function(){
                 var toggles=$(".tip_acoperis_toggle");
                 toggles.hide();
-                $("#tip_acoperis-"+$(this).val()).show();
+                $(".tip_acoperis-"+$(this).val()).show();
             });
 
             // Urmareste evenimentul de change (cand se schimba valoarea) a selectului Tip Pereti,
@@ -265,7 +265,7 @@
                                         summary.find(".toggle-tabla-vata-membrana").hide();
                                     }
 
-                                    if(input.value === "panou-sandwich-spuma") {
+                                    if(input.value.indexOf("panou-sandwich") > -1) {
                                         summary.find(".toggle-panou-sandwich-spuma").show();
                                     } else {
                                         summary.find(".toggle-panou-sandwich-spuma").hide();

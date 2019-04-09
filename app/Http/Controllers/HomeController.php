@@ -32,6 +32,10 @@ class HomeController extends Controller
     }
 
     public function proceseaza(Request $request) {
+
+
+
+
         $validator = Validator::make($request->all(), [
 //            'nume' => 'required',
 //            'prenume' => 'required',
@@ -53,6 +57,11 @@ class HomeController extends Controller
         }
 
         $model = CereriOferta::create($request->all());
+
+        if($request->has("snapshot") && !empty($request->input("snapshot"))) {
+            $path = public_path().'/snapshots/' . $model->id.".jpg";
+            \Image::make(file_get_contents($request->input("snapshot")))->save($path);
+        }
 
         Mail::send(new CerereOferta($model));
 
