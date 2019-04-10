@@ -127,7 +127,7 @@ return [
     'terms-and-conditions' => 'Sunt de acord cu <a href="/termeni-si-conditii" target="_blank">termenii si conditiile</a> acestui site.',
 
     // confirmation
-    'thank_you' => 'Va Multumim',
+    'thank_you' => 'Va multumim',
     'quote_succesful' => 'Cererea dvs a fost inregistrata cu succes.',
 
     // Other
