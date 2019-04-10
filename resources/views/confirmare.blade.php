@@ -5,6 +5,5 @@
     <br/>
     <p>
         @lang("messages.quote_succesful")
-        Cererea dvs. a fost inregistrata cu succes.
     </p>
 @endsection
