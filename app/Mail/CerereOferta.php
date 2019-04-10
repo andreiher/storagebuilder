@@ -23,6 +23,15 @@ class CerereOferta extends Mailable
         if(!empty($this->data->project_file)) {
             $this->attach(\Storage::disk("projects_folder")->url($this->data->project_file));
         }
+
+        $path = public_path().'/snapshots/' . $this->data->id.".jpg";
+        if(\File::exists($path)) {
+            $this->attach($path,[
+                'as' => 'Snapshot.jpg'
+            ]);
+        }
+
+
         return $this->to("vlad.moise97@yahoo.com")
             ->to("andreiher89@gmail.com")
             ->from("no-reply@onedev.ro")

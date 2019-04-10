@@ -1,6 +1,5 @@
-<h1>@lang("messages.your_request")</h1>
-<p>@lang("messages.your_request_text")</p>
-<p>@lang("messages.your_request_text2")</p>
+<h1>@lang("messages.summary_title")</h1>
+<p>@lang("messages.summary_text")</p>
 
 <br/>
 <div class="summary-screen">
@@ -16,8 +15,6 @@
             <p><span class="destinatie_cladire">-</span></p>
             <p>@lang("messages.structure_type"): <span class="tip_structura">-</span></p>
             <p>@lang("messages.built_area"): <span class="suprafata_construita">-</span> m<sup>2</sup></p>
-            <p>@lang("messages.total_area"): <span class="suprafata_totala">-</span> m<sup>2</sup></p>
-
         </div>
     </div>
     <hr/>
@@ -34,14 +31,14 @@
             <p>@lang("messages.slide_bridge"): <span class="pod_rulant">-</span> <span class="toggle-pod_rulant hidden">(@lang("messages.slide_bridge_load"): <span class="pod_rulant_sarcina">-</span>m<sup>2</sup>)</span></p>
             <p>@lang("messages.insulated_building"): <span class="cladire_izolata">-</span></p>
             <div class="toggle-cladire_izolata hidden">
-                <p>@lang("messages.roof_type"): <span class="tip_acoperis">-</span> (@lang("messages.roof_thickness"): <span class="tip_acoperis-grosime">-</span>mm)</p>
+                <p>@lang("messages.roof_type"): <span class="tip_acoperis">-</span></p>
                 <div class="toggle-tabla-vata-membrana hidden">
                     <p>@lang("messages.mineral_wool_thickness"): <span class="tip_acoperis-grosime-vata">-</span> mm</p>
                     <p>@lang("messages.membrane_type"): <span class="tip_acoperis-tip_membrana">-</span> <span class="tip_acoperis-grosime-membrana">-</span> mm</p>
                     <hr>
                 </div>
                 <div class="toggle-panou-sandwich-spuma hidden">
-                    <p>@lang("messages.foam_type"): <span class="tip_acoperis-panou-sandwich-spuma-tip">-</span></p>
+                    <p>@lang("messages.roof_thickness"): <span class="tip_acoperis-grosime">-</span> mm</p>
                     <hr>
                 </div>
                 <p>@lang("messages.walls_type"): <span class="tip_pereti">-</span> (@lang("messages.walls_thickness"): <span class="tip_pereti-grosime">-</span>mm)</p>
@@ -54,6 +51,7 @@
         </div>
         <div class="col-md-6">
             <img id="preview-image" src="" class="img-fluid">
+            <input id="preview-image-input" type="hidden" name="snapshot" value="">
         </div>
     </div>
     <div class="row">
@@ -84,10 +82,10 @@
 
 <hr/>
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-3">
         <button type="button" class="btn btn-default prevstep">@lang("messages.back")</button>
     </div>
-    <div class="col-md-6 text-right">
+    <div class="col-md-9 text-right">
         <label class="mr-4">@lang("messages.terms-and-conditions") <input id="terms_and_conditions" type="checkbox" value="1"> </label>
         <button type="submit" disabled="disabled" class="btn btn-primary">@lang("messages.submit")</button>
     </div>

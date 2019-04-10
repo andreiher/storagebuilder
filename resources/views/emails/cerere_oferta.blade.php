@@ -30,7 +30,7 @@
             ])) { $value = $value."m2"; }
 
             ?>
-            <strong>{{ ucfirst($label) }}:</strong> {{ $value }} <br>
+            <strong>{{ ucfirst($label) }}:</strong> {{ ucfirst(str_replace(["-","_"], " ", $value)) }} <br>
         @endif
     @endforeach
 </p>
