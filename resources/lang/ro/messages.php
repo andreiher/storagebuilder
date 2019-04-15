@@ -33,6 +33,8 @@ return [
     'structure_type_concrete' => 'Beton',
     'structure_type_mixed' => 'Structura mixta (metal + beton)',
 
+    'color' => 'Culoare',
+
     'length' => 'Lungime',
     'width' => 'Latime',
     'height' => 'Inaltime libera (utila)',

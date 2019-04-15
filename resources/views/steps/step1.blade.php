@@ -27,6 +27,114 @@
             </select>
         </div>
 
+        <div class="form-group">
+            <label>@lang("messages.color")</label>
+            <ul class="list-unstyled list-inline color-picker">
+                <li>
+                    <label data-toggle="tooltip" data-placement="top" title="RAL 1015">
+                        <input type="radio" {{ old("color") == "RAL 1015" ? 'checked="checked"' : ''}} name="color" class="shed-color" value="RAL 1015">
+                        <span class="color-sample" style="background-color: #deccaa"></span>
+                    </label>
+                </li>
+                <li>
+                    <label data-toggle="tooltip" data-placement="top" title="RAL 1021">
+                        <input type="radio" {{ old("color") == "RAL 1021" ? 'checked="checked"' : ''}} name="color" class="shed-color" value="RAL 1021">
+                        <span class="color-sample" style="background-color: #ffd92d"></span>
+                    </label>
+                </li>
+                <li>
+                    <label data-toggle="tooltip" data-placement="top" title="RAL 2008">
+                        <input type="radio" {{ old("color") == "RAL 2008" ? 'checked="checked"' : ''}} name="color" class="shed-color" value="RAL 2008">
+                        <span class="color-sample" style="background-color: #f37f2d"></span>
+                    </label>
+                </li>
+                <li>
+                    <label data-toggle="tooltip" data-placement="top" title="RAL 3000">
+                        <input type="radio" {{ old("color") == "RAL 3000" ? 'checked="checked"' : ''}} name="color" class="shed-color" value="RAL 3000">
+                        <span class="color-sample" style="background-color: #be1729"></span>
+                    </label>
+                </li>
+                <li>
+                    <label data-toggle="tooltip" data-placement="top" title="RAL 3005">
+                        <input type="radio" {{ old("color") == "RAL 3005" ? 'checked="checked"' : ''}} name="color" class="shed-color" value="RAL 3005">
+                        <span class="color-sample" style="background-color: #871027"></span>
+                    </label>
+                </li>
+                <li>
+                    <label data-toggle="tooltip" data-placement="top" title="RAL 3011">
+                        <input type="radio" {{ old("color") == "RAL 3011" ? 'checked="checked"' : ''}} name="color" class="shed-color" value="RAL 3011">
+                        <span class="color-sample" style="background-color: #87121c"></span>
+                    </label>
+                </li>
+                <li>
+                    <label data-toggle="tooltip" data-placement="top" title="RAL 5010">
+                        <input type="radio" {{ old("color") == "RAL 5010" ? 'checked="checked"' : ''}} name="color" class="shed-color" value="RAL 5010">
+                        <span class="color-sample" style="background-color: #0b5481"></span>
+                    </label>
+                </li>
+                <li>
+                    <label data-toggle="tooltip" data-placement="top" title="RAL 6005">
+                        <input type="radio" {{ old("color") == "RAL 6005" ? 'checked="checked"' : ''}} name="color" class="shed-color" value="RAL 6005">
+                        <span class="color-sample" style="background-color: #0b3923"></span>
+                    </label>
+                </li>
+                <li>
+                    <label data-toggle="tooltip" data-placement="top" title="RAL 6011">
+                        <input type="radio" {{ old("color") == "RAL 6011" ? 'checked="checked"' : ''}} name="color" class="shed-color" value="RAL 6011">
+                        <span class="color-sample" style="background-color: #678259"></span>
+                    </label>
+                </li>
+                <li>
+                    <label data-toggle="tooltip" data-placement="top" title="RAL 7016">
+                        <input type="radio" {{ old("color") == "RAL 7016" ? 'checked="checked"' : ''}} name="color" class="shed-color" value="RAL 7016">
+                        <span class="color-sample" style="background-color: #2a3237"></span>
+                    </label>
+                </li>
+                <li>
+                    <label data-toggle="tooltip" data-placement="top" title="RAL 8012">
+                        <input type="radio" {{ old("color") == "RAL 8012" ? 'checked="checked"' : ''}} name="color" class="shed-color" value="RAL 8012">
+                        <span class="color-sample" style="background-color: #99453a"></span>
+                    </label>
+                </li>
+                <li>
+                    <label data-toggle="tooltip" data-placement="top" title="RAL 8017">
+                        <input type="radio" {{ old("color") == "RAL 8017" ? 'checked="checked"' : ''}} name="color" class="shed-color" value="RAL 8017">
+                        <span class="color-sample" style="background-color: #6d261b"></span>
+                    </label>
+                </li>
+                <li>
+                    <label data-toggle="tooltip" data-placement="top" title="RAL 8019">
+                        <input type="radio" {{ old("color") == "RAL 8019" ? 'checked="checked"' : ''}} name="color" class="shed-color" value="RAL 8019">
+                        <span class="color-sample" style="background-color: #2b1512"></span>
+                    </label>
+                </li>
+                <li>
+                    <label data-toggle="tooltip" data-placement="top" title="RAL 9002">
+                        <input type="radio" {{ old("color") == "RAL 9002" ? 'checked="checked"' : ''}} name="color" class="shed-color" value="RAL 9002">
+                        <span class="color-sample" style="background-color: #e7e4d3"></span>
+                    </label>
+                </li>
+                <li>
+                    <label data-toggle="tooltip" data-placement="top" title="RAL 9006">
+                        <input type="radio" {{ old("color") == "RAL 9006" ? 'checked="checked"' : ''}} name="color" class="shed-color" value="RAL 9006">
+                        <span class="color-sample" style="background-color: #a8aba5"></span>
+                    </label>
+                </li>
+                <li>
+                    <label data-toggle="tooltip" data-placement="top" title="RAL 9007">
+                        <input type="radio" {{ old("color") == "RAL 9007" ? 'checked="checked"' : ''}} name="color" class="shed-color" value="RAL 9007">
+                        <span class="color-sample" style="background-color: #868177"></span>
+                    </label>
+                </li>
+                <li>
+                    <label data-toggle="tooltip" data-placement="top" title="RAL 9010">
+                        <input type="radio" {{ old("color") == "RAL 9010" ? 'checked="checked"' : ''}} name="color" class="shed-color" value="RAL 9010">
+                        <span class="color-sample" style="background-color: #fbfae8"></span>
+                    </label>
+                </li>
+            </ul>
+        </div>
+
         <hr>
 
         <div class="form-group">
@@ -331,7 +439,7 @@
             document.body.appendChild( WEBGL.getWebGLErrorMessage() );
         }
 
-        var camera, controls, scene = false, renderer, lungime, latime, inaltime, tip_cladire;
+        var camera, controls, scene = false, renderer, lungime, latime, inaltime, tip_cladire, culoare;
 
         // urmatoarele functii se se trigger-uiesc dupa ce a incarcat complet pagina
         $(function() {
@@ -397,7 +505,7 @@
 
             controls.maxPolarAngle = Math.PI / 2;
 
-            $("#lungime, #latime, #inaltime, #type").on("change", refreshScene);
+            $("#lungime, #latime, #inaltime, #type, .shed-color").on("change", refreshScene);
 
             createGeometries();
             generateSnapshot();
@@ -412,6 +520,7 @@
             latime = parseInt($("#latime").val());
             inaltime = parseInt($("#inaltime").val());
             tip_cladire = $("#type").val();
+            culoare = $(".shed-color:checked").val();
 
             // asta e un fallback - cand unul din inputuri este gol, sau este mai mic ca 0, sa foloseasca o valoare
             // predefinita (de ex: 30, 16 sau 5) - astfel previi sa afiseze un corp defectuos
@@ -493,11 +602,32 @@
             SidesTexture.offset.set( 0,0 );
             SidesTexture.rotation = THREE.Math.degToRad(90);
 
+            var shedColor = '#a1a1a0';
+            switch(culoare) {
+                case "RAL 1015": shedColor = '#deccaa'; break;
+                case "RAL 1021": shedColor = '#ffd92d'; break;
+                case "RAL 2008": shedColor = '#f37f2d'; break;
+                case "RAL 3000": shedColor = '#be1729'; break;
+                case "RAL 3005": shedColor = '#871027'; break;
+                case "RAL 3011": shedColor = '#87121c'; break;
+                case "RAL 5010": shedColor = '#0b5481'; break;
+                case "RAL 6005": shedColor = '#0b3923'; break;
+                case "RAL 6011": shedColor = '#678259'; break;
+                case "RAL 7016": shedColor = '#2a3237'; break;
+                case "RAL 8012": shedColor = '#99453a'; break;
+                case "RAL 8017": shedColor = '#6d261b'; break;
+                case "RAL 8019": shedColor = '#2b1512'; break;
+                case "RAL 9002": shedColor = '#e7e4d3'; break;
+                case "RAL 9006": shedColor = '#a8aba5'; break;
+                case "RAL 9007": shedColor = '#868177'; break;
+                case "RAL 9010": shedColor = '#fbfae8'; break;
+            }
+
             var shedGeometry = new THREE.ExtrudeGeometry( building2DShape, { depth: lungime, bevelEnabled: false } );
             var shedMaterials = [
-                new THREE.MeshLambertMaterial({ color: 0xa1a1a0, map: frontBackTexture }), // front back material
+                new THREE.MeshLambertMaterial({ color: new THREE.Color(shedColor), map: frontBackTexture }), // front back material
                 new THREE.MeshLambertMaterial({ color: 0xd7d5cb }), // roof material
-                new THREE.MeshLambertMaterial({ color: 0xa1a1a0, map: SidesTexture }),  // sides material - same as frint back - the only diff is that we rotated texture 90 degrees
+                new THREE.MeshLambertMaterial({ color: new THREE.Color(shedColor), map: SidesTexture }),  // sides material - same as frint back - the only diff is that we rotated texture 90 degrees
             ];
             var shed = new THREE.Mesh( shedGeometry, shedMaterials ) ;
 

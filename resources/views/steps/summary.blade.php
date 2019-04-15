@@ -14,6 +14,7 @@
             <h3@lang("messages.objective")></h3>
             <p><span class="destinatie_cladire">-</span></p>
             <p>@lang("messages.structure_type"): <span class="tip_structura">-</span></p>
+            <p>@lang("messages.color"): <span class="color">-</span></p>
             <p>@lang("messages.built_area"): <span class="suprafata_construita">-</span> m<sup>2</sup></p>
         </div>
     </div>

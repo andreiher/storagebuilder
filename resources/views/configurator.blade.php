@@ -37,6 +37,7 @@
         // }
         var currentstep=1;
         $(function(){
+            $('[data-toggle="tooltip"]').tooltip()
 
             detailsSectionHeight();
 
@@ -279,17 +280,23 @@
                                     item.html(input.value);
                                 }
                             } else if(theInput.is('[type="radio"]')) {
-                                if(theInput.has("data-checked-toggle")) {
-                                    var tgValue = theInput.attr("data-toggle-value");
-                                    if($('input[name="'+input.name+'"]:checked').val() === tgValue) {
-                                        summary.find(".toggle-"+input.name).show();
-                                    } else {
-                                        summary.find(".toggle-"+input.name).hide();
+                                if(theInput.has(".color")) {
+                                    var selected = $('[name="'+ input.name +'"]:checked');
+                                    var hexColor = ral2hex(selected.val());
+                                    item.html(' <span class="color-sample small" style="background-color: ' + hexColor + '"></span> '+ selected.val());
+                                } else {
+                                    if(theInput.has("data-checked-toggle")) {
+                                        var tgValue = theInput.attr("data-toggle-value");
+                                        if($('input[name="'+input.name+'"]:checked').val() === tgValue) {
+                                            summary.find(".toggle-"+input.name).show();
+                                        } else {
+                                            summary.find(".toggle-"+input.name).hide();
+                                        }
                                     }
-                                }
-                                var val = $('[name="'+ input.name +'"]:checked');
-                                if(val.length) {
-                                    item.html(input.value);
+                                    var val = $('[name="'+ input.name +'"]:checked');
+                                    if(val.length) {
+                                        item.html(input.value);
+                                    }
                                 }
                             } else if(theInput.is('[type="checkbox"]')) {
                                 var inputClass = input.value == "1" ? 'fa-check' : 'fa-times';
@@ -309,6 +316,34 @@
 
                 });
 
+            }
+            
+            function ral2hex(ral) {
+                var hexColor = "";
+                console.log("ral",ral);
+                switch(ral) {
+                    case "RAL 1015": hexColor = '#deccaa'; break;
+                    case "RAL 1021": hexColor = '#ffd92d'; break;
+                    case "RAL 2008": hexColor = '#f37f2d'; break;
+                    case "RAL 3000": hexColor = '#be1729'; break;
+                    case "RAL 3005": hexColor = '#871027'; break;
+                    case "RAL 3011": hexColor = '#87121c'; break;
+                    case "RAL 5010": hexColor = '#0b5481'; break;
+                    case "RAL 6005": hexColor = '#0b3923'; break;
+                    case "RAL 6011": hexColor = '#678259'; break;
+                    case "RAL 7016": hexColor = '#2a3237'; break;
+                    case "RAL 8012": hexColor = '#99453a'; break;
+                    case "RAL 8017": hexColor = '#6d261b'; break;
+                    case "RAL 8019": hexColor = '#2b1512'; break;
+                    case "RAL 9002": hexColor = '#e7e4d3'; break;
+                    case "RAL 9006": hexColor = '#a8aba5'; break;
+                    case "RAL 9007": hexColor = '#868177'; break;
+                    case "RAL 9010": hexColor = '#fbfae8'; break;
+                }
+
+                console.log("hexColor",hexColor);
+                
+                return hexColor;
             }
 
             var validationRules = [

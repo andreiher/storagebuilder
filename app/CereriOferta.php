@@ -38,6 +38,7 @@ class CereriOferta extends Model
         'data_sfarsit',
 
         'tip_structura',
+        'culoare',
         'suprafata_construita',
         'sistem_pluvial',
         'mezanin',
