@@ -430,8 +430,8 @@
 @section('scripts')
     @parent
     <script src="/js/three-js/build/three.js"></script>
-    <script src="/js/three-js/examples/js/controls/OrbitControls.js"></script>
-    <script src="/js/three-js/examples/js/WebGL.js"></script>
+    <script src="/js/three-js/libraries/js/controls/OrbitControls.js"></script>
+    <script src="/js/three-js/libraries/js/WebGL.js"></script>
 
     <script>
 
@@ -447,26 +447,6 @@
             animate();
         });
 
-        // functia va reimprospata scena - se foloseste atunci cand se schimba dimensiunile in formular
-        function refreshScene () {
-            clearScene();
-            createGeometries();
-            generateSnapshot();
-        }
-
-        // genereaza snapshot-ul de la finalul formularului (summary)
-        function generateSnapshot() {
-            try {
-                // renderer.domElement.toDataURL("image/jpeg") - va genera imaginea in format base64, pe care o
-                // putem folosi in atributul "src" al imaginii, pentru afisarea snapshotului
-                // anume: <img src="<CODUL BASE64 GENERAT DE FUNCTIE>">
-                $("#preview-image").attr("src", renderer.domElement.toDataURL("image/jpeg"));
-                $("#preview-image-input").val(renderer.domElement.toDataURL("image/jpeg"));
-            } catch (e) {
-                return;
-            }
-        }
-
         function init() {
             if(!scene) {
                 window.addEventListener( 'resize', onWindowResize, false );
@@ -474,9 +454,7 @@
 
             var wrapper = document.getElementById("building-preview");
             scene = new THREE.Scene();
-            // scene.background = new THREE.Color( 0x3e3e3e );
             scene.background = new THREE.Color( 0x00b2ff );
-            // scene.fog = new THREE.Fog( 0xcccccc, 10, 400 );
 
             renderer = new THREE.WebGLRenderer({
                 preserveDrawingBuffer: true
@@ -979,6 +957,26 @@
 
             renderer.render( scene, camera );
 
+        }
+
+        // functia va reimprospata scena - se foloseste atunci cand se schimba dimensiunile in formular
+        function refreshScene () {
+            clearScene();
+            createGeometries();
+            generateSnapshot();
+        }
+
+        // genereaza snapshot-ul de la finalul formularului (summary)
+        function generateSnapshot() {
+            try {
+                // renderer.domElement.toDataURL("image/jpeg") - va genera imaginea in format base64, pe care o
+                // putem folosi in atributul "src" al imaginii, pentru afisarea snapshotului
+                // anume: <img src="<CODUL BASE64 GENERAT DE FUNCTIE>">
+                $("#preview-image").attr("src", renderer.domElement.toDataURL("image/jpeg"));
+                $("#preview-image-input").val(renderer.domElement.toDataURL("image/jpeg"));
+            } catch (e) {
+                return;
+            }
         }
 
         function ral2hex(ral) {

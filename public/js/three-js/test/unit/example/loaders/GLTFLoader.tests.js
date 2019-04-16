@@ -3,8 +3,8 @@
  */
 /* global QUnit */
 
-import * as GLTFExporter from '../../../../examples/js/exporters/GLTFExporter';
-import * as GLTFLoader from '../../../../examples/js/loaders/GLTFLoader';
+import * as GLTFExporter from '../../../../libraries/js/exporters/GLTFExporter';
+import * as GLTFLoader from '../../../../libraries/js/loaders/GLTFLoader';
 
 export default QUnit.module( 'Loaders', () => {
 

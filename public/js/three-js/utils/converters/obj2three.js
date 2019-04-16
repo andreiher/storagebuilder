@@ -19,7 +19,7 @@ function parseNumber( key, value ) {
 }
 
 THREE = require( '../../build/three.js' );
-require( '../../examples/js/loaders/OBJLoader.js' );
+require( '../../libraries/js/loaders/OBJLoader.js' );
 
 var file = process.argv[ 2 ];
 var loader = new THREE.OBJLoader();

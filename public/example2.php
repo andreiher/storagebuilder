@@ -23,8 +23,8 @@
 <body>
 
 <script src="js/three-js/build/three.js"></script>
-<script src="js/three-js/examples/js/controls/OrbitControls.js"></script>
-<script src="js/three-js/examples/js/WebGL.js"></script>
+<script src="js/three-js/libraries/js/controls/OrbitControls.js"></script>
+<script src="js/three-js/libraries/js/WebGL.js"></script>
 
 <script>
 
