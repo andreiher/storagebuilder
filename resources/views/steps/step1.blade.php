@@ -483,6 +483,9 @@
 
             controls.maxPolarAngle = Math.PI / 2;
 
+            addLights();
+
+
             $("#lungime, #latime, #inaltime, #type, .shed-color").on("change", refreshScene);
 
             createGeometries();
@@ -525,7 +528,6 @@
             addPedestrianDoors();
             addWindows();
 
-            addLights();
         }
 
         function addGround() {
