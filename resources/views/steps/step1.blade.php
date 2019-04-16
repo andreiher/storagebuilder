@@ -602,26 +602,7 @@
             SidesTexture.offset.set( 0,0 );
             SidesTexture.rotation = THREE.Math.degToRad(90);
 
-            var shedColor = '#a1a1a0';
-            switch(culoare) {
-                case "RAL 1015": shedColor = '#deccaa'; break;
-                case "RAL 1021": shedColor = '#ffd92d'; break;
-                case "RAL 2008": shedColor = '#f37f2d'; break;
-                case "RAL 3000": shedColor = '#be1729'; break;
-                case "RAL 3005": shedColor = '#871027'; break;
-                case "RAL 3011": shedColor = '#87121c'; break;
-                case "RAL 5010": shedColor = '#0b5481'; break;
-                case "RAL 6005": shedColor = '#0b3923'; break;
-                case "RAL 6011": shedColor = '#678259'; break;
-                case "RAL 7016": shedColor = '#2a3237'; break;
-                case "RAL 8012": shedColor = '#99453a'; break;
-                case "RAL 8017": shedColor = '#6d261b'; break;
-                case "RAL 8019": shedColor = '#2b1512'; break;
-                case "RAL 9002": shedColor = '#e7e4d3'; break;
-                case "RAL 9006": shedColor = '#a8aba5'; break;
-                case "RAL 9007": shedColor = '#868177'; break;
-                case "RAL 9010": shedColor = '#fbfae8'; break;
-            }
+            var shedColor = culoare ? ral2hex(culoare) : '#a1a1a0';
 
             var shedGeometry = new THREE.ExtrudeGeometry( building2DShape, { depth: lungime, bevelEnabled: false } );
             var shedMaterials = [
@@ -734,9 +715,10 @@
                 roofTexture.repeat.set( 0.3, 0.3 );
                 roofTexture.offset.set( 0,0 );
 
+                var shedColor = culoare ? ral2hex(culoare) : '#a1a1a0';
                 var shedGeometry = new THREE.ExtrudeGeometry( roof2DShape, { depth: lungime, bevelEnabled: false } );
                 var shedMaterials = [
-                    new THREE.MeshLambertMaterial({ color: 0xa1a1a0, map: roofTexture }), // front back material
+                    new THREE.MeshLambertMaterial({ color: new THREE.Color(shedColor), map: roofTexture }), // front back material
                     new THREE.MeshLambertMaterial({ color: 0xd7d5cb }), // roof material
                 ];
                 var roof = new THREE.Mesh( shedGeometry, shedMaterials ) ;
@@ -997,6 +979,30 @@
 
             renderer.render( scene, camera );
 
+        }
+
+        function ral2hex(ral) {
+            var hexColor = "";
+            switch(ral) {
+                case "RAL 1015": hexColor = '#deccaa'; break;
+                case "RAL 1021": hexColor = '#ffd92d'; break;
+                case "RAL 2008": hexColor = '#f37f2d'; break;
+                case "RAL 3000": hexColor = '#be1729'; break;
+                case "RAL 3005": hexColor = '#871027'; break;
+                case "RAL 3011": hexColor = '#87121c'; break;
+                case "RAL 5010": hexColor = '#0b5481'; break;
+                case "RAL 6005": hexColor = '#0b3923'; break;
+                case "RAL 6011": hexColor = '#678259'; break;
+                case "RAL 7016": hexColor = '#2a3237'; break;
+                case "RAL 8012": hexColor = '#99453a'; break;
+                case "RAL 8017": hexColor = '#6d261b'; break;
+                case "RAL 8019": hexColor = '#2b1512'; break;
+                case "RAL 9002": hexColor = '#e7e4d3'; break;
+                case "RAL 9006": hexColor = '#a8aba5'; break;
+                case "RAL 9007": hexColor = '#868177'; break;
+                case "RAL 9010": hexColor = '#fbfae8'; break;
+            }
+            return hexColor;
         }
 
     </script>
