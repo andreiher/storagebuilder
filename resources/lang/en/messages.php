@@ -33,6 +33,8 @@ return [
     'structure_type_concrete' => 'Precast concrete elements',
     'structure_type_mixed' => 'Mixed structure (steel + concrete)',
 
+    'color' => 'Structure color',
+
     'length' => 'Length',
     'width' => 'Width',
     'height' => 'Clear height',

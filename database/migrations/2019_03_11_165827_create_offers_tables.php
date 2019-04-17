@@ -39,6 +39,7 @@ class CreateOffersTables extends Migration
             $table->string('data_sfarsit')->nullable();
 
             $table->string('tip_structura')->nullable();
+            $table->string('culoare')->nullable();
             $table->string('suprafata_construita')->nullable();
             $table->string('sistem_pluvial')->nullable();
             $table->string('mezanin')->nullable();

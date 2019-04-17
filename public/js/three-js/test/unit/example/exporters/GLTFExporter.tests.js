@@ -3,7 +3,7 @@
  */
 /* global QUnit */
 
-import * as GLTFExporter from '../../../../examples/js/exporters/GLTFExporter';
+import * as GLTFExporter from '../../../../libraries/js/exporters/GLTFExporter';
 
 import { AnimationClip } from '../../../../src/animation/AnimationClip';
 import { BufferAttribute } from '../../../../src/core/BufferAttribute';

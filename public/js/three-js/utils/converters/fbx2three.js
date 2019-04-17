@@ -19,10 +19,10 @@ function parseNumber( key, value ) {
 }
 
 THREE = require( '../../build/three.js' );
-require( '../../examples/js/curves/NURBSCurve.js' );
-require( '../../examples/js/curves/NURBSUtils.js' );
-require( '../../examples/js/loaders/FBXLoader.js' );
-global.Zlib = require( '../../examples/js/libs/inflate.min.js' ).Zlib;
+require( '../../libraries/js/curves/NURBSCurve.js' );
+require( '../../libraries/js/curves/NURBSUtils.js' );
+require( '../../libraries/js/loaders/FBXLoader.js' );
+global.Zlib = require( '../../libraries/js/libs/inflate.min.js' ).Zlib;
 
 global.window = {
 	innerWidth: 1024,

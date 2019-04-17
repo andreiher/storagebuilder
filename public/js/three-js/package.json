@@ -15,13 +15,13 @@
     "build/three.min.js",
     "build/three.module.js",
     "src",
-    "examples/js",
-    "examples/jsm",
-    "examples/fonts"
+    "libraries/js",
+    "libraries/jsm",
+    "libraries/fonts"
   ],
   "directories": {
     "doc": "docs",
-    "example": "examples",
+    "example": "libraries",
     "test": "test"
   },
   "eslintConfig": {

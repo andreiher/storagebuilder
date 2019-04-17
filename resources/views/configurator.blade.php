@@ -37,6 +37,7 @@
         // }
         var currentstep=1;
         $(function(){
+            $('[data-toggle="tooltip"]').tooltip()
 
             detailsSectionHeight();
 
@@ -279,17 +280,23 @@
                                     item.html(input.value);
                                 }
                             } else if(theInput.is('[type="radio"]')) {
-                                if(theInput.has("data-checked-toggle")) {
-                                    var tgValue = theInput.attr("data-toggle-value");
-                                    if($('input[name="'+input.name+'"]:checked').val() === tgValue) {
-                                        summary.find(".toggle-"+input.name).show();
-                                    } else {
-                                        summary.find(".toggle-"+input.name).hide();
+                                if(theInput.has(".color")) {
+                                    var selected = $('[name="'+ input.name +'"]:checked');
+                                    var hexColor = ral2hex(selected.val());
+                                    item.html(' <span class="color-sample small" style="background-color: ' + hexColor + '"></span> '+ selected.val());
+                                } else {
+                                    if(theInput.has("data-checked-toggle")) {
+                                        var tgValue = theInput.attr("data-toggle-value");
+                                        if($('input[name="'+input.name+'"]:checked').val() === tgValue) {
+                                            summary.find(".toggle-"+input.name).show();
+                                        } else {
+                                            summary.find(".toggle-"+input.name).hide();
+                                        }
                                     }
-                                }
-                                var val = $('[name="'+ input.name +'"]:checked');
-                                if(val.length) {
-                                    item.html(input.value);
+                                    var val = $('[name="'+ input.name +'"]:checked');
+                                    if(val.length) {
+                                        item.html(input.value);
+                                    }
                                 }
                             } else if(theInput.is('[type="checkbox"]')) {
                                 var inputClass = input.value == "1" ? 'fa-check' : 'fa-times';
@@ -310,6 +317,8 @@
                 });
 
             }
+            
+
 
             var validationRules = [
                 {
