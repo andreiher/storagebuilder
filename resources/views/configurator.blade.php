@@ -280,7 +280,7 @@
                                     item.html(input.value);
                                 }
                             } else if(theInput.is('[type="radio"]')) {
-                                if(theInput.has(".color")) {
+                                if(theInput.hasClass(".color")) {
                                     var selected = $('[name="'+ input.name +'"]:checked');
                                     var hexColor = ral2hex(selected.val());
                                     item.html(' <span class="color-sample small" style="background-color: ' + hexColor + '"></span> '+ selected.val());
