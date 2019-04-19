@@ -9,11 +9,11 @@ return [
 
     // homepage
     'what_can_we_help_you_with' => 'How can we help you?',
-    'offer_without_design_title' => 'I would like to receive a tender, but I do not have the architectural project.',
+    'offer_without_design_title' => 'I would like to receive a tender, but I do not have the project.',
     'offer_without_design_text' => 'No problem, you can use our building configurator by clicking the button below.',
     'offer_without_design_button' => 'Start configuration',
 
-    'offer_with_design_title' => 'I would like to receive a tender and I do have the architectural project.',
+    'offer_with_design_title' => 'I would like to receive a tender and I do have the project.',
     'offer_with_design_text' => 'Please complete the following form by clicking the button below and we will send you a tender as soon as possible.',
     'offer_with_design_button' => 'Upload project',
 

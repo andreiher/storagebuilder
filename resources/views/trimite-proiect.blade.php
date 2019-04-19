@@ -44,7 +44,7 @@
 
         <br/>
 
-        <h3>Fisa de control</h3>
+        <h3>@lang("messages.control_card")</h3>
 
         <div class="row">
             <div class="col-md-6">
