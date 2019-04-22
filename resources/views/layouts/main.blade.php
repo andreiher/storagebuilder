@@ -77,7 +77,7 @@
     </div>
 </nav>
 
-<main role="main" class="container align-items-center" style="margin-top:110px; padding-bottom:30px;">
+<main class="container align-items-center" style="margin-top:110px; padding-bottom:30px;">
 
     @yield('content')
 
@@ -85,7 +85,7 @@
 
 <footer class="text-muted website-footer">
     <div class="container text-right">
-        <p>&copy 2019 RAP Development</p>
+        <p>&copy; 2019 RAP Development</p>
     </div>
 </footer>
 
@@ -98,7 +98,7 @@
     @if(\App::isLocale('ro'))
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/localization/messages_ro.min.js"></script>
     @endif
-    <script src="js/main.js" type="text/javascript"></script>
+    <script src="js/main.js"></script>
 @show 
 
 </body>

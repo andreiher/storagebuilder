@@ -5,13 +5,13 @@
 <div class="summary-screen">
     <div class="row">
         <div class="col-md-6">
-            <h3></h3>
+            <h3>&nbsp;</h3>
             <p><span class="firma">-</span></p>
             <p><i class="far fa-envelope"></i> <span class="email">-</span><p>
             <p><i class="fas fa-phone"></i> <span class="telefon">-</span><p>
         </div>
         <div class="col-md-6">
-            <h3@lang("messages.objective")></h3>
+            <h3>@lang("messages.objective")></h3>
             <p><span class="destinatie_cladire">-</span></p>
             <p>@lang("messages.structure_type"): <span class="tip_structura">-</span></p>
             <p>@lang("messages.color"): <span class="color">-</span></p>
@@ -51,7 +51,7 @@
             <p>@lang("messages.tir_access_ramps"): <span class="rampe_acces_tir">-</span> </p>
         </div>
         <div class="col-md-6">
-            <img id="preview-image" src="" class="img-fluid">
+            <img id="preview-image" src="" class="img-fluid" alt="RAP Development">
             <input id="preview-image-input" type="hidden" name="snapshot" value="">
         </div>
     </div>

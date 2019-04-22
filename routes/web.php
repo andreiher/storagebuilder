@@ -11,16 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-// Pagina de inceput
+// homepage
 Route::get('/', "HomeController@index")->name("home");
 
 
-Route::get('/configurator', "HomeController@configurator")->name("configurator"); // configurator (cand nu are proiect)
-Route::post('/configurator', "HomeController@proceseaza")->name("proceseaza"); // procesatorul de informatii din formular
+Route::get('/configurator', "HomeController@configurator")->name("configurator"); 
+Route::post('/configurator', "HomeController@proceseaza")->name("proceseaza");
 
 Route::get('/trimite-proiect', "HomeController@trimiteProiect")->name("trimite-proiect");
 Route::post('/trimite-proiect', "HomeController@proceseazaTrimiteProiect")->name("trimite-proiect-proceseaza");
@@ -31,10 +27,8 @@ Route::get('/confirmare-cerere', "HomeController@confirmare")->name("confirmare"
 Route::get('/termeni-si-conditii', "HomeController@termenisiconditii")->name("termenisiconditii");
 Route::get('/terms-and-conditions', "HomeController@termsandconditions")->name("termsandconditions");
 
-
-
-
-Route::get('lang/{lang}', function ($lang) {
-    \Session::put('lang', $lang);
+// Language Switch
+Route::get('lang/{selected_language}', function ($selected_language) {
+    \Session::put('lang', $selected_language);
     return redirect()->back();
 });

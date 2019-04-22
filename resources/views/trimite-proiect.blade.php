@@ -23,19 +23,19 @@
 
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="firma">@lang("messages.company")*</label>
+                    <label>@lang("messages.company")*</label>
                     <input type="text" id="firma" name="firma" required class="form-control" tabindex="3" value="{{ old('firma') }}">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="email">@lang("messages.email")*</label>
+                    <label>@lang("messages.email")*</label>
                     <input type="email" id="email" name="email" required class="form-control" tabindex="5" value="{{ old('email') }}">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="telefon">@lang("messages.phone")*</label>
+                    <label>@lang("messages.phone")*</label>
                     <input type="tel" id="telefon" name="telefon" required class="form-control" tabindex="4" value="{{ old('telefon') }}">
                 </div>
             </div>
@@ -60,7 +60,7 @@
                     <label><input type="checkbox" value="1" name="finantare" {{ old("finantare") == "1" ? 'checked="checked"' : ''}}> @lang("messages.financing_available").</label>
                 </div>
                 <div class="form-group">
-                    <label for="localitate">@lang("messages.building_locality")</label>
+                    <label>@lang("messages.building_locality")</label>
                     <input type="text" id="localitate" name="localitate" required class="form-control">
                 </div>
             </div>
@@ -79,11 +79,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label for="date_inceput">@lang("messages.project_start_date") </label>
+                    <label>@lang("messages.project_start_date") </label>
                     <input type="text" id="data_inceput" name="data_inceput" class="form-control" value="{{ old('data_inceput') }}">
                 </div>
                 <div class="form-group">
-                    <label for="date_sfarsit">@lang("messages.project_end_date") </label>
+                    <label>@lang("messages.project_end_date") </label>
                     <input type="text" id="data_sfarsit" name="data_sfarsit" class="form-control" value="{{ old('data_sfarsit') }}">
                 </div>
             </div>
@@ -94,7 +94,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label for="date_inceput">@lang("messages.extra_information") </label>
+                    <label>@lang("messages.extra_information") </label>
                     <textarea name="extra_info" id="extra_info" class="form-control" rows="5">{{ old('extra_info') }}</textarea>
                 </div>
             </div>

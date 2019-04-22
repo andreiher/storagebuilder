@@ -32,16 +32,9 @@ class HomeController extends Controller
     }
 
     public function proceseaza(Request $request) {
-
-
-
-
         $validator = Validator::make($request->all(), [
-//            'nume' => 'required',
-//            'prenume' => 'required',
             'email' => 'required|email',
             'telefon' => 'required',
-            // date cladire
             'destinatie_cladire' => 'required',
             'lungime' => 'required',
             'latime' => 'required',

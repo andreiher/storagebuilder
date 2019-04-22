@@ -7,8 +7,9 @@
         <br>
         <h2>@lang("messages.building_information")</h2>
         <div class="form-group">
-            <label for="type">@lang("messages.building_type")*</label>
+            <label>@lang("messages.building_type")*</label>
             <select class="form-control" id="type" name="destinatie_cladire" required>
+                <option value="">@lang("messages.select_option")</option>
                 <option value="hala_productie" {{ old("destinatie_cladire") == "hala_productie" ? 'selected="selected"' : ''}}>@lang("messages.building_type_production_hall")</option>
                 <option value="hala_logistica" {{ old("destinatie_cladire") == "hala_logistica" ? 'selected="selected"' : ''}}>@lang("messages.building_type_logistics_hall")</option>
                 <option value="depozit" {{ old("destinatie_cladire") == "depozit" ? 'selected="selected"' : ''}}>@lang("messages.building_type_warehouse")</option>
@@ -19,8 +20,9 @@
         </div>
 
         <div class="form-group">
-            <label for="type">@lang("messages.structure_type")*</label>
-            <select class="form-control" id="type" name="tip_structura" required>
+            <label>@lang("messages.structure_type")*</label>
+            <select class="form-control" id="structure_type" name="tip_structura" required>
+                <option value="">@lang("messages.select_option")</option>
                 <option value="metal" {{ old("tip_structura") == "metal" ? 'selected="selected"' : ''}}>@lang("messages.structure_type_metal")</option>
                 <option value="beton" {{ old("tip_structura") == "beton" ? 'selected="selected"' : ''}}>@lang("messages.structure_type_concrete")</option>
                 <option value="mixta" {{ old("tip_structura") == "mixta" ? 'selected="selected"' : ''}}>@lang("messages.structure_type_mixed")</option>
@@ -138,7 +140,7 @@
         <hr>
 
         <div class="form-group">
-            <label for="lungime">@lang("messages.length")*</label>
+            <label>@lang("messages.length")*</label>
             <input type="number" lang="en" class="form-control" id="lungime" name="lungime" placeholder="@lang("messages.units_meters")" value="{{ old('lungime') }}" required>
             <div role="group" class="btn-group autofill-length">
                 <button type="button" class="btn btn-primary" data-value="18">18m</button>
@@ -151,7 +153,7 @@
         </div>
 
         <div class="form-group">
-            <label for="latime">@lang("messages.width")*</label>
+            <label>@lang("messages.width")*</label>
             <input type="number" lang="en" class="form-control" id="latime" name="latime" placeholder="@lang("messages.units_meters")" value="{{ old('latime') }}" required>
             <div class="btn-group autofill-width" role="group">
                 <button type="button" class="btn btn-primary" data-value="12">12m</button>
@@ -164,7 +166,7 @@
         </div>
 
         <div class="form-group">
-            <label for="inaltime">@lang("messages.height")*</label>
+            <label>@lang("messages.height")*</label>
             <input type="number" lang="en" class="form-control" id="inaltime" name="inaltime" placeholder="@lang("messages.units_meters")" value="{{ old('inaltime') }}" required>
             <div class="btn-group autofill-height" role="group">
                 <button type="button" class="btn btn-primary" data-value="5">5m</button>
@@ -175,20 +177,21 @@
         </div>
 
         <div class="form-group">
-            <label for="suprafata_totala">@lang("messages.total_area")</label>
+            <label>@lang("messages.total_area")</label>
             <input type="number" readonly lang="en" class="form-control" id="suprafata_totala" name="suprafata_totala" placeholder="@lang("messages.units_sqmeters")" value="{{ old('suprafata_totala') }}">
         </div>
 
         <div class="form-group">
-            <label for="suprafata_construita">@lang("messages.built_area")</label>
+            <label>@lang("messages.built_area")</label>
             <input type="number" lang="en" class="form-control" id="suprafata_construita" name="suprafata_construita" placeholder="@lang("messages.units_sqmeters")" value="{{ old('suprafata_construita') }}">
         </div>
 
         <hr>
 
         <div class="form-group">
-            <label for="sistem_pluvial">@lang("messages.pluvial_system")</label>
+            <label>@lang("messages.pluvial_system")</label>
             <select class="form-control" id="sistem_pluvial" name="sistem_pluvial">
+                <option value="">@lang("messages.select_option")</option>
                 <option value="jgheaburi-burlane" {{ old("sistem_pluvial") == "jgheaburi-burlane" ? 'selected="selected"' : ''}}>@lang("messages.pluvial_system_drains")</option>
                 <option value="tip-geberit" {{ old("sistem_pluvial") == "tip-geberit" ? 'selected="selected"' : ''}}>@lang("messages.pluvial_system_gerberit")</option>
                 <option value="nu-stiu" {{ old("sistem_pluvial") == "nu-stiu" ? 'selected="selected"' : ''}}>@lang("messages.pluvial_system_dontknow")</option>
@@ -196,8 +199,9 @@
         </div>
 
         <div class="form-group">
-            <label for="panta_acoperis">@lang("messages.roof_slope")</label>
+            <label>@lang("messages.roof_slope")</label>
             <select class="form-control" id="panta_acoperis" name="panta_acoperis">
+                <option value="">@lang("messages.select_option")</option>
                 <option value="mic" {{ old("panta_acoperis") == "mic" ? 'selected="selected"' : ''}}>@lang("messages.roof_slope_morethan5")</option>
                 <option value="mare" {{ old("panta_acoperis") == "mare" ? 'selected="selected"' : ''}}>@lang("messages.roof_slope_lessthan5")</option>
                 <option value="nu-stiu" {{ old("panta_acoperis") == "nu-stiu" ? 'selected="selected"' : ''}}>@lang("messages.roof_slope_dontknow")</option>
@@ -207,7 +211,7 @@
         <hr>
 
         <div class="form-group">
-            <label for="mezanin">@lang("messages.entresol")</label>
+            <label>@lang("messages.entresol")</label>
             <div class="float-right">
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" id="mezanin-da" {{ old("mezanin") == trans("messages.yes") ? 'checked="checked"' : ''}} name="mezanin" class="custom-control-input" value="@lang("messages.yes")" data-checked-toggle="#mezanin-suprafata" data-toggle-value="@lang("messages.yes")">
@@ -221,14 +225,14 @@
         </div>
         <div class="form-group p-2" id="mezanin-suprafata" {!! old("mezanin") && old("mezanin") == trans("messages.yes") ? '' : 'style="display:none"' !!}>
             <div class="form-group">
-                <label for="mezanin_suprafata">@lang("messages.entresol_area")</label>
+                <label>@lang("messages.entresol_area")</label>
                 <input type="number" lang="en" class="form-control" id="mezanin_suprafata" name="mezanin_suprafata" placeholder="@lang("messages.units_sqmeters")" value="{{ old('mezanin_suprafata') }}">
             </div>
             <hr>
         </div>
 
         <div class="form-group">
-            <label for="copertina">@lang("messages.blind")</label>
+            <label>@lang("messages.blind")</label>
             <div class="float-right">
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" id="copertina-da" {{ old("copertina") == trans("messages.yes") ? 'checked="checked"' : ''}} name="copertina" class="custom-control-input" value="@lang("messages.yes")" data-checked-toggle="#copertina-suprafata" data-toggle-value="@lang("messages.yes")">
@@ -242,7 +246,7 @@
         </div>
         <div class="form-group p-2" id="copertina-suprafata" {!! old("copertina") && old("copertina") == trans("messages.yes") ? '' : 'style="display:none"' !!}>
             <div class="form-group">
-                <label for="copertina_suprafata">@lang("messages.blind_area")</label>
+                <label>@lang("messages.blind_area")</label>
                 <input type="number" lang="en" class="form-control" id="copertina_suprafata" name="copertina_suprafata" placeholder="@lang("messages.units_sqmeters")" value="{{ old('copertina_suprafata') }}">
             </div>
             <hr>
@@ -250,7 +254,7 @@
 
 
         <div class="form-group">
-            <label for="pod_rulant">@lang("messages.slide_bridge")</label>
+            <label>@lang("messages.slide_bridge")</label>
             <div class="float-right">
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" id="pod_rulant-da" {{ old("pod_rulant") == trans("messages.yes") ? 'checked="checked"' : ''}} name="pod_rulant" class="custom-control-input" value="@lang("messages.yes")" data-checked-toggle="#pod_rulant-sarcina" data-toggle-value="@lang("messages.yes")">
@@ -270,7 +274,7 @@
         </div>
 
         <div class="form-group">
-            <label for="cladire_izolata">@lang("messages.insulated_building")</label>
+            <label>@lang("messages.insulated_building")</label>
             <div class="float-right">
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" id="cladire_izolata-da" {{ old("cladire_izolata") == trans("messages.yes") ? 'checked="checked"' : ''}} name="cladire_izolata" class="custom-control-input" value="@lang("messages.yes")" data-checked-toggle="#cladire_izolata-detalii" data-toggle-value="@lang("messages.yes")">
@@ -285,8 +289,8 @@
         <div class="form-group p-2" id="cladire_izolata-detalii" {!! old("cladire_izolata") && old("cladire_izolata") == trans("messages.yes") ? '' : 'style="display:none"' !!}>
             <div class="form-group">
                 <div class="form-group">
-                    <label for="type">@lang("messages.roof_type")</label>
-                    <select class="form-control" id="type" name="tip_acoperis">
+                    <label>@lang("messages.roof_type")</label>
+                    <select class="form-control" id="roof_type" name="tip_acoperis">
                         <option value="">@lang("messages.select_option")</option>
                         <option value="tabla-vata-membrana" {{ old("tip_acoperis") == "tabla-vata-membrana" ? 'selected="selected"' : ''}}>@lang("messages.roof_type_sheet_metal")</option>
                         <option value="panou-sandwich-vata-minerala" {{ old("tip_acoperis") == "panou-sandwich-vata-minerala" ? 'selected="selected"' : ''}}>@lang("messages.roof_type_sandwich_panel_mineral_wool")</option>
@@ -296,7 +300,7 @@
                 </div>
                 <div class="tip_acoperis_toggle tip_acoperis-tabla-vata-membrana" style="display: none">
                     <div class="form-group">
-                        <label for="tip_acoperis-grosime-vata">@lang("messages.mineral_wool_thickness")</label>
+                        <label>@lang("messages.mineral_wool_thickness")</label>
                         <input type="number" step="2" min="8" max="12" lang="en" class="form-control" id="tip_acoperis-grosime-vata" name="tip_acoperis-grosime-vata" placeholder="@lang("messages.units_milimeters")" value="{{ old('tip_acoperis-grosime-vata') }}">
                         <div class="btn-group autofill-input" role="group">
                             <button type="button" class="btn btn-primary" data-value="8">8mm</button>
@@ -313,7 +317,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                            <label for="tip_acoperis-grosime-membrana">@lang("messages.membrane_thickness")</label>
+                            <label>@lang("messages.membrane_thickness")</label>
                             <input type="number" step="0.3" min="1.5" max="1.8" lang="en" class="form-control" id="tip_acoperis-grosime-membrana" name="tip_acoperis-grosime-membrana" placeholder="@lang("messages.units_milimeters")" value="{{ old('tip_acoperis-grosime-membrana') }}">
                             <div class="btn-group autofill-input" role="group">
                                 <button type="button" class="btn btn-primary" data-value="1.5">1.5mm</button>
@@ -323,7 +327,7 @@
                 </div>
                 <div class="tip_acoperis_toggle tip_acoperis-panou-sandwich-vata-minerala tip_acoperis-panou-sandwich-spuma-PIR tip_acoperis-panou-sandwich-spuma-PUR" style="display: none">
                     <div class="form-group">
-                        <label for="tip_acoperis-grosime">@lang("messages.roof_thickness")</label>
+                        <label>@lang("messages.roof_thickness")</label>
                         <input type="number" step="20" min="60" max="150" lang="en" class="form-control" id="tip_acoperis-grosime" name="tip_acoperis-grosime" placeholder="@lang("messages.units_milimeters")" value="{{ old('tip_acoperis-grosime') }}">
                         <div class="btn-group autofill-input" role="group">
                             <button type="button" class="btn btn-primary" data-value="80">80mm</button>
@@ -332,22 +336,15 @@
                             <button type="button" class="btn btn-primary" data-value="150">150mm</button>
                         </div>
                     </div>
-                    {{--<div class="form-group">--}}
-                            {{--<label>@lang("messages.foam_type")</label>--}}
-                            {{--<select class="form-control" name="tip_acoperis-panou-sandwich-spuma-tip">--}}
-                                    {{--<option value="">@lang("messages.select_option")</option>--}}
-                                    {{--<option value="PIR" {{ old("tip_acoperis-panou-sandwich-spuma-tip") == "PIR" ? 'selected="selected"' : ''}}>@lang("messages.foam_type_pir")</option>--}}
-                                    {{--<option value="PUR" {{ old("tip_acoperis-panou-sandwich-spuma-tip") == "PUR" ? 'selected="selected"' : ''}}>@lang("messages.foam_type_pur")</option>--}}
-                            {{--</select>--}}
-                    {{--</div>--}}
                 </div>
 
             </div>
 
             <div class="form-group">
                 <div class="form-group">
-                    <label for="type">@lang("messages.walls_type")</label>
-                    <select class="form-control" id="type" name="tip_pereti">
+                    <label>@lang("messages.walls_type")</label>
+                    <select class="form-control" id="walls_type" name="tip_pereti">
+                        <option value="">@lang("messages.select_option")</option>
                         <option value="caseta-vata-tabla" {{ old("tip_pereti") == "caseta-vata-tabla" ? 'selected="selected"' : ''}}>@lang("messages.walls_type_metal")</option>
                         <option value="panou-sandwich-vata-minerala" {{ old("tip_pereti") == "panou_sandwich-vata-minerala" ? 'selected="selected"' : ''}}>@lang("messages.walls_type_sandwich_panel")</option>
                         <option value="spuma-pir" {{ old("tip_pereti") == "spuma-pir" ? 'selected="selected"' : ''}}>@lang("messages.walls_type_pir_foam")</option>
@@ -355,7 +352,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="tip_pereti-grosime">@lang("messages.walls_thickness")</label>
+                    <label>@lang("messages.walls_thickness")</label>
                     <input type="number" step="20" min="80" max="150" lang="en" class="form-control" id="tip_pereti-grosime" name="tip_pereti-grosime" placeholder="@lang("messages.units_milimeters")" value="{{ old('copertina_suprafata') }}">
                     <div class="btn-group autofill-input" role="group">
                         <button type="button" class="btn btn-primary" data-value="80" style="display:none">80mm</button>
