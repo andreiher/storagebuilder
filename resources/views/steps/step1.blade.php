@@ -558,23 +558,11 @@
             scene.add(ground);
         }
         function addShed() {
-            // Cladirea:
-            // in acest caz, vom desena in 2D conturul cladirii, apoi vom face extrude (ExtrudeBufferGeometry)
-            var building2DShape = new THREE.Shape();
-            building2DShape.moveTo( 0,0 );
-            building2DShape.lineTo( 0, inaltime );
-            building2DShape.lineTo( latime/2, inaltime + 1 );
-            building2DShape.lineTo( latime, inaltime );
-            building2DShape.lineTo( latime, 0 );
-            building2DShape.lineTo( 0, 0 );
-
-            // textura pentru fata si spate
             var frontBackTexture = new THREE.TextureLoader().load( 'images/textures/walls-texture.jpg' );
             frontBackTexture.wrapS = frontBackTexture.wrapT = THREE.RepeatWrapping;
             frontBackTexture.repeat.set( 0.3, 0.3 );
             frontBackTexture.offset.set( 0,0 );
 
-            // textura pentru laterale (lafel ca si fata, insa e rotita cu 90 de grade)
             var SidesTexture = new THREE.TextureLoader().load( 'images/textures/walls-texture.jpg' );
             SidesTexture.wrapS = SidesTexture.wrapT = THREE.RepeatWrapping;
             SidesTexture.repeat.set( 0.3, 0.3 );
@@ -583,42 +571,27 @@
 
             var shedColor = culoare ? ral2hex(culoare) : '#a1a1a0';
 
+            var building2DShape = new THREE.Shape();
+            building2DShape.moveTo( 0,0 );
+            building2DShape.lineTo( 0, inaltime );
+            building2DShape.lineTo( latime/2, inaltime + 1 );
+            building2DShape.lineTo( latime, inaltime );
+            building2DShape.lineTo( latime, 0 );
+            building2DShape.lineTo( 0, 0 );
             var shedGeometry = new THREE.ExtrudeGeometry( building2DShape, { depth: lungime, bevelEnabled: false } );
+
+
             var shedMaterials = [
                 new THREE.MeshLambertMaterial({ color: new THREE.Color(shedColor), map: frontBackTexture }), // front back material
-                new THREE.MeshLambertMaterial({ color: 0xd7d5cb }), // roof material
-                new THREE.MeshLambertMaterial({ color: new THREE.Color(shedColor), map: SidesTexture }),  // sides material - same as frint back - the only diff is that we rotated texture 90 degrees
+                new THREE.MeshLambertMaterial({ color: new THREE.Color(shedColor), map: SidesTexture }),  // sides material - same as front back - the only diff is that we rotated texture 90 degrees
             ];
             var shed = new THREE.Mesh( shedGeometry, shedMaterials ) ;
 
-            // Aici asignam ce material sa folosesti pentru fiecare fata a geometriei
-            // fata
-            shed.geometry.faces[0].materialIndex = 0;
-            shed.geometry.faces[1].materialIndex = 0;
-            shed.geometry.faces[2].materialIndex = 0;
+            shed.geometry.faces[6].materialIndex = 1;
+            shed.geometry.faces[7].materialIndex = 1;
+            shed.geometry.faces[12].materialIndex = 1;
+            shed.geometry.faces[13].materialIndex = 1;
 
-            // spate
-            shed.geometry.faces[3].materialIndex = 0;
-            shed.geometry.faces[4].materialIndex = 0;
-            shed.geometry.faces[5].materialIndex = 0;
-
-            // lateral stanga
-            shed.geometry.faces[6].materialIndex = 2;
-            shed.geometry.faces[7].materialIndex = 2;
-
-            // lateral dreapta
-            shed.geometry.faces[12].materialIndex = 2;
-            shed.geometry.faces[13].materialIndex = 2;
-
-            // deasupra
-            shed.geometry.faces[8].materialIndex = 1;
-            shed.geometry.faces[9].materialIndex = 1;
-            shed.geometry.faces[10].materialIndex = 1;
-            shed.geometry.faces[11].materialIndex = 1;
-
-            // se roteste cladirea cu 90 de grade pe axa Y - pentru aspect
-            // apoi se va pozitiona cladirea pe centru (0,0)
-            // si z = -1 - pentru a nu vedea sub cladire, o aducem la acelasi nivel cu pamantul
             shed.rotateY(THREE.Math.degToRad(90));
             shed.position.z = latime/2;
             shed.position.x = -lungime/2;
@@ -627,20 +600,17 @@
             scene.add( shed );
         }
         function addSidewalk() {
-            // trotuar
             var sidewalkMaterial = new THREE.MeshLambertMaterial({ color: 0x8d9295 });
             var sidewalkGeometry = new THREE.BoxGeometry(lungime + 3, 0.1, latime + 3);
             var sidewalk = new THREE.Mesh(sidewalkGeometry,sidewalkMaterial);
 
             sidewalk.position.z = 0;
             sidewalk.position.x = 0;
-            sidewalk.position.y = -0.9;
+            sidewalk.position.y = -1;
 
             scene.add(sidewalk);
         }
         function addShedBase() {
-            // soclu
-            // textura pentru soclu
             var shedBaseTexture = new THREE.TextureLoader().load( 'images/textures/walls-texture.jpg' );
             shedBaseTexture.wrapS = shedBaseTexture.wrapT = THREE.RepeatWrapping;
             shedBaseTexture.repeat.set( 0.8, 0.8 );
@@ -651,50 +621,45 @@
             shedBaseSideTexture.wrapS = shedBaseSideTexture.wrapT = THREE.RepeatWrapping;
             shedBaseSideTexture.repeat.set( 0.8, 0.8 );
             shedBaseSideTexture.offset.set( 0,0 );
-            // shedBaseSideTexture.rotation = THREE.Math.degToRad(90);
 
             var shedBaseMaterial = new THREE.MeshLambertMaterial({ color: 0x2a292a, map: shedBaseTexture });
             var shedBaseSideMaterial = new THREE.MeshLambertMaterial({ color: 0x2a292a, map: shedBaseSideTexture });
-            var shedBaseGeometry = new THREE.BoxGeometry(lungime + 0.01, latime + 0.01, 2);
+            var shedBaseGeometry = new THREE.BoxGeometry(lungime + 0.001, 0.5, latime + 0.001);
             var shedBase = new THREE.Mesh(shedBaseGeometry, [
-                shedBaseMaterial, // front back material
-                shedBaseSideMaterial, // sides material
+                shedBaseMaterial, 
+                shedBaseSideMaterial, 
             ]);
 
-            shedBase.rotateX(THREE.Math.degToRad(-90));
             shedBase.position.z = 0;
             shedBase.position.x = 0;
-            shedBase.position.y = -0.9;
+            shedBase.position.y = -0.7;
 
-            // assingam ce material sa foloseasca pe fiecare fata
-            shedBase.geometry.faces[0].materialIndex = 0;
-            shedBase.geometry.faces[1].materialIndex = 0;
-            shedBase.geometry.faces[2].materialIndex = 0;
-            shedBase.geometry.faces[3].materialIndex = 0;
+            shedBase.geometry.faces[0].materialIndex = 1;
+            shedBase.geometry.faces[1].materialIndex = 1;
+            shedBase.geometry.faces[2].materialIndex = 1;
+            shedBase.geometry.faces[3].materialIndex = 1;
 
-            shedBase.geometry.faces[4].materialIndex = 1;
-            shedBase.geometry.faces[5].materialIndex = 1;
-            shedBase.geometry.faces[6].materialIndex = 1;
-            shedBase.geometry.faces[7].materialIndex = 1;
+            shedBase.geometry.faces[8].materialIndex = 1;
+            shedBase.geometry.faces[9].materialIndex = 1;
+            shedBase.geometry.faces[10].materialIndex = 1;
+            shedBase.geometry.faces[11].materialIndex = 1;
 
             scene.add(shedBase);
         }
         function addShedRoof() {
-            // acoperis
 
             if(tip_cladire === "sala_de_sport") {
-                var roof2DShape = new THREE.Shape();
-                roof2DShape.moveTo( 0, inaltime );
-                roof2DShape.bezierCurveTo( latime /2, inaltime+ 3, latime, inaltime, latime, inaltime );
-                roof2DShape.lineTo( 0, inaltime );
-
-                // textura pentru fata si spate
                 var roofTexture = new THREE.TextureLoader().load( 'images/textures/walls-texture.jpg' );
                 roofTexture.wrapS = roofTexture.wrapT = THREE.RepeatWrapping;
                 roofTexture.repeat.set( 0.3, 0.3 );
                 roofTexture.offset.set( 0,0 );
 
                 var shedColor = culoare ? ral2hex(culoare) : '#a1a1a0';
+
+                var roof2DShape = new THREE.Shape();
+                roof2DShape.moveTo( 0, inaltime );
+                roof2DShape.quadraticCurveTo( latime /2, inaltime+3, latime, inaltime );
+
                 var shedGeometry = new THREE.ExtrudeGeometry( roof2DShape, { depth: lungime, bevelEnabled: false } );
                 var shedMaterials = [
                     new THREE.MeshLambertMaterial({ color: new THREE.Color(shedColor), map: roofTexture }), // front back material
