@@ -45,7 +45,7 @@
             // input pentru dimensiuni
             $(".add-dynamic_input-trigger").on("click", function() {
                 var wrap = $(this).parent().find(".dynamic-wrap");
-                var inputName = $(this).attr("dynamic-name");
+                var inputName = $(this).attr("data-dynamic-name");
 
                 var newItem =
                     '<li class="pb-1 pt-1">'+
