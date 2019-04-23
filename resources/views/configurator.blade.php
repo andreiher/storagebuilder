@@ -31,10 +31,7 @@
 @section('scripts')
    @parent
 
-   <script type="text/javascript">
-        // window.onbeforeunload = function() {
-        //     return "Daca plecati de pe pagina, veti pierde toate datele !";
-        // }
+   <script>
         var currentstep=1;
         $(function(){
             $('[data-toggle="tooltip"]').tooltip()
