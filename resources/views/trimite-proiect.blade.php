@@ -115,7 +115,7 @@
 
 @section('scripts')
     @parent
-    <script type="text/javascript">
+    <script>
         $(function() {
             $("#terms_and_conditions").on("click", function() {
                 var button = $('form button[type="submit"]');

@@ -51,7 +51,7 @@
             <p>@lang("messages.tir_access_ramps"): <span class="rampe_acces_tir">-</span> </p>
         </div>
         <div class="col-md-6">
-            <img id="preview-image" src="" class="img-fluid" alt="RAP Development">
+            <img id="preview-image" src="/images/rap-dev-logo.png" class="img-fluid" alt="RAP Development">
             <input id="preview-image-input" type="hidden" name="snapshot" value="">
         </div>
     </div>

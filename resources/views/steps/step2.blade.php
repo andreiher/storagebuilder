@@ -57,11 +57,11 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
-                <label for="date_inceput">@lang("messages.project_start_date") </label>
+                <label>@lang("messages.project_start_date") </label>
                 <input type="text" id="data_inceput" name="data_inceput" class="form-control" value="{{ old('data_inceput') }}">
             </div>
             <div class="form-group">
-                <label for="date_sfarsit">@lang("messages.project_end_date") </label>
+                <label>@lang("messages.project_end_date") </label>
                 <input type="text" id="data_sfarsit" name="data_sfarsit" class="form-control" value="{{ old('data_sfarsit') }}">
             </div>    
         </div>
@@ -72,7 +72,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
-                <label for="date_inceput">@lang("messages.extra_information_label") </label>
+                <label>@lang("messages.extra_information_label") </label>
                 <textarea name="extra_info" id="extra_info" class="form-control" rows="5">{{ old('extra_info') }}</textarea>
             </div>
         </div>
@@ -88,4 +88,3 @@
             <button type="button" class="btn btn-primary nextstep">@lang("messages.continue")</button>
         </div>
     </div>
-</div>    

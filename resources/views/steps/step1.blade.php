@@ -368,14 +368,14 @@
 
         <div class="form-group">
             <label>@lang("messages.smoke_hatches")</label>
-            <button type="button" class="btn btn-primary float-right add-dynamic_input-trigger" dynamic-name="trape_fum"><i class="fas fa-plus"></i></button>
+            <button type="button" class="btn btn-primary float-right add-dynamic_input-trigger" data-data-dynamic-name="trape_fum"><i class="fas fa-plus"></i></button>
             <p><small>@lang("messages.smoke_hatches_note")</small></p>
             <ol class="dynamic-wrap"></ol>
         </div>
         <hr>
         <div class="form-group">
             <label>@lang("messages.windows")</label>
-            <button type="button" class="btn btn-primary float-right add-dynamic_input-trigger" dynamic-name="ferestre"><i class="fas fa-plus"></i></button>
+            <button type="button" class="btn btn-primary float-right add-dynamic_input-trigger" data-dynamic-name="ferestre"><i class="fas fa-plus"></i></button>
             <p></p>
             <div class="clearfix pt-1"></div>
             <ol class="dynamic-wrap"></ol>
@@ -384,7 +384,7 @@
 
         <div class="form-group">
             <label>@lang("messages.industrial_doors")</label>
-            <button type="button" class="btn btn-primary float-right add-dynamic_input-trigger" dynamic-name="usi_sectionale"><i class="fas fa-plus"></i></button>
+            <button type="button" class="btn btn-primary float-right add-dynamic_input-trigger" data-dynamic-name="usi_sectionale"><i class="fas fa-plus"></i></button>
             <p></p>
             <div class="clearfix pt-1"></div>
             <ol class="dynamic-wrap"></ol>
@@ -393,7 +393,7 @@
 
         <div class="form-group">
             <label>@lang("messages.pedestrian_doors")</label>
-            <button type="button" class="btn btn-primary float-right add-dynamic_input-trigger" dynamic-name="usi_pietonale"><i class="fas fa-plus"></i></button>
+            <button type="button" class="btn btn-primary float-right add-dynamic_input-trigger" data-dynamic-name="usi_pietonale"><i class="fas fa-plus"></i></button>
             <p></p>
             <div class="clearfix pt-1"></div>
             <ol class="dynamic-wrap"></ol>
@@ -402,7 +402,7 @@
 
         <div class="form-group">
             <label>@lang("messages.tir_access_ramps")</label>
-            <button type="button" class="btn btn-primary float-right add-dynamic_input-trigger" dynamic-name="rampe_acces_tir"><i class="fas fa-plus"></i></button>
+            <button type="button" class="btn btn-primary float-right add-dynamic_input-trigger" data-dynamic-name="rampe_acces_tir"><i class="fas fa-plus"></i></button>
             <p></p>
             <div class="clearfix pt-1"></div>
             <ol class="dynamic-wrap"></ol>
