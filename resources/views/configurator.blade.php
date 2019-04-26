@@ -326,15 +326,21 @@
                     tip_structura: "required",
                     lungime: {
                         required: true,
-                        number: true
+                        number: true,
+                        max: 100,
+                        min: 5
                     },
                     latime: {
                         required: true,
-                        number: true
+                        number: true,
+                        max: 100,
+                        min: 5
                     },
                     inaltime: {
                         required: true,
-                        number: true
+                        number: true,
+                        max: 20,
+                        min: 5
                     },
                     sistem_pluvial: "required",
                     panta_acoperis: "required",

@@ -141,7 +141,7 @@
 
         <div class="form-group">
             <label>@lang("messages.length")*</label>
-            <input type="number" lang="en" class="form-control" id="lungime" name="lungime" placeholder="@lang("messages.units_meters")" value="{{ old('lungime') }}" required>
+            <input type="number" lang="en" class="form-control" id="lungime" name="lungime" min="5" max="100" placeholder="@lang("messages.units_meters")" value="{{ old('lungime') }}" required>
             <div role="group" class="btn-group autofill-length">
                 <button type="button" class="btn btn-primary" data-value="18">18m</button>
                 <button type="button" class="btn btn-primary" data-value="24">24m</button>
@@ -154,7 +154,7 @@
 
         <div class="form-group">
             <label>@lang("messages.width")*</label>
-            <input type="number" lang="en" class="form-control" id="latime" name="latime" placeholder="@lang("messages.units_meters")" value="{{ old('latime') }}" required>
+            <input type="number" lang="en" class="form-control" id="latime" name="latime" min="5" max="100" placeholder="@lang("messages.units_meters")" value="{{ old('latime') }}" required>
             <div class="btn-group autofill-width" role="group">
                 <button type="button" class="btn btn-primary" data-value="12">12m</button>
                 <button type="button" class="btn btn-primary" data-value="14">14m</button>
@@ -167,7 +167,7 @@
 
         <div class="form-group">
             <label>@lang("messages.height")*</label>
-            <input type="number" lang="en" class="form-control" id="inaltime" name="inaltime" placeholder="@lang("messages.units_meters")" value="{{ old('inaltime') }}" required>
+            <input type="number" lang="en" class="form-control" id="inaltime" name="inaltime"  min="5" max="50" placeholder="@lang("messages.units_meters")" value="{{ old('inaltime') }}" required>
             <div class="btn-group autofill-height" role="group">
                 <button type="button" class="btn btn-primary" data-value="5">5m</button>
                 <button type="button" class="btn btn-primary" data-value="7.5">7.5m</button>
@@ -502,9 +502,13 @@
 
             // asta e un fallback - cand unul din inputuri este gol, sau este mai mic ca 0, sa foloseasca o valoare
             // predefinita (de ex: 30, 16 sau 5) - astfel previi sa afiseze un corp defectuos
-            lungime = lungime > 0 ? lungime : 30;
-            latime = latime > 0 ? latime : 16;
-            inaltime = inaltime > 0 ? inaltime : 5;
+            lungime = lungime > 5 ? lungime : 30;
+            latime = latime > 5 ? latime : 16;
+            inaltime = inaltime > 5 ? inaltime : 5;
+
+            lungime = lungime > 100 ? 100 : lungime;
+            latime = latime > 100 ? 100 : latime;
+            inaltime = inaltime > 20 ? 20 : inaltime;
 
             // reprezinta distanta minima la care poti face zoom la corp
             // pentru a nu intra cu camera in interiorul corpului, setam ca

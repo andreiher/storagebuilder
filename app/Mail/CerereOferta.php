@@ -32,8 +32,8 @@ class CerereOferta extends Mailable
         }
 
 
-        return $this->to("vlad.moise97@yahoo.com")
-            ->to("andreiher89@gmail.com")
+        return $this->to("office.dev@rap-group.ro")
+            ->bcc("vlad.moise97@yahoo.com")
             ->subject("Cerere de oferta cladire")
             ->view('emails.cerere_oferta',['data' => $this->data]);
     }
