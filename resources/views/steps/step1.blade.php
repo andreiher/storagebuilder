@@ -438,9 +438,8 @@
 
         var camera, controls, scene = false, renderer, lungime, latime, inaltime, tip_cladire, culoare;
 
-        // urmatoarele functii se se trigger-uiesc dupa ce a incarcat complet pagina
         $(function() {
-            init(); // initializeaza three js si creeaza scena initiala
+            init();
             animate();
         });
 
@@ -489,19 +488,14 @@
             generateSnapshot();
         }
 
-        // functia care va creea geometriile in scena
         function createGeometries() {
 
-            // se preiau valorile lungimii, latimii si inaltimii care au fost introduse in formular
-            // prin jquery
             lungime = parseInt($("#lungime").val());
             latime = parseInt($("#latime").val());
             inaltime = parseInt($("#inaltime").val());
             tip_cladire = $("#type").val();
             culoare = $(".shed-color:checked").val();
 
-            // asta e un fallback - cand unul din inputuri este gol, sau este mai mic ca 0, sa foloseasca o valoare
-            // predefinita (de ex: 30, 16 sau 5) - astfel previi sa afiseze un corp defectuos
             lungime = lungime > 5 ? lungime : 30;
             latime = latime > 5 ? latime : 16;
             inaltime = inaltime > 5 ? inaltime : 5;
@@ -510,13 +504,7 @@
             latime = latime > 100 ? 100 : latime;
             inaltime = inaltime > 20 ? 20 : inaltime;
 
-            // reprezinta distanta minima la care poti face zoom la corp
-            // pentru a nu intra cu camera in interiorul corpului, setam ca
-            // distanta minima sa fie cat lungimea cladirii
             controls.minDistance = lungime;
-
-
-            // crearea geometriilor propriu-zise
 
             addGround();
             addSidewalk();
@@ -534,11 +522,7 @@
         }
 
         function addGround() {
-            // Pamantul:
-            // se creeaza un obiect plan (PlaneGeometry) de dimensiuni 1400x1400, folosind
-            // MeshLambertMaterial ca si material (MeshLambertMaterial - material for non-shiny surfaces, without specular highlights )
 
-            // se configureaza textura pamantului
             var grassTexture = THREE.ImageUtils.loadTexture('images/textures/grass-texture.jpg');
             grassTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
             grassTexture.repeat.x = 60;
@@ -550,15 +534,10 @@
 
             var ground = new THREE.Mesh(geometry,material);
 
-            // pozitionam pamantul sa fie sub axa Y cu 1 - daca o lasam normal, cand miscam camera sa fie la nivelul
-            // orizontului, camera va intra in obiect - astfel, daca este mutata cu -1, acest lucru nu se va mai intampla
             ground.position.y = -1;
 
-            // rotim planul creeat anterior cu -90 de grade in jurul axei X, pentru a o pozitiona orizontal
-            // (axa x si z se afla in plan orizontal, iar axa y se afla in plan vertical)
             ground.rotation.x = -Math.PI/2;
 
-            // adaugam obiectul creeat, in scena
             scene.add(ground);
         }
         function addShed() {
@@ -587,7 +566,7 @@
 
             var shedMaterials = [
                 new THREE.MeshLambertMaterial({ color: new THREE.Color(shedColor), map: frontBackTexture }), // front back material
-                new THREE.MeshLambertMaterial({ color: new THREE.Color(shedColor), map: SidesTexture }),  // sides material - same as front back - the only diff is that we rotated texture 90 degrees
+                new THREE.MeshLambertMaterial({ color: new THREE.Color(shedColor), map: SidesTexture }),  // sides material - same as front back - the only difference is that the textureis rotated with 90 degrees
             ];
             var shed = new THREE.Mesh( shedGeometry, shedMaterials ) ;
 
@@ -680,9 +659,6 @@
                 return;
             }
 
-            // roofSide width - pentru asta aplicam teorema lui Pitagora
-            // calculul ipotenuzei = ipotenuza = radical din latime la patrat + inaltimea la patrat
-
             var roofSideWidth = Math.sqrt((latime/2)*(latime/2) + 1);
 
             var roofSide1Geometry = new THREE.BoxGeometry(lungime, roofSideWidth, 0.1);
@@ -748,8 +724,7 @@
             scene.add(roofSide2);
         }
         function addLights() {
-            // Lumini:
-            // se adauga luminile in scena
+
             var light = new THREE.DirectionalLight( 0xffffff );
             light.position.set( -50, 20, 25 );
             scene.add( light );
@@ -759,8 +734,7 @@
             scene.add( light );
         }
         function addShedAccesories() {
-            // scoc & burlan
-            // lateral stanga
+
             var drainGeometry = new THREE.BoxGeometry(lungime, 0.1, 0.1);
             var drain = new THREE.Mesh(drainGeometry,new THREE.MeshLambertMaterial({ color: 0x003319 }));
 
@@ -784,7 +758,6 @@
             drain2.position.y = (inaltime / 2) - 1.1;
             scene.add(drain2);
 
-            // lateral dreapta
             var drainGeometry = new THREE.BoxGeometry(lungime, 0.1, 0.1);
             var drain = new THREE.Mesh(drainGeometry,new THREE.MeshLambertMaterial({ color: 0x003319 }));
 
@@ -893,15 +866,12 @@
 
         }
 
-        // urmatoarea functie va sterge toate elementele din scena
-        // corpuri, lumini, etc
         function clearScene() {
             while(scene.children.length > 0){
                 scene.remove(scene.children[0]);
             }
         }
 
-        // function for keeping the aspect ration when resizing the browser
         function onWindowResize() {
             var wrapper = document.getElementById("building-preview");
 
@@ -913,35 +883,27 @@
         }
 
         function animate() {
-            // https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
-            // urmatoarea functiei anunta browserul ca va avea loc o animatie
-            // astfel, callback-ul (adica ce e in paranteze - anume functia animate) se va reincarca de 60 de ori pe secunda
-            // si practic asta va realiza animatia (cand misti cladirea etc)
+
             requestAnimationFrame( animate );
-            controls.update(); // recalibreaza control-urile (miscarea camerei in scena)
-            render(); // apeleaza functia render, care va genera scena (in functie de pozitia camerei samd)
+            controls.update(); 
+            render();
         }
 
-        // genereaza scena, in functie de pozitia camerei
         function render() {
 
             renderer.render( scene, camera );
 
         }
 
-        // functia va reimprospata scena - se foloseste atunci cand se schimba dimensiunile in formular
         function refreshScene () {
             clearScene();
             createGeometries();
             generateSnapshot();
         }
 
-        // genereaza snapshot-ul de la finalul formularului (summary)
         function generateSnapshot() {
             try {
-                // renderer.domElement.toDataURL("image/jpeg") - va genera imaginea in format base64, pe care o
-                // putem folosi in atributul "src" al imaginii, pentru afisarea snapshotului
-                // anume: <img src="<CODUL BASE64 GENERAT DE FUNCTIE>">
+
                 $("#preview-image").attr("src", renderer.domElement.toDataURL("image/jpeg"));
                 $("#preview-image-input").val(renderer.domElement.toDataURL("image/jpeg"));
             } catch (e) {

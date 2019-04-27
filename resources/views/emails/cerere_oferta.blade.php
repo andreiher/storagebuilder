@@ -18,7 +18,6 @@
                 $value = $value > 0 ? "Da" : "Nu";
             }
 
-            // adauga unitatea de masura
             if(in_array($input, ["tip_acoperis-grosime", "tip_acoperis-grosime-vata", "tip_acoperis-grosime-membrana","tip_pereti-grosime"])) { $value = $value."mm"; }
             if(in_array($input, ["lungime", "latime", "inaltime"])) { $value = $value."m"; }
             if(in_array($input, [

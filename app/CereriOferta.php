@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class CereriOferta extends Model
 {
     public $table = "cereri_oferta";
-    //
 
     protected $casts = [
         'trape_fum' => 'array',

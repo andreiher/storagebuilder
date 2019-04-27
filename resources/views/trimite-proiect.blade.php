@@ -145,9 +145,6 @@
                 }
             });
 
-            // initiaza pluginul "datepicker" pentru selectia datelor
-            // iar la evenimentul changeDate (cand se selecteaza o data noua in formular)
-            // seteaza valoarea inputului #data_sfarsit, luna urmatoare fata de #data_inceput
             $('#data_inceput').datepicker({
                 format: 'dd/mm/yyyy',
                 autoclose: true,
@@ -160,7 +157,6 @@
                 $("#data_sfarsit").datepicker("setStartDate",newdate).datepicker("update",newdate)
             });
 
-            // initiaza pluginul "datepicker" pentru selectia datelor
             $('#data_sfarsit').datepicker({
                 format: 'dd/mm/yyyy',
                 autoclose: true,

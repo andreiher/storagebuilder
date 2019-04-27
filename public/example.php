@@ -35,7 +35,6 @@
     var camera, controls, scene, renderer;
 
     init();
-    //render(); // remove when using next line for animation loop (requestAnimationFrame)
     animate();
 
     function init() {

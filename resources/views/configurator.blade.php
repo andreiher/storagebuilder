@@ -38,8 +38,6 @@
 
             detailsSectionHeight();
 
-            // Urmareste evenimentul "click" pe butoanele de plus (clasa "add-dynamic_input-trigger") si va adauga un
-            // input pentru dimensiuni
             $(".add-dynamic_input-trigger").on("click", function() {
                 var wrap = $(this).parent().find(".dynamic-wrap");
                 var inputName = $(this).attr("data-dynamic-name");
@@ -79,12 +77,6 @@
                 wrap.remove();
             });
 
-
-
-            // este o functie mai generala, aferenta strict inputurilor de tip radio, care cauta elementele
-            // ce au atributul "data-change-toggle", iar la schimbarea valorii, va afisa div-ul a carui selector
-            // se afla in atributul "data-change-toggle" dar numai atunci cand inputul va avea valoarea egala
-            // cu atributul "data-toggle-value"
             $('input[type="radio"][data-checked-toggle]').each(function() {
                var that = $(this);
                var toggle = $(that.attr("data-checked-toggle"));
@@ -99,9 +91,6 @@
                })
             });
 
-            // este o functie mai generala, care cauta elementele ce au atributul "data-change-toggle",
-            // iar la schimbarea valorii, va afisa div-ul a carui selector se afla in atributul "data-change-toggle"
-            // dar numai atunci cand inputul va avea valoarea egala cu atributul "data-toggle-value"
             $('*[data-change-toggle]').each(function() {
                var that = $(this);
                var toggle = $(that.attr("data-change-toggle"));
@@ -116,17 +105,12 @@
                toggle.hide();
             });
 
-            // Urmareste evenimentul de change (cand se schimba valoarea), si afiseaza extra optiunile aferente
-            // unui tip de acoperis
             $('select[name="tip_acoperis"]').on("change", function(){
                 var toggles=$(".tip_acoperis_toggle");
                 toggles.hide();
                 $(".tip_acoperis-"+$(this).val()).show();
             });
 
-            // Urmareste evenimentul de change (cand se schimba valoarea) a selectului Tip Pereti,
-            // iar in cazul in care valoarea acestuia este "panou-sandwich-vata-minerala" va afisa
-            // butoanele cu valoarea 80 si 150, altfel, daca difera valoarea, le va ascunde
             $('select[name="tip_pereti"]').on("change", function(){
                 var buttonswrap= $(this).parent().find(".autofill-input");
                 var buttons= buttonswrap.find('[data-value="80"], [data-value="150"]');
@@ -137,13 +121,6 @@
                 }
             });
 
-
-
-            // Urmareste evenimentul de click pe clasa "nextstep" pentru a trece la urmatorul pas din formular
-            // Cand da de evenimentul "click", acesta ascunde toate div-urile cu clasa "wizzard-steps"
-            // apoi, incrementeaza variabila currentstep cu 1 (adica currentstep + 1), apoi
-            // afiseaza div-ul care are id-ul "step<currentstep>" (ex step1 sau step2)
-            // respectiv updateaza pagina de summary cu datele din formular
             $(".nextstep").on("click",function(e){
                 e.preventDefault();
                 var form = $("#wizzard_form");
@@ -161,11 +138,6 @@
                 }
             });
 
-            // Urmareste evenimentul de click pe clasa "nextstep" pentru a trece la pasul anterior din formular
-            // Cand da de evenimentul "click", acesta ascunde toate div-urile cu clasa "wizzard-steps"
-            // apoi, decrementeaza variabila currentstep cu 1 (adica currentstep - 1), apoi
-            // afiseaza div-ul care are id-ul "step<currentstep>" (ex step1 sau step2)
-            // respectiv updateaza pagina de summary cu datele din formular
             $(".prevstep").on("click",function(e){
                 e.preventDefault();
                 $(".wizzard-steps").hide();
@@ -181,10 +153,6 @@
                 updateSummaryPage();
             })
 
-
-            // initiaza pluginul "datepicker" pentru selectia datelor
-            // iar la evenimentul changeDate (cand se selecteaza o data noua in formular)
-            // seteaza valoarea inputului #data_sfarsit, luna urmatoare fata de #data_inceput
             $('#data_inceput').datepicker({
                 format: 'dd/mm/yyyy',
                 autoclose: true,
@@ -197,7 +165,7 @@
                 $("#data_sfarsit").datepicker("setStartDate",newdate).datepicker("update",newdate)
             });
 
-            // initiaza pluginul "datepicker" pentru selectia datelor
+
             $('#data_sfarsit').datepicker({
                 format: 'dd/mm/yyyy',
                 autoclose: true,
@@ -226,9 +194,6 @@
                 }
             }
 
-            // functie pentru updatarea summary-page-ului cu datele curente din formular
-            // functia este chemata atunci cand treci la urmatorul pas in formular,
-            // sau revii la pasul anterior
             function updateSummaryPage() {
                 var form = $("#wizzard_form");
                 var inputs = $("input, select, textarea");
@@ -430,8 +395,7 @@
                     data_sfarsit: "required",
                 }
             ];
-            // functia urmatoare se ocupa cu validarea formularului,
-            // in functie de pasul in care este (currentstep)
+
             $("#wizzard_form").validate({ rules: validationRules[(currentstep - 1)] });
 
             $("#terms_and_conditions").on("click", function() {
