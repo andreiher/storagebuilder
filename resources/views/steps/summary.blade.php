@@ -5,8 +5,8 @@
 <div class="summary-screen">
     <div class="row">
         <div class="col-md-6">
-            <h3>&nbsp;</h3>
-            <p><span class="firma">-</span></p>
+            <h3>@lang("messages.identification_data")</h3>
+            <p><strong><span class="firma">-</span></strong></p>
             <p><i class="far fa-envelope"></i> <span class="email">-</span><p>
             <p><i class="fas fa-phone"></i> <span class="telefon">-</span><p>
         </div>
