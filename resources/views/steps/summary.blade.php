@@ -11,7 +11,7 @@
             <p><i class="fas fa-phone"></i> <span class="telefon">-</span><p>
         </div>
         <div class="col-md-6">
-            <h3>@lang("messages.objective")></h3>
+            <h3>@lang("messages.objective")</h3>
             <p><span class="destinatie_cladire">-</span></p>
             <p>@lang("messages.structure_type"): <span class="tip_structura">-</span></p>
             <p>@lang("messages.color"): <span class="color">-</span></p>

@@ -122,7 +122,7 @@ return [
     'project_files_notes' => 'Sunt acceptate numai fisierele de tip doc, docx, pdf, rtf, dxf, jpg, png, zip, rar',
 
     // Configurator summary
-    'summary' => 'Sumar',
+    'summary_title' => 'Sumar',
     'summary_text' => 'Dupa trimiterea detaliilor proiectului va vom contacta in cel mai scurt timp',
     'objective' => 'Obiectiv',
     'details' => 'Detalii',

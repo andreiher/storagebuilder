@@ -94,7 +94,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label>@lang("messages.extra_information") </label>
+                    <label>@lang("messages.extra_information_label") </label>
                     <textarea name="extra_info" id="extra_info" class="form-control" rows="5">{{ old('extra_info') }}</textarea>
                 </div>
             </div>
