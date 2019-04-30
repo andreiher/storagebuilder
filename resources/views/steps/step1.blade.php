@@ -426,9 +426,10 @@
 
 @section('scripts')
     @parent
-    <script src="/js/three-js/build/three.js"></script>
-    <script src="/js/three-js/libraries/js/controls/OrbitControls.js"></script>
-    <script src="/js/three-js/libraries/js/WebGL.js"></script>
+    {{--Dependencies moved to webpack dependencies--}}
+    {{--<script src="/js/three-js/build/three.js"></script>--}}
+    {{--<script src="/js/three-js/libraries/js/controls/OrbitControls.js"></script>--}}
+    {{--<script src="/js/three-js/libraries/js/WebGL.js"></script>--}}
 
     <script>
 
